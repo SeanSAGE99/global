@@ -1,0 +1,165 @@
+{
+  "custom": {
+    "tagPaths": [
+      {
+        "tagName": "Test 2",
+        "tagParentPath": "[default]TestSub/Test"
+      },
+      {
+        "tagName": "Test 3",
+        "tagParentPath": "[default]TestSub/Test"
+      }
+    ],
+    "writeEnabled": false
+  },
+  "params": {
+    "buttonText": "test",
+    "tags": [
+      {
+        "tagName": "Test 2",
+        "tagParentPath": "[default]TestSub/Test",
+        "writeValue": 0
+      },
+      {
+        "tagName": "Test 3",
+        "tagParentPath": "[default]TestSub/Test",
+        "writeValue": 0
+      }
+    ]
+  },
+  "propConfig": {
+    "custom.taPaths": {
+      "persistent": true
+    },
+    "custom.tagPaths": {
+      "binding": {
+        "config": {
+          "path": "view.params.tags"
+        },
+        "transforms": [
+          {
+            "code": "\ttagParentPaths \u003d [i[\"tagParentPath\"] for i in value]\n\ttagNames \u003d [i[\"tagName\"] for i in value]\n\t\n\theaders \u003d [\u0027tagParentPath\u0027, \u0027tagName\u0027]\n\tdata \u003d zip(tagParentPaths, tagNames)\n\t\n\ttagsDS \u003d system.dataset.toDataSet(headers, data)\n\tpyTagsDS \u003d system.dataset.toPyDataSet(tagsDS)\n\t\n\ttagPaths \u003d []\n\tfor tag in pyTagsDS:\n\t\ttagPaths.append({\u0027tagParentPath\u0027 : tag[0],\n\t\t\t\t\t\t\u0027tagName\u0027 : tag[1]\n\t\t\t\t\t\t})\n\t\n\treturn tagPaths",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.writeAccessArray": {
+      "persistent": true
+    },
+    "custom.writeEnabled": {
+      "binding": {
+        "config": {
+          "path": "view.custom.tagPaths"
+        },
+        "transforms": [
+          {
+            "code": "\ttagPaths \u003d [i[\u0027tagParentPath\u0027] + \u0027/\u0027 + i[\u0027tagName\u0027] for i in value]\n\n\ttagCanWrite \u003d system.tag.readBlocking(tagPaths)\n\n\twriteEnabled \u003d True\n\n\tfor tag in tagCanWrite:\n\t\tif str(tag.quality) !\u003d \u0027Good\u0027:\n\t\t\twriteEnabled \u003d False\n\t\telif tag.value \u003d\u003d False:\n\t\t\twriteEnabled \u003d False\n\t\n\treturn writeEnabled",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.buttonText": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagOneName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagOneParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagOneWriteValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tags": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 36,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tvalue \u003d self.view.params.tags\n\ttagPaths \u003d self.view.custom.tagPaths\n\ttagCanWrite \u003d system.tag.readBlocking(tagPaths)\n\n\twriteEnabled \u003d True\n\n\tfor tag in tagCanWrite:\n\t\tif str(tag.quality) !\u003d \u0027Good\u0027:\n\t\t\twriteEnabled \u003d False\n\t\telif tag.value \u003d\u003d False:\n\t\t\twriteEnabled \u003d False\n\n\tif writeEnabled:\n\t\ttagPaths \u003d [i[\"tagParentPath\"] + \u0027/\u0027 + i[\"tagName\"] for i in value]\n\t\ttagWriteValues \u003d [i[\"writeValue\"] for i in value]\n\t\t\n\t\tshared.tag.writeBlocking(tagPaths, tagWriteValues)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          },
+          "dom": {
+            "onContextMenu": {
+              "config": {
+                "draggable": true,
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Tag Info",
+                "type": "open",
+                "viewParams": {
+                  "tags": "{view.params.tags}"
+                },
+                "viewPath": "Shared/Popups/ppu_MultipleTagInfo",
+                "viewportBound": true
+              },
+              "preventDefault": true,
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.buttonText"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Input/Button/Body-normal Input/Button/Text"
+          },
+          "textStyle": {
+            "whiteSpace": "pre-wrap"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "custom": {
+    "tagAvailable": false
+  },
+  "params": {
+    "controlEnable": true,
+    "dutyParentPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room/Primary System",
+    "leadOrder": 1
+  },
+  "propConfig": {
+    "custom.tagAvailable": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "leadOrder": "{view.params.leadOrder}",
+            "tagParentPath": "{view.params.dutyParentPath}"
+          },
+          "tagPath": "{tagParentPath}/Duty/Available/{leadOrder}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.dutyParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.leadOrder": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 35,
+      "width": 125
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.tag.writeAsync([self.view.params.dutyParentPath + \u0027/Duty/Lead Order SP\u0027], [self.view.params.leadOrder])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "35px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.controlEnable} \u0026\u0026\r\n{view.custom.tagAvailable}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Lead Order \u0027 + {view.params.leadOrder}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Buttons/Body Buttons/Text"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

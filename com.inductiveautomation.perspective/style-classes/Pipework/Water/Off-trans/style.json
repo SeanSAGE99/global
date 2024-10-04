@@ -1,0 +1,15 @@
+{
+  "base": {
+    "animation": {
+      "timingFunction": "ease-out",
+      "keyframes": {
+        "0%": {
+          "color": "var(--pipe-water-on)"
+        },
+        "100%": {
+          "color": "var(--pipe-water-off)"
+        }
+      }
+    }
+  }
+}

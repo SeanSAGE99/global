@@ -1,0 +1,25 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1s",
+      "direction": "normal",
+      "keyframes": {
+        "0%": {
+          "color": "var(--dev-txt-faulted)"
+        },
+        "20%": {
+          "color": "var(--dev-txt-faulted)"
+        },
+        "40%": {
+          "color": "var(--dev-txt-faulted)"
+        },
+        "60%": {
+          "color": "var(--dev-txt-faulted)"
+        },
+        "100%": {
+          "color": "var(--dev-txt-faulted)"
+        }
+      }
+    }
+  }
+}

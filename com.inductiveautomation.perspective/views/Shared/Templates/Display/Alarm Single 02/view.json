@@ -1,0 +1,135 @@
+{
+  "custom": {
+    "tagPath": "[default]Wolf Blass/Winery/Filtration/Centrifuges/CIP/Red/RC01/AV03/Alarms/Failed to Open"
+  },
+  "params": {
+    "alarmName": "Failed to Open",
+    "out_alarmActive": null,
+    "tagName": "Failed to Open",
+    "tagParentPath": "[default]Wolf Blass/Winery/Filtration/Centrifuges/CIP/Red/RC01/AV03/Alarms"
+  },
+  "propConfig": {
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 + {view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.alarmName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.out_alarmActive": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.IsActive"
+        },
+        "type": "tag"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "props.defaultSize.height": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.out_alarmActive}\r\n\t,30\r\n\t,0\r\n)"
+        },
+        "type": "expr"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {}
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/warning"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.alarmName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "classes": "AlarmText",
+            "marginTop": "5px",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "center",
+      "style": {
+        "borderBottomLeftRadius": "5px",
+        "borderBottomRightRadius": "5px",
+        "borderTopLeftRadius": "5px",
+        "borderTopRightRadius": "5px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

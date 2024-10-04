@@ -1,0 +1,189 @@
+{
+  "custom": {
+    "offColour": "Device/Status/Shape/Off",
+    "onColour": "Device/Mode/Shape/Auto",
+    "tagPath": "[default]Alexandrina/Mt Compass/WWPS/MCP01/Pump 1/Running",
+    "tagValue": null
+  },
+  "params": {
+    "controlEnable": true,
+    "styleClasses": "",
+    "tagName": "Running",
+    "tagParentPath": "[default]Alexandrina/Mt Compass/WWPS/MCP01/Pump 1",
+    "tagQuality": "Bad_NotFound(\"Path \u0027[default]Alexandrina/Mt Compass/WWPS/MCP01/Pump 1/Running.quality\u0027 not found.\")"
+  },
+  "propConfig": {
+    "custom.offColour": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.offColour"
+        },
+        "transforms": [
+          {
+            "expression": "if(isGood({value}),\r\n\tcase(upper({value}),\r\n\t\t\u0027WHITE\u0027, \u0027Device/Mode/Shape/Auto\u0027,\r\n\t\t\u0027GREY\u0027, \u0027Device/Status/Shape/Off\u0027,\r\n\t\t\u0027GREEN\u0027, \u0027Device/Status/Shape/On\u0027,\r\n\t\t\u0027RED\u0027, \u0027Device/Status/Faulted_NonFlashing\u0027,\r\n\t\t\u0027Device/Status/Shape/Off\u0027\r\n\t),\r\n\t\u0027Device/Status/Shape/Off\u0027\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.onColour": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.onColour"
+        },
+        "transforms": [
+          {
+            "expression": "if(isGood({value}),\r\n\tcase(upper({value}),\r\n\t\t\u0027WHITE\u0027, \u0027Device/Mode/Shape/Auto\u0027,\r\n\t\t\u0027GREY\u0027, \u0027Device/Status/Shape/Off\u0027,\r\n\t\t\u0027GREEN\u0027, \u0027Device/Status/Shape/On\u0027,\r\n\t\t\u0027RED\u0027, \u0027Device/Status/Faulted_NonFlashing\u0027,\r\n\t\t\u0027Device/Mode/Shape/Auto\u0027\r\n\t),\r\n\t\u0027Device/Mode/Shape/Auto\u0027\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tagValue": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.styleClasses": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.quality"
+        },
+        "type": "tag"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "lamp"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.elements[0].elements[0].style.classes": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.custom.tagPath}"
+                },
+                "tagPath": "{tagPath}"
+              },
+              "transforms": [
+                {
+                  "expression": "case({value},\r\n\tTrue, {view.custom.onColour},\r\n\tFalse, {view.custom.offColour},\r\n\t\u0027Device/Status/Shape/Invalid\u0027\r\n)",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "cx": 1.4286,
+                  "cy": "292.46",
+                  "name": "circle",
+                  "r": ".58036",
+                  "stroke": {
+                    "miterlimit": 1.825
+                  },
+                  "style": {
+                    "paintOrder": "markers fill stroke",
+                    "stroke": "var(--neutral-100)",
+                    "strokeWidth": 0.07
+                  },
+                  "type": "circle"
+                }
+              ],
+              "name": "group",
+              "transform": "translate(-.79821 -291.83)",
+              "type": "group"
+            }
+          ],
+          "viewBox": "0 0 1.2607 1.2607"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "center",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

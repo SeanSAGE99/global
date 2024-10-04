@@ -1,0 +1,8 @@
+{
+  "base": {
+    "style": {
+      "stroke": "0.5",
+      "backgroundColor": "var(--alm-high-backgroundColor)"
+    }
+  }
+}

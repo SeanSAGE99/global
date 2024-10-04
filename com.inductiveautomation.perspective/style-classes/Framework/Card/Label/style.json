@@ -1,0 +1,12 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--neutral-50)",
+      "fontSize": "12px",
+      "fontWeight": "300",
+      "lineHeight": "16px",
+      "marginRight": "10px",
+      "textTransform": "uppercase"
+    }
+  }
+}

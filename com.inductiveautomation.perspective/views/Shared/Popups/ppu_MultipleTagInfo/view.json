@@ -1,0 +1,1234 @@
+{
+  "custom": {
+    "audit": false,
+    "auditValues": {
+      "$": [
+        "ds",
+        192,
+        1718593360386
+      ],
+      "$columns": [
+        {
+          "data": [],
+          "name": "EVENT_TIMESTAMP",
+          "type": "Date"
+        },
+        {
+          "data": [],
+          "name": "ACTOR",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "ACTION_VALUE",
+          "type": "String"
+        }
+      ]
+    },
+    "history": null,
+    "isReference": false,
+    "noTrendAudit": [
+      "Data",
+      "Audit"
+    ],
+    "noTrendNoAudit": [
+      "Data"
+    ],
+    "sourceTagPath": null,
+    "sourceTagPathHistory": false,
+    "tagHistory": null,
+    "tagInfo": [
+      {
+        "property": "Path"
+      },
+      {
+        "property": "Alarm"
+      },
+      {
+        "property": "History"
+      },
+      {
+        "property": "Quality"
+      },
+      {
+        "property": "Source Path"
+      },
+      {
+        "property": "PLC Address"
+      },
+      {
+        "property": "Value"
+      },
+      {
+        "property": "Timestamp"
+      },
+      {
+        "property": "Minimum"
+      },
+      {
+        "property": "Maximum"
+      },
+      {
+        "property": "Unit"
+      },
+      {
+        "property": "Documentation"
+      }
+    ],
+    "tagPath": "[default]Test/button test/Tag 1",
+    "trendAudit": [
+      "Trend",
+      "Data",
+      "Audit"
+    ],
+    "trendNoAudit": [
+      "Trend",
+      "Data"
+    ]
+  },
+  "params": {
+    "tags": [
+      {
+        "tagName": "Tag 1",
+        "tagParentPath": "[default]Test/button test"
+      },
+      {
+        "tagName": "Tag 2",
+        "tagParentPath": "[default]Test/button test"
+      }
+    ]
+  },
+  "propConfig": {
+    "custom.audit": {
+      "binding": {
+        "config": {
+          "path": "view.custom.auditValues"
+        },
+        "transforms": [
+          {
+            "expression": "if(len({value}) !\u003d 0,\r\n\tTrue,\r\n\tFalse\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.auditValues": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "queryPath": "audit/tagWrites"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.history": {
+      "binding": {
+        "config": {
+          "path": "view.custom.isReference"
+        },
+        "transforms": [
+          {
+            "expression": "if({value},\r\n\t{view.custom.sourceTagPathHistory},\r\n\t{view.custom.tagHistory}\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.isReference": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.valueSource"
+        },
+        "transforms": [
+          {
+            "expression": "{value} \u003d \u0027reference\u0027",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.noTrendAudit": {
+      "persistent": true
+    },
+    "custom.noTrendNoAudit": {
+      "persistent": true
+    },
+    "custom.sourceHistory": {
+      "persistent": true
+    },
+    "custom.sourceTagPath": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.sourceTagPath"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.sourceTagPathHistory": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "sourceTagPath": "{view.custom.sourceTagPath}"
+          },
+          "tagPath": "{sourceTagPath}.historyEnabled"
+        },
+        "transforms": [
+          {
+            "expression": "if({view.custom.isReference},\r\n\t{value},\r\n\tFalse\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagHistory": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.historyEnabled"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagInfo": {
+      "persistent": true
+    },
+    "custom.tagInfo[0].value": {
+      "binding": {
+        "config": {
+          "path": "view.custom.tagPath"
+        },
+        "type": "property"
+      }
+    },
+    "custom.tagInfo[10].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngUnit"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[11].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.Documentation"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[1].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.alarms"
+        },
+        "transforms": [
+          {
+            "expression": "if({value} !\u003d null,\r\n\tTrue,\r\n\tFalse\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[2].value": {
+      "binding": {
+        "config": {
+          "path": "view.custom.history"
+        },
+        "type": "property"
+      }
+    },
+    "custom.tagInfo[3].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.Quality"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[4].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.sourceTagPath"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[5].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.PLCAddress"
+        },
+        "transforms": [
+          {
+            "expression": "if({view.custom.isReference},\r\n\t{value},\r\n\t\u0027N/A\u0027\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[6].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[7].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.Timestamp"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[8].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngLow"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagInfo[9].value": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngHigh"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "path": "view.params.tags"
+        },
+        "transforms": [
+          {
+            "expression": "{value}[{/root/Table.props.selection.selectedRow}][\u0027tagParentPath\u0027] + \u0027/\u0027 + {value}[{/root/Table.props.selection.selectedRow}][\u0027tagName\u0027]",
+            "type": "expression"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.trendAudit": {
+      "persistent": true
+    },
+    "custom.trendNoAudit": {
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tags": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "props.defaultSize.width": {
+      "binding": {
+        "config": {
+          "path": "page.props.dimensions.viewport.width"
+        },
+        "enabled": false,
+        "type": "property"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 500
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "basis": "200px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "path": "view.params.tags"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "tagName",
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "enableHeader": false,
+          "pager": {
+            "bottom": false
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "tabKey": "Data"
+            },
+            "meta": {
+              "name": "Data"
+            },
+            "propConfig": {
+              "position.tabIndex": {
+                "binding": {
+                  "config": {
+                    "path": "parent.props.tabs"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value.index(self.custom.tabKey) if self.custom.tabKey in value else -1",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.tagInfo"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.data[3].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.custom.tagPath}"
+                    },
+                    "tagPath": "{tagPath}.Quality"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.data[4].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.custom.tagPath}"
+                    },
+                    "tagPath": "{tagPath}.sourceTagPath"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.data[5].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.custom.tagPath}"
+                    },
+                    "tagPath": "{tagPath}.PLCAddress"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "property",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": false,
+                  "strictWidth": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": 125
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY HH:mm:ss",
+                  "editable": false,
+                  "field": "value",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": "",
+                    "overflowWrap": "normal",
+                    "textOverflow": "clip"
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "enableHeader": false,
+              "pager": {
+                "bottom": false
+              },
+              "selection": {
+                "enableRowSelection": false
+              },
+              "style": {
+                "marginLeft": 0,
+                "marginRight": 0,
+                "overflow": "hidden",
+                "textOverflow": "clip"
+              }
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "custom": {
+              "tabKey": "Trend"
+            },
+            "meta": {
+              "name": "Trend"
+            },
+            "propConfig": {
+              "position.tabIndex": {
+                "binding": {
+                  "config": {
+                    "path": "parent.props.tabs"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value.index(self.custom.tabKey) if self.custom.tabKey in value else -1",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.pens[0].data.source": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.isReference"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{[default]HistorySource} + replace({view.custom.tagPath}, \u0027[default]\u0027, \u0027\u0027)",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "axes": [
+                {
+                  "color": "#757A7F",
+                  "dataFormat": "0,0.##",
+                  "label": {
+                    "font": {
+                      "color": "#757A7F",
+                      "size": 10
+                    },
+                    "offset": 0,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": ""
+                  },
+                  "name": "Value",
+                  "position": "left",
+                  "range": {
+                    "auto": true,
+                    "max": "",
+                    "min": ""
+                  },
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "#757A7F",
+                    "label": {
+                      "font": {
+                        "color": "#757A7F",
+                        "size": 10
+                      },
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 30
+                }
+              ],
+              "config": {
+                "rangeEndDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1718594542992
+                  ],
+                  "$ts": 1718594254949
+                },
+                "rangeStartDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1718594542992
+                  ],
+                  "$ts": 1718508142949
+                },
+                "unitOfTime": 24
+              },
+              "interaction": {
+                "chartZoomLevel": 1,
+                "rangeZoomLevel": 1
+              },
+              "pens": [
+                {
+                  "axis": "Value",
+                  "data": {
+                    "aggregateMode": "default"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "value",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                }
+              ],
+              "plots": [
+                {
+                  "color": "var(--neutral-20)",
+                  "markers": [],
+                  "relativeWeight": 1,
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              ]
+            },
+            "type": "ia.chart.powerchart"
+          },
+          {
+            "custom": {
+              "tabKey": "Audit"
+            },
+            "meta": {
+              "name": "Audit"
+            },
+            "propConfig": {
+              "position.tabIndex": {
+                "binding": {
+                  "config": {
+                    "path": "parent.props.tabs"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value.index(self.custom.tabKey) if self.custom.tabKey in value else -1",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "parameters": {
+                      "tagPath": "{view.custom.tagPath}"
+                    },
+                    "queryPath": "audit/tagWrites"
+                  },
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY HH:mm:ss",
+                  "editable": false,
+                  "field": "EVENT_TIMESTAMP",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Event Time"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "ACTOR",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "User"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "ACTION_VALUE",
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Value"
+                  },
+                  "justify": "auto",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "pager": {
+                "bottom": false
+              },
+              "selection": {
+                "enableColumnSelection": true,
+                "enableRowSelection": false
+              }
+            },
+            "type": "ia.display.table"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.tabs": {
+            "binding": {
+              "config": {
+                "expression": "case(toInt({view.custom.history}) + 2 * toInt({view.custom.audit}),\r\n\t0, {view.custom.noTrendNoAudit},\r\n\t1, {view.custom.trendNoAudit},\r\n\t2, {view.custom.noTrendAudit},\r\n\t3, {view.custom.trendAudit},\r\n\t{view.custom.trendAudit}\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "menuType": "modern"
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "events": {
+      "system": {
+        "onStartup": {
+          "config": {
+            "script": "\tif self.view.custom.history:\n\t\tself.getChild(\"TabContainer\").props.currentTabIndex \u003d 0\n\telse:\n\t\tself.getChild(\"TabContainer\").props.currentTabIndex \u003d 1"
+          },
+          "enabled": false,
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "timingFunction": "ease-in-out",
+      "keyframes": {
+        "0%": {
+          "color": "var(--sbp-required)",
+          "stroke": "var(--sbp-required)"
+        },
+        "100%": {
+          "color": "var(--sbp-required-flash)",
+          "stroke": "var(--sbp-required-flash)"
+        }
+      }
+    }
+  }
+}

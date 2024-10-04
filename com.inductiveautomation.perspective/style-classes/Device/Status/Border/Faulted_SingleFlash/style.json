@@ -1,0 +1,22 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1.5s",
+      "direction": "normal",
+      "iterationCount": "1",
+      "timingFunction": "ease-out",
+      "keyframes": {
+        "0%": {},
+        "49%": {
+          "borderColor": "var(--dev-sym-faulted)",
+          "borderWidth": "2px"
+        },
+        "83%": {
+          "borderColor": "var(--dev-sym-faulted)",
+          "borderWidth": "2px"
+        },
+        "100%": {}
+      }
+    }
+  }
+}

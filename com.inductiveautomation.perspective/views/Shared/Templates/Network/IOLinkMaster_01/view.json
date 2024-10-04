@@ -1,0 +1,645 @@
+{
+  "custom": {
+    "deviceParentPath": "[default]Wolf Blass/Winery/Tank Farms/3800/Tanks/T3931/IOLink Masters",
+    "deviceTagPath": "[default]Wolf Blass/Winery/Tank Farms/3800/Tanks/T3931/IOLink Masters/1",
+    "popupTitle": "IOLink Master"
+  },
+  "params": {
+    "plcName": "T3931",
+    "plcParentPath": "[default]Wolf Blass/Winery/Tank Farms/3800/Tanks",
+    "rackName": 1
+  },
+  "propConfig": {
+    "custom.deviceParentPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.plcParentPath} + \u0027/\u0027 +\r\n{view.params.plcName} + \u0027/IOLink Masters\u0027"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.plcParentPath} + \u0027/\u0027 +\r\n{view.params.plcName} + \u0027/IOLink Masters/\u0027 +\r\n{view.params.rackName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.popupTitle": {
+      "binding": {
+        "config": {
+          "expression": "\u0027IOLink Master\u0027"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.plcName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.plcParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rackName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 155,
+      "width": 250
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Hostname"
+            },
+            "position": {
+              "height": 0.1342,
+              "width": 0.486,
+              "x": 0.4979,
+              "y": 0.8456
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/Parameters.IPAddress"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ConnectionStatus"
+            },
+            "position": {
+              "height": 0.1342,
+              "width": 0.5327,
+              "x": 0.0157,
+              "y": 0.8456
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Alarms/Comms Fault\u0027),\r\n\t\u0027Fault\u0027,\r\n\t\u0027Connected\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ProductName"
+            },
+            "position": {
+              "height": 0.2752,
+              "width": 0.972,
+              "x": 0.0157,
+              "y": 0.5772
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/Info/Equip ID"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "alignVertical": "top",
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DeviceName"
+            },
+            "position": {
+              "height": 0.1342,
+              "width": 0.972,
+              "x": 0.0157,
+              "y": 0.443
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Info/Description"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "network_0"
+            },
+            "position": {
+              "height": 0.3691,
+              "width": 0.0794,
+              "x": 0.0157,
+              "y": 0.0403
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#FBCB72"
+                      },
+                      "height": "25",
+                      "name": "rect2",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000000"
+                      },
+                      "style": {},
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.64999"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1a1a1a"
+                      },
+                      "height": "1.0000039",
+                      "name": "rect8452",
+                      "rx": "0",
+                      "ry": "0",
+                      "stroke": {
+                        "dasharray": "none",
+                        "dashoffset": "0",
+                        "linecap": "butt",
+                        "miterlimit": "4",
+                        "opacity": "1",
+                        "paint": "none",
+                        "width": "1px"
+                      },
+                      "style": {
+                        "opacity": "1",
+                        "paintOrder": "fill markers stroke",
+                        "vectorEffect": "none"
+                      },
+                      "type": "rect",
+                      "width": "1",
+                      "x": "2",
+                      "y": "299.64999"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1a1a1a"
+                      },
+                      "height": "1.0000039",
+                      "name": "rect8452-81",
+                      "rx": "0",
+                      "ry": "0",
+                      "stroke": {
+                        "dasharray": "none",
+                        "dashoffset": "0",
+                        "linecap": "butt",
+                        "miterlimit": "4",
+                        "opacity": "1",
+                        "paint": "none",
+                        "width": "1px"
+                      },
+                      "style": {
+                        "opacity": "1",
+                        "paintOrder": "fill markers stroke",
+                        "vectorEffect": "none"
+                      },
+                      "type": "rect",
+                      "width": "1",
+                      "x": "2",
+                      "y": "296.64999"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1a1a1a"
+                      },
+                      "height": "1.0000039",
+                      "name": "rect8452-1",
+                      "rx": "0",
+                      "ry": "0",
+                      "stroke": {
+                        "dasharray": "none",
+                        "dashoffset": "0",
+                        "linecap": "butt",
+                        "miterlimit": "4",
+                        "opacity": "1",
+                        "paint": "none",
+                        "width": "1px"
+                      },
+                      "style": {
+                        "opacity": "1",
+                        "paintOrder": "fill markers stroke",
+                        "vectorEffect": "none"
+                      },
+                      "type": "rect",
+                      "width": "1",
+                      "x": "6",
+                      "y": "299.64999"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X1",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "302.64999"
+                        },
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X3",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "305.64999"
+                        },
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X5",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "308.64999"
+                        },
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X7",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "311.64999"
+                        },
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X2",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "302.64999"
+                        },
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X4",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "305.64999"
+                        },
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X6",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "308.64999"
+                        },
+                        {
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#4d4d4d"
+                          },
+                          "height": "1.0000039",
+                          "name": "X8",
+                          "rx": "0",
+                          "ry": "0",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "1px"
+                          },
+                          "style": {
+                            "opacity": "1",
+                            "paintOrder": "fill markers stroke",
+                            "vectorEffect": "none"
+                          },
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "311.64999"
+                        }
+                      ],
+                      "fill": {
+                        "paint": "#4d4d4d"
+                      },
+                      "name": "g8579",
+                      "style": {},
+                      "type": "group"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "#1a1a1a"
+                      },
+                      "height": "1.0000039",
+                      "name": "rect8452-1-5",
+                      "rx": "0",
+                      "ry": "0",
+                      "stroke": {
+                        "dasharray": "none",
+                        "dashoffset": "0",
+                        "linecap": "butt",
+                        "miterlimit": "4",
+                        "opacity": "1",
+                        "paint": "none",
+                        "width": "1px"
+                      },
+                      "style": {
+                        "opacity": "1",
+                        "paintOrder": "fill markers stroke",
+                        "vectorEffect": "none"
+                      },
+                      "type": "rect",
+                      "width": "1",
+                      "x": "6",
+                      "y": "296.64999"
+                    }
+                  ],
+                  "name": "g42",
+                  "transform": "translate(-0.5,-291.15)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 8 26"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "{view.custom.deviceTagPath}",
+                "modal": false,
+                "overlayDismiss": true,
+                "position": {
+                  "relativeLocation": "bottom-right"
+                },
+                "positionType": "relative",
+                "resizable": false,
+                "showCloseIcon": true,
+                "title": "{view.custom.popupTitle}",
+                "type": "open",
+                "viewParams": {
+                  "deviceName": "{view.params.rackName}",
+                  "deviceParentPath": "{view.custom.deviceParentPath}"
+                },
+                "viewPath": "Shared/Templates/Network/Popups/IOLink Master Popup",
+                "viewportBound": true
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "800px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if(tag({view.custom.deviceTagPath} + \u0027/_AnyAlarmActive\u0027),\r\n\t\u0027Device/Status/Border/Faulted\u0027,\r\n\t\u0027Device/Status/Border/Normal\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

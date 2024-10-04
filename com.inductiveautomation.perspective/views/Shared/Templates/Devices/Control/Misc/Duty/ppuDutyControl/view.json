@@ -1,0 +1,614 @@
+{
+  "custom": {
+    "DeviceDS": null,
+    "controlDeviceName": null,
+    "deviceParams": [],
+    "dutyTagPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room/Primary System",
+    "leadOrderControlEnable": true,
+    "leadOrderDisplayParams": [],
+    "leadOrderParams": [],
+    "nextToStart": null,
+    "nextToStop": null,
+    "showLeadOrderSelection": false
+  },
+  "params": {
+    "controlEnable": true,
+    "dutyParentPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room/Primary System"
+  },
+  "propConfig": {
+    "custom.DeviceDS": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "dutyTagPath": "{view.custom.dutyTagPath}"
+          },
+          "tagPath": "{dutyTagPath}/Settings/Devices DS"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.controlDeviceName": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "dutyTagPath": "{view.custom.dutyTagPath}"
+          },
+          "tagPath": "{dutyTagPath}/Info/Control Device Name"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.deviceParams": {
+      "persistent": true
+    },
+    "custom.dutyTagPath": {
+      "binding": {
+        "config": {
+          "path": "view.params.dutyParentPath"
+        },
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tsystem.perspective.sendMessage(\u0027refresh-instances\u0027)"
+      },
+      "persistent": true
+    },
+    "custom.leadOrderControlEnable": {
+      "binding": {
+        "config": {
+          "path": "view.params.controlEnable"
+        },
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tsystem.perspective.sendMessage(\u0027refresh-instances\u0027)"
+      },
+      "persistent": true
+    },
+    "custom.leadOrderDisplayParams": {
+      "persistent": true
+    },
+    "custom.leadOrderParams": {
+      "persistent": true
+    },
+    "custom.nextToStart": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "dutyTagPath": "{view.custom.dutyTagPath}"
+          },
+          "tagPath": "{dutyTagPath}/Duty/Next To Start"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.nextToStop": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "dutyTagPath": "{view.custom.dutyTagPath}"
+          },
+          "tagPath": "{dutyTagPath}/Duty/Next To Stop"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.showLeadOrderSelection": {
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.dutyParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 650,
+      "width": 755
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "60px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.overrides.title": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "dutyParentPath": "{view.params.dutyParentPath}"
+                },
+                "tagPath": "{dutyParentPath}/Info/Description"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "deviceName": "",
+            "deviceParentPath": "",
+            "overrides": {
+              "subTitle": "Duty Control"
+            }
+          },
+          "path": "Shared/General/Popups/_CommonParts/Header"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3"
+          },
+          "text": "Duty Assignment"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.custom.showLeadOrderSelection \u003d not(self.view.custom.showLeadOrderSelection)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "125px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.leadOrderControlEnable"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.showLeadOrderSelection"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "Set Duty"
+                        },
+                        {
+                          "input": true,
+                          "output": "Hide Duty"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Buttons/Body Buttons/Text"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "620px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.showLeadOrderSelection"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.leadOrderParams"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.instances[0].controlEnable": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.leadOrderControlEnable"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elementStyle": {
+                "marginLeft": "5px"
+              },
+              "path": "Shared/Templates/Devices/Control/Misc/Duty/_Parts/Lead Order"
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "35px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Tables/Row"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.deviceParams"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementStyle": {
+            "classes": "Tables/Row"
+          },
+          "path": "Shared/Templates/Devices/Control/Misc/Duty/_Parts/Device"
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3"
+          },
+          "text": "Status"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "Cards/Heading4"
+                  },
+                  "text": "Lead Order"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "FlexRepeater"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.leadOrderDisplayParams"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "path": "Shared/Templates/Devices/Control/Misc/Duty/_Parts/Lead Order Display",
+                  "style": {
+                    "marginRight": "5px"
+                  }
+                },
+                "type": "ia.display.flex-repeater"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "UIElement/Forms/Panel"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label_1"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "Cards/Heading4"
+                  },
+                  "text": "Call Order"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "35px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\u0027Next to Start: \u0027 +\r\nlookup({view.custom.DeviceDS}, {view.custom.nextToStart}, \u0027Error\u0027, 0, 1)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "35px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\u0027Next to Stop: \u0027 +\r\nlookup({view.custom.DeviceDS}, {view.custom.nextToStop}, \u0027Error\u0027, 0, 1)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "UIElement/Forms/Panel"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3"
+          },
+          "text": "Settings"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.controlEnable": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnable"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Shared/General/Duty/ProjectSpecificSetup/\u0027 + replace(replace({view.custom.dutyTagPath}, \u0027[default]\u0027, \u0027\u0027), \u0027Wolf Blass/\u0027, \u0027\u0027) + \u0027/Setup\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.closePopup(\u0027\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "path": "material/close"
+            }
+          },
+          "style": {
+            "borderBottomLeftRadius": 0,
+            "borderBottomRightRadius": 0,
+            "borderBottomStyle": "none",
+            "borderLeftStyle": "none",
+            "borderRightStyle": "none",
+            "borderTopLeftRadius": 0,
+            "borderTopRightRadius": 0,
+            "classes": "Buttons/Body Buttons/Text"
+          },
+          "text": "Exit"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "marginRight": "5px"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "updateLeadOrder",
+          "params": [],
+          "script": "\tself.view.custom.leadOrderParams \u003d []\n\tleadOrderTags \u003d shared.tag.browseTags(self.view.custom.dutyTagPath + \u0027/Duty/Available\u0027)\n\tleadOrderTagNames \u003d [tag[\u0027name\u0027] for tag in leadOrderTags]\n\t\n\tcontrolEnable \u003d self.view.custom.leadOrderControlEnable\n\tdutyParentPath \u003d self.view.custom.dutyTagPath\n\t\n\tinstances \u003d []\n\tfor tag in leadOrderTagNames:\n\t\tinstance \u003d {\n\t\t\t\t\t\"controlEnable\": controlEnable,\n\t\t\t\t\t\"dutyParentPath\": dutyParentPath,\n\t\t\t\t\t\"leadOrder\": tag\n\t\t\t\t\t}\n\t\tinstances.append(instance)\n\tself.view.custom.leadOrderParams \u003d instances\t\n\t\t\t\t\t"
+        },
+        {
+          "name": "updateDevices",
+          "params": [],
+          "script": "\tself.view.custom.deviceParams \u003d []\n\tdeviceTagFolders \u003d shared.tag.browseTags(self.view.custom.dutyTagPath + \u0027/Units\u0027)\n\tdeviceTagFolderNames \u003d [tag[\u0027name\u0027] for tag in deviceTagFolders]\n\t\n\tcontrolEnable \u003d self.view.custom.leadOrderControlEnable\n\tdutyParentPath \u003d self.view.custom.dutyTagPath\n\t\n\tinstances \u003d []\n\tfor tag in deviceTagFolderNames:\n\t\tinstance \u003d {\n\t\t\t\t\t\"controlEnable\": controlEnable,\n\t\t\t\t\t\"dutyParentPath\": dutyParentPath,\n\t\t\t\t\t\"deviceName\": tag\n\t\t\t\t\t}\n\t\tinstances.append(instance)\n\tself.view.custom.deviceParams \u003d instances\t\n\t\t\t\t\t"
+        },
+        {
+          "name": "updateLeadOrderDisplay",
+          "params": [],
+          "script": "\tself.view.custom.leadOrderDisplayParams \u003d []\n\tleadOrderDisplayTags \u003d shared.tag.browseTags(self.view.custom.dutyTagPath + \u0027/Duty/Order\u0027)\n\tleadOrderDisplayTagNames \u003d [tag[\u0027name\u0027] for tag in leadOrderDisplayTags]\n\t\n\tdutyParentPath \u003d self.view.custom.dutyTagPath\n\t\n\tinstances \u003d []\n\tfor tag in leadOrderDisplayTagNames:\n\t\tinstance \u003d {\n\t\t\t\t\t\"dutyParentPath\": dutyParentPath,\n\t\t\t\t\t\"leadOrder\": tag\n\t\t\t\t\t}\n\t\tinstances.append(instance)\n\tself.view.custom.leadOrderDisplayParams \u003d instances\t\n\t\t\t\t\t"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refresh-instances",
+          "pageScope": true,
+          "script": "\tself.updateLeadOrder()\n\tself.updateDevices()\n\tself.updateLeadOrderDisplay()",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,462 @@
+{
+  "custom": {
+    "max": 100,
+    "min": 0,
+    "numberFormat": "#,##0",
+    "pv": 0,
+    "refTagSourcePath": "[MQTT Engine]Edge Nodes/Mt Compass/MCP05 Sam Court/TAGS/MitsuPLC_FX3G/Pump_1/Pressure/PV",
+    "showRange": false,
+    "tagPath": "[default]Alexandrina/Mt Compass/WWPS/MCP05/Pump 1/Pressure/PV",
+    "units": "psi",
+    "yestAve": "value"
+  },
+  "params": {
+    "isRefMQTTTag": true,
+    "tagName": "PV",
+    "tagParentPath": "[default]Alexandrina/Mt Compass/WWPS/MCP05/Pump 1/Pressure"
+  },
+  "propConfig": {
+    "custom.max": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngHigh"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.min": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngLow"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.numberFormat": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.pv": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.refTagSourcePath": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.sourceTagPath"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.showRange": {
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.units": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.yestAve": {
+      "persistent": true
+    },
+    "params.isRefMQTTTag": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 34,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "border",
+              "visible": false
+            },
+            "position": {
+              "height": 32,
+              "width": 150,
+              "y": 0.2
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "name": "border",
+                      "style": {
+                        "fill": "Transparent",
+                        "paintOrder": "fill markers stroke",
+                        "stroke": "var(--neutral-90)",
+                        "strokeWidth": "4px",
+                        "vector-effect": "non-scaling-stroke"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "pv"
+            },
+            "position": {
+              "height": 24,
+              "width": 47,
+              "x": 82.01,
+              "y": 7.800000000000001
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.pv"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, {view.custom.numberFormat})",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Tags/Value"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "units"
+            },
+            "position": {
+              "height": 14,
+              "width": 106,
+              "x": 37.99,
+              "y": -1.2
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.units"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Tag/Units",
+                "fontSize": "8pt",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "custom": {
+              "tags": [
+                {
+                  "aggregate": "Average",
+                  "alias": "value"
+                }
+              ]
+            },
+            "meta": {
+              "name": "Sparkline"
+            },
+            "position": {
+              "height": 32,
+              "width": 85
+            },
+            "propConfig": {
+              "custom.tags[0].path": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.isRefMQTTTag}\r\n\t,{view.custom.refTagSourcePath}\r\n\t,{view.custom.tagPath}\r\n)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.points": {
+                "binding": {
+                  "config": {
+                    "aggregate": "MinMax",
+                    "avoidScanClassValidation": true,
+                    "dateRange": {
+                      "mostRecent": "{session.custom.history.sparklineCharts.lastMins}",
+                      "mostRecentUnits": "MIN"
+                    },
+                    "ignoreBadQuality": false,
+                    "polling": {
+                      "enabled": true,
+                      "rate": "{session.custom.history.sparklineCharts.updatePeriodSecs}"
+                    },
+                    "preventInterpolation": false,
+                    "returnFormat": "Wide",
+                    "returnSize": {
+                      "numRows": "100",
+                      "type": "FIXED"
+                    },
+                    "tags": "{this.custom.tags}",
+                    "valueFormat": "DATASET"
+                  },
+                  "type": "tag-history"
+                }
+              },
+              "props.range.high": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.max"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.range.low": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.min"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "color": "#00BAFF",
+              "desired": {
+                "fill": {
+                  "color": "#A1CFEDE8",
+                  "opacity": 0
+                },
+                "high": null,
+                "low": null,
+                "stroke": {
+                  "color": "#EDA1A1",
+                  "dashArray": 2
+                }
+              },
+              "marker": {
+                "first": {
+                  "size": 0
+                },
+                "high": {
+                  "size": 0
+                },
+                "last": {
+                  "stroke": {
+                    "width": 0
+                  }
+                },
+                "low": {
+                  "size": 0
+                }
+              },
+              "range": {},
+              "style": {
+                "paddingBottom": "2px",
+                "paddingTop": "2px"
+              }
+            },
+            "type": "ia.display.sparkline"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Range"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.visible": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.showRange"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "numberFormat({view.custom.min}, {view.custom.numberFormat}) + \u0027 to \u0027 + \r\nnumberFormat({view.custom.max}, {view.custom.numberFormat})"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "var(--white-a40)",
+                    "classes": "UI/Text/Size/Size1",
+                    "color": "var(--neutral-80)"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Range"
+            },
+            "position": {
+              "height": 21,
+              "width": 99,
+              "x": 1,
+              "y": 10
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "dom": {
+                "onMouseOut": {
+                  "config": {
+                    "script": "\tself.view.custom.showRange \u003d False"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                },
+                "onMouseOver": {
+                  "config": {
+                    "script": "\tself.view.custom.showRange \u003d True"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "hover hit box"
+            },
+            "position": {
+              "height": 32,
+              "width": 149
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#FFFFFF00"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "3px",
+            "borderBottomRightRadius": "3px",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "3px",
+            "borderTopRightRadius": "3px",
+            "borderWidth": "1px",
+            "classes": "Tag/PVDisplayBox",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

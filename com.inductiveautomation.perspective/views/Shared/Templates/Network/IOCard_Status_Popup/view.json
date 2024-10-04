@@ -1,0 +1,177 @@
+{
+  "custom": {},
+  "params": {
+    "deviceTagPath": "[default]Wolf Blass/System/PLCs/TankFarm_Ferm_SWAP4/Slot 02"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 + {view.params.deviceName}"
+        },
+        "type": "expr"
+      }
+    },
+    "params.deviceTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 120,
+      "width": 220
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "deviceTagPath": "{view.params.deviceTagPath}"
+                },
+                "tagPath": "{deviceTagPath}/Module Name"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UIElement/FontSizes/Size2",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "String Value w Label"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "hideLabel": false,
+            "labelOverride": "Entry Status",
+            "tagName": "Entry Status Desc"
+          },
+          "path": "Shared/Templates/Display/String Value w Label"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "String Value w Label_0"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "hideLabel": false,
+            "labelOverride": "Comms Status",
+            "tagName": "Comms Status Desc"
+          },
+          "path": "Shared/Templates/Display/String Value w Label"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Analogue Value w Label"
+        },
+        "position": {
+          "basis": "25pxpx",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "hideLabel": false,
+            "labelOverride": "Fault Code",
+            "tagName": "FaultCode",
+            "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/System/PLCs/TankFarm_Ferm_SWAP4/Slot 02/FaultCode.quality\u0027 not found.\")",
+            "unitsWidth": "0px",
+            "valueWidth": "60px"
+          },
+          "path": "Shared/Templates/Display/Analogue Value w Label"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onBlur": {
+          "config": {
+            "draggable": true,
+            "id": "9F8ZpKnP",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "type": "close",
+            "viewPath": "Shared/Templates/Network/LocalIO_01_Popup"
+          },
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": 5
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

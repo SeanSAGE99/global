@@ -1,0 +1,109 @@
+{
+  "custom": {
+    "tagPath": "[default]Alexandrina/Mt Compass/WWPS/MC003/Pump 1/Flow Switch",
+    "tagValue": false
+  },
+  "params": {
+    "controlEnable": true,
+    "styleClasses": "",
+    "tagName": "Flow Switch",
+    "tagParentPath": "[default]Alexandrina/Mt Compass/WWPS/MC003/Pump 1",
+    "tagQuality": "Good"
+  },
+  "propConfig": {
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tagValue": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.styleClasses": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.quality"
+        },
+        "type": "tag"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.tagValue}\r\n\t,\u0027material/check_box\u0027\r\n\t,\u0027material/check_box_outline_blank\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "center",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "custom": {
+    "format": "#,##0",
+    "key": "#,##0",
+    "tagEngUnit": null,
+    "tagFormatString": null,
+    "tagPath": "[default]Alexandrina/Mt Compass/WWPS/MC003/General/Alarms/Current BCD Alarm"
+  },
+  "params": {
+    "buttonWidth": "auto",
+    "controlEnable": false,
+    "hideLabel": false,
+    "isSetpointOverride": false,
+    "labelOverride": "",
+    "tagName": "Current BCD Alarm",
+    "tagParentPath": "[default]Alexandrina/Mt Compass/WWPS/MC003/General/Alarms",
+    "tagQuality": "Bad_NotFound",
+    "unitsWidth": "value",
+    "valueWidth": "value"
+  },
+  "propConfig": {
+    "custom.tagEngUnit": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagFormatString": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.buttonWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.hideLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.isSetpointOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView.props.params.tagQuality"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.unitsWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.valueWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "lookupValues": {},
+          "viewLookup": {
+            "Boolean": {
+              "Setpoint": "Shared/Templates/Display/Boolean Setpoint w Label",
+              "Value": "Shared/Templates/Display/Boolean Value w Label"
+            },
+            "Int4": {
+              "Setpoint": "Shared/Templates/Display/Analogue Setpoint w Label",
+              "Value": "Shared/Templates/Display/Analogue Value w Label"
+            }
+          }
+        },
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.isSetpointRaw": {
+            "binding": {
+              "config": {
+                "expression": "right({view.params.tagName},2) \u003d \u0027SP\u0027\r\n|| right({view.params.tagName},3) \u003d \u0027CMD\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "custom.lookupValues.dataType": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.custom.tagPath}"
+                },
+                "tagPath": "{1}.dataType"
+              },
+              "type": "tag"
+            }
+          },
+          "custom.lookupValues.isSetpoint": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.isSetpointOverride} || {this.custom.isSetpointRaw}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.hideLabel": {
+            "binding": {
+              "config": {
+                "path": "view.params.hideLabel"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.labelOverride": {
+            "binding": {
+              "config": {
+                "path": "view.params.labelOverride"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagParentPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.unitsWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.unitsWidth"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.valueWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.valueWidth"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "this.custom.lookupValues"
+              },
+              "transforms": [
+                {
+                  "code": "\tdataTypeDict \u003d self.custom.viewLookup.get(self.custom.lookupValues.dataType, \u0027invalid\u0027)\n\tpath \u003d dataTypeDict.get({False:\u0027Value\u0027,\n\t\t\t\t\t\t\t True:\u0027Setpoint\u0027}[self.custom.lookupValues.isSetpoint], \u0027invalid\u0027)\n\treturn path",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "showUnitsInValue": false,
+            "tagQuality": "Bad_NotFound"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

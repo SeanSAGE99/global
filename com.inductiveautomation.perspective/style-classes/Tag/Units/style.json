@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "color": "#D5D5D5",
+      "fontFamily": "Noto Sans",
+      "marginLeft": "2px"
+    }
+  }
+}

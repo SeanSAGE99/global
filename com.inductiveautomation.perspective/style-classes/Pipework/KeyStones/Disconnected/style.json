@@ -1,0 +1,8 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--sbp-disconnected)",
+      "stroke": "var(--sbp-disconnected)"
+    }
+  }
+}

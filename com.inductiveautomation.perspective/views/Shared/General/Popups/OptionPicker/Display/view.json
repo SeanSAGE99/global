@@ -1,0 +1,275 @@
+{
+  "custom": {
+    "dataset": -1,
+    "notes": "availableDataSet:\npass in a dataset with\nValue, Label, Available\n2333,\"FS2333\",\u003cFalse/True\u003e\n\navailableTagPath:\npass in a tag path to an available integer tag storing item  availablility in its bits\nThis also requires the datasetTagPath passed in which has the columns:\nValue, Label, AvailableBit\n"
+  },
+  "params": {
+    "availType": "table",
+    "bitAvail": {
+      "datasetTagPath": "",
+      "integerAvailTagPath": ""
+    },
+    "controlEnable": true,
+    "dataSetTagPath": "",
+    "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+    "tableAvail": {
+      "table": [
+        {
+          "avail": true,
+          "label": "FS4151",
+          "value": 4151
+        },
+        {
+          "avail": true,
+          "label": "FS4152",
+          "value": 4152
+        },
+        {
+          "avail": true,
+          "label": "FS4153",
+          "value": 4153
+        },
+        {
+          "avail": true,
+          "label": "FS4154",
+          "value": 4154
+        },
+        {
+          "avail": true,
+          "label": "FS4155",
+          "value": 4155
+        },
+        {
+          "avail": false,
+          "label": "FS4156",
+          "value": 4156
+        },
+        {
+          "avail": true,
+          "label": "FS4157",
+          "value": 4157
+        },
+        {
+          "avail": true,
+          "label": "FS4158",
+          "value": 4158
+        },
+        {
+          "avail": true,
+          "label": "FS4159",
+          "value": 4159
+        },
+        {
+          "avail": true,
+          "label": "FS4160",
+          "value": 4160
+        },
+        {
+          "avail": true,
+          "label": "FS4161",
+          "value": 4161
+        },
+        {
+          "avail": true,
+          "label": "FS4162",
+          "value": 4162
+        },
+        {
+          "avail": true,
+          "label": "FS4175",
+          "value": 4175
+        },
+        {
+          "avail": true,
+          "label": "FS4176",
+          "value": 4176
+        },
+        {
+          "avail": true,
+          "label": "FS4177",
+          "value": 4177
+        },
+        {
+          "avail": true,
+          "label": "FS4178",
+          "value": 4178
+        },
+        {
+          "avail": true,
+          "label": "FS4179",
+          "value": 4179
+        },
+        {
+          "avail": false,
+          "label": "FS4180",
+          "value": 4180
+        },
+        {
+          "avail": true,
+          "label": "FS4181",
+          "value": 4181
+        },
+        {
+          "avail": true,
+          "label": "FS4182",
+          "value": 4182
+        },
+        {
+          "avail": true,
+          "label": "FS4183",
+          "value": 4183
+        },
+        {
+          "avail": true,
+          "label": "FS4184",
+          "value": 4184
+        },
+        {
+          "avail": true,
+          "label": "FS4185",
+          "value": 4185
+        },
+        {
+          "avail": true,
+          "label": "FS4186",
+          "value": 4186
+        }
+      ]
+    }
+  },
+  "propConfig": {
+    "custom.dataset": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.availType} \u003d \u0027bit\u0027\r\n\t,tag({view.params.bitAvail.datasetTagPath})\r\n\t,tag({view.params.dataSetTagPath})\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.notes": {
+      "persistent": true
+    },
+    "params.availType": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.bitAvail": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.dataSetTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selectTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tableAvail": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tableAvail.table": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.openPopup(\u0027options-popup\u0027, \n\t\t\t\t\t\t\t\t view\u003d \u0027Shared/General/Popups/OptionPicker/ppuOptionPicker\u0027,\n\t\t\t\t\t\t\t\t params\u003d {\u0027availType\u0027: self.view.params.availType,\n\t\t\t\t\t\t\t\t \t\t  \u0027bitAvail\u0027:self.view.params.bitAvail,\n\t\t\t\t\t\t\t\t \t\t  \u0027selectTagPath\u0027: self.view.params.selectTagPath,\n\t\t\t\t\t\t\t\t \t\t  \u0027tableAvail\u0027: self.view.params.tableAvail\n\t\t\t\t\t\t\t\t \t\t  },\n\t\t\t\t\t\t\t\t title\u003d \u0027Select an option\u0027, \n\t\t\t\t\t\t\t\t overlayDismiss\u003d True,\n\t\t\t\t\t\t\t\t modal\u003d True\n\t\t\t\t\t\t\t\t )\n\t\t\t\t\t\t\t\t "
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "75px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnable"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Buttons/Body Buttons/Text"
+          },
+          "text": "select"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "50px",
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.selected": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.selectTagPath}"
+                },
+                "tagPath": "{1}"
+              },
+              "type": "tag"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "lookup({view.custom.dataset}, {this.custom.selected}, \"None\", \u0027Value\u0027, \u0027Label\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "10ps",
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "flex-end"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "custom": {
+    "pipeStyle": "",
+    "pipeTagPath": "[default]Wolf Blass/Winery/Wine Delivery/Winery Transfer Lines/Wine Transfer/Pipe Bends/CIP/Pipework Status/SBPBT56/FS2W2",
+    "status": null,
+    "status_processed": null
+  },
+  "params": {
+    "bottom": false,
+    "left": false,
+    "pipeContents": "Water",
+    "pipeName": "FS2W2",
+    "right": false,
+    "sbpName": "SBPBT56",
+    "sbpParentPath": "[default]Wolf Blass/Winery/Wine Delivery/Winery Transfer Lines/Wine Transfer/Pipe Bends/CIP/Pipework Status",
+    "status_processed_out": null,
+    "test": false,
+    "top": true,
+    "width": "5px"
+  },
+  "propConfig": {
+    "custom.pipeStyle": {
+      "binding": {
+        "config": {
+          "path": "view.custom.status_processed"
+        },
+        "transforms": [
+          {
+            "fallback": "",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": "Disconnected",
+                "output": "Pipework/KeyStones/Disconnected"
+              },
+              {
+                "input": "Connected",
+                "output": "Pipework/KeyStones/Connected"
+              },
+              {
+                "input": "Wine Transfer",
+                "output": "Pipework/KeyStones/WineTransfer"
+              },
+              {
+                "input": "Pigging",
+                "output": "Pipework/KeyStones/Pigging"
+              },
+              {
+                "input": "Required",
+                "output": "Pipework/KeyStones/Required"
+              }
+            ],
+            "outputType": "style-list",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.pipeTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.sbpParentPath} + \u0027/\u0027 +\r\n{view.params.sbpName} + \u0027/\u0027 +\r\n{view.params.pipeName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.status": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.pipeTagPath}"
+          },
+          "tagPath": "{1}/Prox Status Desc"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.status_processed": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.test}\r\n\t,\u0027Connected\u0027\r\n\t,{view.custom.status}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.bottom": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.left": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pipeContents": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pipeName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.right": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.sbpName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.sbpParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.status_processed_out": {
+      "binding": {
+        "config": {
+          "path": "view.custom.status_processed"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.test": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.top": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.width": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 60
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.borderBottomStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.bottom}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderBottomWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderLeftStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.left}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderLeftWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderRightStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.right}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderRightWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderTopStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.top}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderTopWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.pipeStyle} + \u0027 \u0027 +\r\nif({view.params.left}, \u0027Pipework/LabelBorders/Left \u0027, \u0027\u0027) +\r\nif({view.params.right}, \u0027Pipework/LabelBorders/Right \u0027, \u0027\u0027) + \r\nif({view.params.top}, \u0027Pipework/LabelBorders/Top \u0027, \u0027\u0027) + \r\nif({view.params.bottom}, \u0027Pipework/LabelBorders/Bottom\u0027, \u0027\u0027) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

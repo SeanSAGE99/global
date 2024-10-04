@@ -1,0 +1,2032 @@
+{
+  "custom": {
+    "FOI": null,
+    "controlEnable": true,
+    "deviceTagPath": "[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump",
+    "expanded": true,
+    "hasDirection": false,
+    "modeDesc": null,
+    "udt": null
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "Dosing Pump",
+    "deviceParentPath": "[default]Wolf Blass/Winery/Filtration/Tartaric Acid System"
+  },
+  "propConfig": {
+    "custom.FOI": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "deviceTagPath": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{deviceTagPath}/FOI"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.controlEnable": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.controlEnable}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.expanded": {
+      "persistent": true
+    },
+    "custom.hasDirection": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Direction"
+        },
+        "transforms": [
+          {
+            "expression": "isGood({value})",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.modeDesc": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "deviceTagPath": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{deviceTagPath}/Mode Desc"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.udt": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}.TypeId"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 901,
+      "width": 330
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Heading"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Heading"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "Status"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 1
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon",
+              "visible": false
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": ".../status_expanded.position.display"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "material/keyboard_arrow_up"
+                        },
+                        {
+                          "input": true,
+                          "output": "material/keyboard_arrow_down"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "90px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Valve_2-way_02"
+            },
+            "position": {
+              "basis": "120px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.deviceName": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceName"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.deviceParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceParentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "enablePopup": false
+              },
+              "path": "Shared/Templates/Devices/Motor_01"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.status": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "1": "{view.custom.deviceTagPath}"
+                        },
+                        "tagPath": "{1}/Status Desc"
+                      },
+                      "type": "tag"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.status"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": null,
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "Opened",
+                              "output": "material/unfold_more"
+                            },
+                            {
+                              "input": "Closed",
+                              "output": "material/unfold_less"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Interlocked"
+                },
+                "position": {
+                  "basis": "24px"
+                },
+                "propConfig": {
+                  "props.params.deviceName": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceName"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.params.deviceParentPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceParentPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "stateValue": false,
+                    "useState": false
+                  },
+                  "path": "Shared/Templates/Devices/Control/Common/Icons/Available"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Interlocked_0"
+                },
+                "position": {
+                  "basis": "24px"
+                },
+                "propConfig": {
+                  "props.params.deviceName": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceName"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.params.deviceParentPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceParentPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "stateValue": false,
+                    "useState": false
+                  },
+                  "path": "Shared/Templates/Devices/Control/Common/Icons/Interlocked"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "90px"
+            },
+            "props": {
+              "alignItems": "center",
+              "justify": "flex-end"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "100px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "marginBottom": "-10px",
+            "marginTop": "-20px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Section_Status_Status"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.custom.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "EViewName": "DeviceStatus_Generic",
+            "EViewParentPath": "Shared/Templates/Display/Custom Value EViews",
+            "hideLabel": false,
+            "labelOverride": "Status",
+            "tagName": "Status Desc"
+          },
+          "path": "Shared/Templates/Display/EView Value w Label",
+          "style": {
+            "classes": "Tables/Row"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label Only"
+            },
+            "position": {
+              "basis": "320px"
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "tagName": "Mode"
+              },
+              "path": "Shared/Templates/Display/Label Only"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "FOI"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.FOI"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Device/Status/Shape/FOI Tags/StatusGeneral"
+              },
+              "text": "CTRL BY PROCESS"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DeviceMode_Generic"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "invertMode": false,
+                "tagName": "Mode Desc"
+              },
+              "path": "Shared/Templates/Display/Custom Value EViews/DeviceMode_Generic",
+              "style": {
+                "classes": "Tables/Items"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Section_Status_Mode"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "isgood({view.custom.modeDesc})"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Tables/Row"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Run Hours HHMM w Label"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.controlEnable": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.controlEnable}\r\n\u0026\u0026 try(hasRole(\u0027Maintenance\u0027, {session.props.auth.user.userName}, \u0027default\u0027), false)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.deviceName": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceName"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.deviceParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceParentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "valueWidth": "70px"
+              },
+              "path": "Shared/Templates/Display/Device Run Hours HHMM w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Sparkline w Label_3"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "Actual Speed",
+                "labelWidth": "135px",
+                "showUnitsInValue": true,
+                "tagName": "Speed PV",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Speed PV.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "80px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "status_expanded"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.expanded"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Heading"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Heading"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "control"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 1
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon",
+              "visible": false
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": ".../control_expanded.position.display"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "material/keyboard_arrow_up"
+                        },
+                        {
+                          "input": true,
+                          "output": "material/keyboard_arrow_down"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "control_header"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "DeviceModeControl"
+            },
+            "position": {
+              "basis": "40px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.controlEnableRaw": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.controlEnable"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.deviceName": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceName"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.deviceParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceParentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Shared/Templates/Devices/Control/Common/DeviceModeControl",
+              "style": {
+                "classes": "Cards/DisplayItems/Item",
+                "marginLeft": "5px",
+                "marginRight": "5px"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Start Rev CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button_0"
+                    },
+                    "position": {
+                      "basis": "15px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.controlEnable}\r\n\u0026\u0026 {view.custom.modeDesc} \u003d \u0027Manual\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "unset",
+                          "path": "material/fast_rewind"
+                        }
+                      },
+                      "style": {
+                        "classes": "Buttons/Body_DestructiveAction Buttons/Text"
+                      },
+                      "text": "Start Rev"
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "10px",
+                      "shrink": 0
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Start Fwd CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button"
+                    },
+                    "position": {
+                      "basis": "15px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.controlEnable}\r\n\u0026\u0026 {view.custom.modeDesc} \u003d \u0027Manual\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "unset",
+                          "path": "material/fast_forward"
+                        }
+                      },
+                      "style": {
+                        "classes": "Buttons/Body Buttons/Text"
+                      },
+                      "text": "start FWD"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "StartStop"
+                },
+                "position": {
+                  "basis": "var(--forms-btn-height-1r)"
+                },
+                "props": {
+                  "style": {
+                    "borderTopColor": "#00000066",
+                    "borderTopStyle": "none",
+                    "borderTopWidth": "1px",
+                    "classes": "Cards/DisplayItems/Item",
+                    "marginLeft": "5px",
+                    "marginRight": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Stop CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Auto_0"
+                },
+                "position": {
+                  "basis": "var(--forms-btn-height-1r)"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.controlEnable}\r\n\u0026\u0026 {view.custom.modeDesc} \u003d \u0027Manual\u0027"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "unset",
+                      "path": "material/stop"
+                    }
+                  },
+                  "primary": false,
+                  "style": {
+                    "classes": "Buttons/Body Buttons/Text Cards/DisplayItems/Item",
+                    "marginLeft": "5px",
+                    "marginRight": "5px"
+                  },
+                  "text": "Manual Stop"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "VSD Control w Direction"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.hasDirection"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Start CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button"
+                    },
+                    "position": {
+                      "basis": "15px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.controlEnable}\r\n\u0026\u0026 {view.custom.modeDesc} \u003d \u0027Manual\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "unset",
+                          "path": "material/play_arrow"
+                        }
+                      },
+                      "style": {
+                        "classes": "Buttons/Body Buttons/Text"
+                      },
+                      "text": "Start"
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "10px",
+                      "shrink": 0
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Stop CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button_0"
+                    },
+                    "position": {
+                      "basis": "15px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.controlEnable}\r\n\u0026\u0026 {view.custom.modeDesc} \u003d \u0027Manual\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "unset",
+                          "path": "material/stop"
+                        }
+                      },
+                      "style": {
+                        "classes": "Buttons/Body Buttons/Text"
+                      },
+                      "text": "Stop"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "StartStop_0"
+                },
+                "position": {
+                  "basis": "40px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "Cards/DisplayItems/Item",
+                    "marginLeft": "5px",
+                    "marginRight": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "VSD Control Std"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.hasDirection"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "!{value}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Analogue Setpoint w Label"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.controlEnable": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.controlEnable}\r\n\u0026\u0026 {view.custom.modeDesc} \u003d \"Manual\"\r\n\u0026\u0026 try(hasRole(\u0027Operator\u0027, {session.props.auth.user.userName}, \u0027default\u0027), false)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "Speed Setpoint",
+                "setpointWidth": "100px",
+                "tagName": "Speed SP",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Speed SP.quality\u0027 not found.\")"
+              },
+              "path": "Shared/Templates/Display/Analogue Setpoint w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "control_expanded"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Heading"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Heading"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "details"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 1
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": ".../details_expanded.position.display"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "material/keyboard_arrow_up"
+                        },
+                        {
+                          "input": true,
+                          "output": "material/keyboard_arrow_down"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tpanelName \u003d self.getChild(\"Heading\").props.text + \u0027_expanded\u0027\n\tpanelName \u003d panelName.lower()\n\t\n\tself.getSibling(panelName).position.display \u003d not self.getSibling(panelName).position.display"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "details_header"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../details_expanded/Analogue Value w Sparkline w Label.position.display} ||\r\n{../details_expanded/Analogue Value w Sparkline w Label_0.position.display} ||\r\n{../details_expanded/Analogue Value w Sparkline w Label_1.position.display} ||\r\n{../details_expanded/Analogue Value w Sparkline w Label_2.position.display} ||\r\n{../details_expanded/Analogue Value w Sparkline w Label_4.position.display} ||\r\n{../details_expanded/Analogue Value w Sparkline w Label_5.position.display}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Analogue Value w Sparkline w Label"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "labelWidth": "135px",
+                "tagName": "Heat Sink Temp",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Heat Sink Temp.quality\u0027 not found.\")",
+                "valueWidth": "100px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Sparkline w Label_0"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "Ctrl Card Temp",
+                "labelWidth": "135px",
+                "tagName": "Control Card Temp",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Control Card Temp.quality\u0027 not found.\")",
+                "valueWidth": "100px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Sparkline w Label_1"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "labelWidth": "135px",
+                "showUnitsInValue": true,
+                "tagName": "Motor Current",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Motor Current.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "80px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Sparkline w Label_2"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "labelWidth": "135px",
+                "showUnitsInValue": true,
+                "tagName": "Power",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Power.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "80px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Sparkline w Label_4"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "labelWidth": "135px",
+                "showUnitsInValue": true,
+                "tagName": "Voltage",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Voltage.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "80px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Sparkline w Label_5"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "labelWidth": "135px",
+                "showUnitsInValue": true,
+                "tagName": "Speed RPM",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Speed RPM.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "80px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "speed_max"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.controlEnable": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.custom.security.roles.maintenance}"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "key": "value",
+                "labelOverride": "",
+                "setpointWidth": "80px",
+                "tagName": "Speed Max",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Speed Max.quality\u0027 not found.\")"
+              },
+              "path": "Shared/Templates/Display/Analogue Setpoint w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "speed_min"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.controlEnable": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.custom.security.roles.maintenance}"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "setpointWidth": "80px",
+                "showUnitsInValue": true,
+                "tagName": "Speed Min",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Speed Min.quality\u0027 not found.\")",
+                "unitsWidth": "35px"
+              },
+              "path": "Shared/Templates/Display/Analogue Setpoint w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "details_expanded"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.custom.deviceTagPath}"
+                },
+                "tagPath": "{1}/Heat Sink Temp"
+              },
+              "transforms": [
+                {
+                  "expression": "isGood({value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Heading"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Heading"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "diagnostics"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 1
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": ".../diagnostics_expanded.position.display"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "material/keyboard_arrow_up"
+                        },
+                        {
+                          "input": true,
+                          "output": "material/keyboard_arrow_down"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tpanelName \u003d self.getChild(\"Heading\").props.text + \u0027_expanded\u0027\n\tpanelName \u003d panelName.lower()\n\t\n\tself.getSibling(panelName).position.display \u003d not self.getSibling(panelName).position.display"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "diagnostics_header"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../diagnostics_expanded/Analogue Value w Label.position.display} ||\r\n{../diagnostics_expanded/Analogue Value w Label_0.position.display} ||\r\n{../diagnostics_expanded/Analogue Value w Label_1.position.display}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Analogue Value w Label"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "showUnitsInValue": true,
+                "tagName": "Fault Code",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Fault Code.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "100px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Label_0"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "showUnitsInValue": true,
+                "tagName": "DNet Status",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/DNet Status.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "100px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value w Label_1"
+            },
+            "position": {
+              "basis": "var(--forms-item-height-1r)",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.props.params.tagQuality} !\u003d \u0027Bad_NotFound\u0027 \u0026\u0026\r\n{this.props.params.tagQuality} !\u003d \u0027Bad_Disabled\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "showUnitsInValue": true,
+                "tagName": "Entry Status",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Filtration/Tartaric Acid System/Dosing Pump/Entry Status.quality\u0027 not found.\")",
+                "unitsWidth": "35px",
+                "valueWidth": "100px"
+              },
+              "path": "Shared/Templates/Display/Analogue Value w Label",
+              "style": {
+                "classes": "Tables/Row"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "diagnostics_expanded"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

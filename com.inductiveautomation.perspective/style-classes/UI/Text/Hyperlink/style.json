@@ -1,0 +1,20 @@
+{
+  "base": {
+    "style": {
+      "color": "#1F98DA",
+      "cursor": "pointer",
+      "fontSize": "0.8em",
+      "fontWeight": "lighter",
+      "textDecoration": "underline",
+      "textTransform": "lowercase"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "color": "#79C4EC"
+      }
+    }
+  ]
+}

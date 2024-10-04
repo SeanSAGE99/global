@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--dev-txtbg-stopped)",
+      "borderColor": "var(--neutral-90)",
+      "color": "var(--dev-txt-stopped)",
+      "fill": "var(--dev-sym-stopped)"
+    }
+  }
+}

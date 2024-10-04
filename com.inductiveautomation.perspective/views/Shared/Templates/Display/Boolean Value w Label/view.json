@@ -1,0 +1,153 @@
+{
+  "custom": {
+    "tagPath": "[default]Alexandrina/Mt Compass/WWPS/MC003/Pump 1/Flow Switch"
+  },
+  "params": {
+    "controlEnable": false,
+    "hideLabel": false,
+    "labelOverride": "",
+    "tagName": "Flow Switch",
+    "tagParentPath": "[default]Alexandrina/Mt Compass/WWPS/MC003/Pump 1",
+    "tagQuality": "Bad_NotFound"
+  },
+  "propConfig": {
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.hideLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "binding": {
+        "config": {
+          "path": "/root/Boolean Value.props.params.tagQuality"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label Only"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.hideLabel": {
+            "binding": {
+              "config": {
+                "path": "view.params.hideLabel"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.labelOverride": {
+            "binding": {
+              "config": {
+                "path": "view.params.labelOverride"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Shared/Templates/Display/Label Only"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Boolean Value"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.controlEnable": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnable"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagParentPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "styleClasses": "",
+            "tagQuality": "Bad_NotFound"
+          },
+          "path": "Shared/Templates/Display/Boolean Value"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

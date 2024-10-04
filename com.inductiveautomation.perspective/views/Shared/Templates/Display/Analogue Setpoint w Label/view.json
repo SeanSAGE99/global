@@ -1,0 +1,393 @@
+{
+  "custom": {
+    "tagEngUnit": null,
+    "tagFormatString": null,
+    "tagPath": "[default]Alexandrina/Mt Compass/WWPS/MCP01/Setpoints/Flow Detection SP"
+  },
+  "params": {
+    "controlEnable": false,
+    "hideLabel": false,
+    "labelOverride": "",
+    "setpointWidth": "100px",
+    "tagName": "Flow Detection SP",
+    "tagParentPath": "[default]Alexandrina/Mt Compass/WWPS/MCP01/Setpoints",
+    "tagQuality": "Bad_NotFound(\"Path \u0027[default]Alexandrina/Mt Compass/WWPS/MCP01/Setpoints/Flow Detection SP.quality\u0027 not found.\")",
+    "unitsOverride": "",
+    "unitsWidth": "25px",
+    "useDeviceRanges": false
+  },
+  "propConfig": {
+    "custom.tagEngUnit": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagFormatString": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.hideLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.setpointWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "binding": {
+        "config": {
+          "path": "/root/Analogue Setpoint.props.params.tagQuality"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.unitsOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unitsWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.useDeviceRanges": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label Only"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.hideLabel": {
+            "binding": {
+              "config": {
+                "path": "view.params.hideLabel"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.labelOverride": {
+            "binding": {
+              "config": {
+                "path": "view.params.labelOverride"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Shared/Templates/Display/Label Only"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": ".../Analogue Setpoint.props.params.actEngMin"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "\u0027Min: \u0027 + numberFormat({value}, {view.custom.tagFormatString})",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UI/Text/Size/Size3"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "basis": "1px",
+              "shrink": 0
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": ".../Analogue Setpoint.props.params.actEngMax"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "\u0027Max: \u0027 + numberFormat({value}, {view.custom.tagFormatString})",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UI/Text/Size/Size3"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "SetpointRange"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "../Analogue Setpoint.custom.hover"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "color": "var(--neutral-60)",
+            "marginRight": "3px",
+            "overflow": "hidden",
+            "textTransform": "lowercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "custom": {
+          "hover": false
+        },
+        "events": {
+          "dom": {
+            "onBlur": {
+              "config": {
+                "script": "\tself.custom.hover \u003d False"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onClick": {
+              "config": {
+                "script": "\tself.custom.hover \u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onFocus": {
+              "config": {
+                "script": "\tself.custom.hover \u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onKeyPress": {
+              "config": {
+                "script": "\tif event.key \u003d\u003d \u0027Enter\u0027:\n\t\tself.custom.hover \u003d False"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onMouseEnter": {
+              "config": {
+                "script": "\tself.custom.hover \u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onMouseLeave": {
+              "config": {
+                "script": "\tself.custom.hover \u003d False"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onTouchStart": {
+              "config": {
+                "script": "\tself.custom.hover \u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Analogue Setpoint"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.basis": {
+            "binding": {
+              "config": {
+                "path": "view.params.setpointWidth"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.controlEnable": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnable"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagParentPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.unitsOverride": {
+            "binding": {
+              "config": {
+                "path": "view.params.unitsOverride"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.unitsWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.unitsWidth"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.useDeviceRanges": {
+            "binding": {
+              "config": {
+                "path": "view.params.useDeviceRanges"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "actEngMax": null,
+            "actEngMin": null,
+            "showUnitsInValue": true,
+            "styleClasses": "",
+            "tagQuality": "Bad_NotFound(\"Path \u0027[default]Alexandrina/Mt Compass/WWPS/MCP01/Setpoints/Flow Detection SP.quality\u0027 not found.\")"
+          },
+          "path": "Shared/Templates/Display/Analogue Setpoint"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

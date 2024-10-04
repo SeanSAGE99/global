@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#555555",
+      "color": "#FFFFFF",
+      "fontFamily": "Noto Sans",
+      "fontWeight": "600",
+      "textAlign": "right"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "custom": {
+    "tagPath": "[default]Alexandrina/Mt Compass/WWPS/MCP02/ALS/Level/PV"
+  },
+  "params": {
+    "labelOverride": "",
+    "tagName": "PV",
+    "tagParentPath": "[default]Alexandrina/Mt Compass/WWPS/MCP02/ALS/Level"
+  },
+  "propConfig": {
+    "custom.tagEngUnit": {
+      "persistent": true
+    },
+    "custom.tagFormatString": {
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.hideLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showUnitsInValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.unitsWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.valueWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.labelOverride} !\u003d \u0027\u0027,\r\n\t{view.params.labelOverride},\r\n\t{view.params.tagName}\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Tag/Label",
+            "marginLeft": 5
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "dashed",
+                "borderBottomWidth": "1px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "marginLeft": 5,
+            "marginRight": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Boolean Value Opposite"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagParentPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "tagQuality": "Bad_NotFound(\"Path \u0027[default]Alexandrina/Mt Compass/WWPS/MCP02/ALS/Level/PV.quality\u0027 not found.\")"
+          },
+          "path": "Shared/Templates/Display/Alexandrina/Boolean Value Opposite",
+          "style": {
+            "marginBottom": 2,
+            "marginRight": 7,
+            "marginTop": 2,
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onContextMenu": {
+          "config": {
+            "draggable": true,
+            "id": "{view.custom.tagPath}",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "title": "Tag Info",
+            "type": "open",
+            "viewParams": {
+              "tagName": "{view.params.tagName}",
+              "tagParentPath": "{view.params.tagParentPath}"
+            },
+            "viewPath": "Shared/Popups/ppu_TagInfo",
+            "viewportBound": true
+          },
+          "preventDefault": true,
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

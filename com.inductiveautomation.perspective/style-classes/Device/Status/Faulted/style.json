@@ -1,0 +1,40 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1s",
+      "direction": "normal",
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "var(--dev-txtbg-faulted)",
+          "color": "var(--dev-txt-faulted)",
+          "fill": "var(--dev-sym-faulted)"
+        },
+        "20%": {
+          "backgroundColor": "var(--dev-txtbg-faulted-flash)",
+          "color": "var(--dev-txt-faulted)",
+          "fill": "var(--dev-sym-faulted-flash)"
+        },
+        "23%": {
+          "backgroundColor": "var(--dev-txtbg-faulted)",
+          "color": "var(--dev-txt-faulted)",
+          "fill": "var(--dev-sym-faulted)"
+        },
+        "50%": {
+          "backgroundColor": "var(--dev-txtbg-faulted-flash)",
+          "color": "var(--dev-txt-faulted)",
+          "fill": "var(--dev-sym-faulted-flash)"
+        },
+        "53%": {
+          "backgroundColor": "var(--dev-txtbg-faulted)",
+          "color": "var(--dev-txt-faulted)",
+          "fill": "var(--dev-sym-faulted)"
+        },
+        "100%": {
+          "backgroundColor": "var(--dev-txtbg-faulted)",
+          "color": "var(--dev-txt-faulted)",
+          "fill": "var(--dev-sym-faulted)"
+        }
+      }
+    }
+  }
+}

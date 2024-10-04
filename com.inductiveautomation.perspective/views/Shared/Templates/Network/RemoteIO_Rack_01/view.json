@@ -1,0 +1,311 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/System/PLCs/TankFarm_Ferm_SWAP4/Remote IO/E01/Rack",
+    "popupTitle": "Remote Rack E01"
+  },
+  "params": {
+    "deviceName": "TankFarm_Ferm_SWAP4",
+    "deviceParentPath": "[default]Wolf Blass/System/PLCs",
+    "rackName": "E01"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName} + \u0027/Remote IO/\u0027 +\r\n{view.params.rackName} + \u0027/Rack\u0027"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.popupTitle": {
+      "binding": {
+        "config": {
+          "expression": "\u0027Remote Rack \u0027 + {view.params.rackName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rackName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 155,
+      "width": 250
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Hostname"
+            },
+            "position": {
+              "height": 0.1342,
+              "width": 0.486,
+              "x": 0.4979,
+              "y": 0.8456
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/IP Address"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ConnectionStatus"
+            },
+            "position": {
+              "height": 0.1342,
+              "width": 0.5327,
+              "x": 0.0157,
+              "y": 0.8456
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Comms OK\u0027),\r\n\t\u0027Connected\u0027,\r\n\t\u0027Fault\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ProductName"
+            },
+            "position": {
+              "height": 0.2752,
+              "width": 0.972,
+              "x": 0.0157,
+              "y": 0.5772
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/Description"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "alignVertical": "top",
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DeviceName"
+            },
+            "position": {
+              "height": 0.1342,
+              "width": 0.972,
+              "x": 0.0157,
+              "y": 0.443
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({view.custom.deviceTagPath} + \u0027/Rack Type\u0027) + \u0027 Rack \u0027 + {view.params.rackName}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "network_0"
+            },
+            "position": {
+              "height": 0.3691,
+              "width": 0.0794,
+              "x": 0.0157,
+              "y": 0.0403
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "8",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": ".27458",
+                      "name": "rect",
+                      "type": "rect",
+                      "width": "0",
+                      "x": "39",
+                      "y": "293.65"
+                    },
+                    {
+                      "d": "m5.5 311.15h1v2h-1zm-3-2h3v6h-3z",
+                      "name": "path",
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(-.5 -291.15)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 8 26"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "K/8eGKEc",
+                "modal": true,
+                "overlayDismiss": true,
+                "position": {
+                  "relativeLocation": "bottom-right"
+                },
+                "positionType": "relative",
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "{view.custom.popupTitle}",
+                "type": "open",
+                "viewParams": {
+                  "deviceTagPath": "{view.custom.deviceTagPath}"
+                },
+                "viewPath": "Shared/Templates/Network/Device_Status_Popup"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "800px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Comms OK\u0027),\r\n\t\u0027Device/Status/Border/Normal\u0027,\r\n\t\u0027Device/Status/Border/Faulted\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

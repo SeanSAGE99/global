@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": false,
+  "files": [
+    "style.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "darrenv",
+      "timestamp": "2021-10-11T23:10:58Z"
+    },
+    "lastModificationSignature": "0b9e1332f1b4ae5412954dc2f29f20d28431e403429af7c344125d6312e01b2a"
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "custom": {
+    "tagEngUnit": null,
+    "tagFormatString": null,
+    "tagPath": "High Voltage/T1/Substation 12/MtrLV001/Current Phase A"
+  },
+  "params": {
+    "hideLabel": false,
+    "labelOverride": "",
+    "showUnitsInValue": false,
+    "tagName": "Current Phase A",
+    "tagParentPath": "High Voltage/T1/Substation 12/MtrLV001",
+    "tagQuality": "Bad_NotFound(\"Path \u0027[default]High Voltage/T1/Substation 12/MtrLV001/Current Phase A.quality\u0027 not found.\")",
+    "unitsWidth": "25px",
+    "valueWidth": "100px"
+  },
+  "propConfig": {
+    "custom.tagEngUnit": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagFormatString": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.hideLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showUnitsInValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "binding": {
+        "config": {
+          "path": "/root/Analogue Value.props.params.tagQuality"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.unitsWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.valueWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41,
+      "width": 417
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label Only",
+          "tooltip": {
+            "style": {
+              "fontSize": "clamp(4pt, calc(0.5*(1.0vmin + 1.0vmax)), 18pt)"
+            }
+          }
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.hideLabel": {
+            "binding": {
+              "config": {
+                "path": "view.params.hideLabel"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.labelOverride": {
+            "binding": {
+              "config": {
+                "path": "view.params.labelOverride"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Shared/Templates/Display/Flow Label Only",
+          "style": {
+            "fontSize": "clamp(4pt, calc(0.4*(1.0vmin + 1.0vmax)), 18pt)",
+            "marginLeft": 5,
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "dashed",
+                "borderBottomWidth": 1,
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "marginRight": "5px",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Analogue Value"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.basis": {
+            "binding": {
+              "config": {
+                "path": "view.params.valueWidth"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.showUnitsInValue": {
+            "binding": {
+              "config": {
+                "path": "view.params.showUnitsInValue"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagParentPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.unitsWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.unitsWidth"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "showBox": true,
+            "styleClasses": "",
+            "tagQuality": "Bad_NotFound(\"Path \u0027[default]High Voltage/T1/Substation 12/MtrLV001/Current Phase A.quality\u0027 not found.\")"
+          },
+          "path": "Shared/Templates/Display/Analogue Value"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

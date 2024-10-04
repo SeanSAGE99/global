@@ -1,0 +1,205 @@
+{
+  "custom": {
+    "closeInterlock": null,
+    "deviceTagPath": "Wolf Blass/Winery/Receivals/Must Diversion/Must Line 1/F41_KGV1101",
+    "deviceTagState": false,
+    "interlock": null,
+    "interlockQ": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Receivals/Must Diversion/Must Line 1/F41_KGV1101/Interlocked.quality\u0027 not found.\")",
+    "openInterlock": null,
+    "state": false
+  },
+  "params": {
+    "deviceName": "F41_KGV1101",
+    "deviceParentPath": "Wolf Blass/Winery/Receivals/Must Diversion/Must Line 1",
+    "stateValue": false,
+    "useState": false
+  },
+  "propConfig": {
+    "custom.closeInterlock": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Close Interlocked"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagState": {
+      "binding": {
+        "config": {
+          "expression": "if(isgood({view.custom.interlock})\r\n\t,{view.custom.interlock}\r\n\t,{view.custom.openInterlock} || {view.custom.closeInterlock}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.interlock": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Interlocked"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.interlockQ": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Interlocked.quality"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.openInterlock": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Open Interlocked"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.state": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.useState}\r\n\t,{view.params.stateValue}\r\n\t,{view.custom.deviceTagState}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.stateValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.useState": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32,
+      "width": 32
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon_0"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "path": "view.custom.state"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "var(--dev-sym-faulted)"
+                    },
+                    {
+                      "input": false,
+                      "output": "var(--neutral-90)"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.custom.state"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/lock"
+                    },
+                    {
+                      "input": false,
+                      "output": "material/lock_open"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "custom": {
+    "unitTagPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room/Units/HWP02"
+  },
+  "params": {
+    "unitName": "HWP02",
+    "unitParentPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room/Units"
+  },
+  "propConfig": {
+    "custom.unitTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.unitParentPath} + \u0027/\u0027 + {view.params.unitName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.unitName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unitParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 49,
+      "width": 244
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "unitTagPath": "{view.custom.unitTagPath}"
+                },
+                "tagPath": "{unitTagPath}/Common/Info/Description"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#2B2B2B",
+            "classes": "UIElement/FontSizes/Size2",
+            "color": "#aaaaaa",
+            "fontWeight": "bold",
+            "paddingLeft": "5px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "draggable": true,
+            "id": "{view.custom.unitTagPath}",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "title": "Unit",
+            "type": "open",
+            "viewParams": {
+              "unitName": "{view.params.unitName}",
+              "unitParentPath": "{view.params.unitParentPath}"
+            },
+            "viewPath": "Shared/General/Popups/Units/ppuUnit"
+          },
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root",
+      "unitParentPath": "value"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "cursor": "pointer"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

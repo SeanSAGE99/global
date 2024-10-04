@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "fontSize": "0.775rem",
+      "fontWeight": "bold",
+      "textAlign": "center",
+      "fill": "#2b2b2b"
+    }
+  }
+}

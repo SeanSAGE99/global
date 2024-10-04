@@ -1,0 +1,425 @@
+{
+  "custom": {
+    "deviceTagPath": "Wolf Blass/Winery/Refrigeration/Compressors/CM9001/Motor/VSD",
+    "status": null
+  },
+  "params": {
+    "deviceName": "VSD",
+    "deviceParentPath": "Wolf Blass/Winery/Refrigeration/Compressors/CM9001/Motor"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.status": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Status Desc"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 86,
+      "width": 153
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "heater-baseonly-24px",
+              "visible": false
+            },
+            "position": {
+              "height": 0.5814,
+              "width": 0.3268,
+              "x": 0.3366,
+              "y": 0.2093
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m3 299.65c-1.2482 0.0288-2.1738 1.2916-2 2.4905 0.00763 3.2321-0.015278 6.4651 0.011475 9.6966 0.15483 1.1669 1.3404 1.9706 2.4791 1.8128 5.8988-8e-3 11.799 0.0154 17.697-0.0115 1.1669-0.15498 1.9707-1.3403 1.8127-2.479-0.0076-3.2321 0.01528-6.4652-0.01148-9.6968-0.15444-1.1673-1.3403-1.9707-2.4791-1.8127h-17.509z",
+                      "name": "path",
+                      "style": {
+                        "fill": "var(--neutral-90)",
+                        "stroke": "var(--neutral-90)",
+                        "strokeWidth": "2"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m16.146 291.3c-0.86277 0.87341-1.6618 2.393-0.70648 3.4838 1.1089 0.65452 0.22226 1.921-0.25016 2.5595 0.3093 0.18546 0.64247 1.0185 0.92583 0.36789 0.78446-0.87261 1.33-2.3747 0.3374-3.3087-1.0805-0.67393 0.10754-1.8818 0.31373-2.4823l-0.62032-0.62031zm-4 0c-0.86277 0.87341-1.6618 2.393-0.70648 3.4838 1.1089 0.65452 0.22226 1.921-0.25016 2.5595 0.3093 0.18546 0.64247 1.0185 0.92583 0.36789 0.78446-0.87261 1.33-2.3747 0.3374-3.3087-1.0805-0.67393 0.10754-1.8818 0.31373-2.4823l-0.62032-0.62031zm-4 0c-0.86277 0.87341-1.6618 2.393-0.70648 3.4838 1.1089 0.65452 0.22226 1.921-0.25016 2.5595 0.3093 0.18546 0.64247 1.0185 0.92583 0.36789 0.78446-0.87261 1.33-2.3747 0.3374-3.3087-1.0805-0.67393 0.10754-1.8818 0.31373-2.4823-0.20677-0.20677-0.41354-0.41354-0.62032-0.62031z",
+                      "name": "path",
+                      "style": {
+                        "fill": "var(--neutral-90)",
+                        "fontFeatureSettings": "normal",
+                        "fontVariantAlternates": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontVariantPosition": "normal",
+                        "isolation": "auto",
+                        "mixBlendMode": "normal",
+                        "shapePadding": "0",
+                        "textDecorationColor": "#000000",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                        "textIndent": "0",
+                        "textOrientation": "mixed",
+                        "textTransform": "none",
+                        "whiteSpace": "normal"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "heater-24px",
+              "visible": false
+            },
+            "position": {
+              "height": 0.5814,
+              "width": 0.3268,
+              "x": 0.3366,
+              "y": 0.2093
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Status Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Off",
+                          "output": "Device/Status/Shape/Off"
+                        },
+                        {
+                          "input": "Running",
+                          "output": "Device/Status/Shape/On"
+                        },
+                        {
+                          "input": "Faulted",
+                          "output": "Device/Status/Shape/Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m16.146 291.3c-0.86277 0.87341-1.6618 2.393-0.70648 3.4838 1.1089 0.65452 0.22226 1.921-0.25016 2.5595 0.3093 0.18546 0.64247 1.0185 0.92583 0.36789 0.78446-0.87261 1.33-2.3747 0.3374-3.3087-1.0805-0.67393 0.10754-1.8818 0.31373-2.4823l-0.62032-0.62031zm-4 0c-0.86277 0.87341-1.6618 2.393-0.70648 3.4838 1.1089 0.65452 0.22226 1.921-0.25016 2.5595 0.3093 0.18546 0.64247 1.0185 0.92583 0.36789 0.78446-0.87261 1.33-2.3747 0.3374-3.3087-1.0805-0.67393 0.10754-1.8818 0.31373-2.4823l-0.62032-0.62031zm-4 0c-0.86277 0.87341-1.6618 2.393-0.70648 3.4838 1.1089 0.65452 0.22226 1.921-0.25016 2.5595 0.3093 0.18546 0.64247 1.0185 0.92583 0.36789 0.78446-0.87261 1.33-2.3747 0.3374-3.3087-1.0805-0.67393 0.10754-1.8818 0.31373-2.4823-0.20677-0.20677-0.41354-0.41354-0.62032-0.62031zm-5.1465 7.3531c-1.2482 0.0288-2.1738 1.2916-2 2.4905 0.00763 3.2321-0.015278 6.4651 0.011475 9.6966 0.15483 1.1669 1.3404 1.9706 2.4791 1.8128 5.8988-8e-3 11.799 0.0154 17.697-0.0115 1.1669-0.15498 1.9707-1.3403 1.8127-2.479-0.0076-3.2321 0.01528-6.4652-0.01148-9.6968-0.15444-1.1673-1.3403-1.9707-2.4791-1.8127h-17.509zm1 2c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263v-9.8774zm5 0c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263v-9.8774zm5 0c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263v-9.8774zm5 0c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263v-9.8774z",
+                      "name": "path",
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "style": {},
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "heater-24px_0",
+              "visible": false
+            },
+            "position": {
+              "height": 0.5814,
+              "width": 0.3268,
+              "x": 0.3366,
+              "y": 0.2093
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Status Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Off",
+                          "output": "Device/Status/Shape/Off"
+                        },
+                        {
+                          "input": "Running",
+                          "output": "Device/Status/Shape/On"
+                        },
+                        {
+                          "input": "Faulted",
+                          "output": "Device/Status/Shape/Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m2.9995 299.65c-1.2482 0.0288-2.1738 1.2916-2 2.4905 0.00763 3.2321-0.015278 6.4651 0.011475 9.6966 0.15483 1.1669 1.3404 1.9706 2.4791 1.8128 5.8988-8e-3 11.799 0.0154 17.697-0.0115 1.1669-0.15498 1.9707-1.3403 1.8127-2.479-0.0076-3.2321 0.01528-6.4652-0.01148-9.6968-0.15444-1.1673-1.3403-1.9707-2.4791-1.8127h-17.509zm1 2c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263zm5 0c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263zm5 0c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263zm5 0c0.29587 0.0783 0.90788-0.15946 1 0.12263v9.8774c-0.29587-0.0783-0.90788 0.15946-1-0.12263z",
+                      "name": "path",
+                      "style": {
+                        "fontFeatureSettings": "normal",
+                        "fontVariantAlternates": "normal",
+                        "fontVariantCaps": "normal",
+                        "fontVariantLigatures": "normal",
+                        "fontVariantNumeric": "normal",
+                        "fontVariantPosition": "normal",
+                        "isolation": "auto",
+                        "mixBlendMode": "normal",
+                        "shapePadding": "0",
+                        "textDecorationColor": "#000000",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                        "textIndent": "0",
+                        "textOrientation": "mixed",
+                        "textTransform": "none",
+                        "whiteSpace": "normal"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "style": {},
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "heater-coil-24px"
+            },
+            "position": {
+              "height": 0.4651,
+              "width": 0.2614,
+              "x": 0.3693,
+              "y": 0.2674
+            },
+            "propConfig": {
+              "props.elements[0].elements[0].style.classes": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Status Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Off",
+                          "output": "Device/Status/Shape/Off"
+                        },
+                        {
+                          "input": "Running",
+                          "output": "Device/Status/Shape/On"
+                        },
+                        {
+                          "input": "Faulted",
+                          "output": "Device/Status/Shape/Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m3 291.65c-1 0-2 1-2 2v18c0 1.0002 1 2 2 2h18c1 0 2-1 2-2v-18c0-1-1-2-1.9424-2z",
+                      "name": "Colour",
+                      "style": {
+                        "stroke": "var(--neutral-90)",
+                        "strokeWidth": "2px"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m6.0762 293.65c-3.9903 0-4.0665 7.332-0.076172 7.332h11.996c1.1877 1e-5 1.1877 3.334 0 3.334h-11.996c-3.9538 0-3.9141 7.334 0.076172 7.334h13.635a1.0001 1.0001 0 1 0 0-2h-13.635c-1.3039 0-1.2638-3.334-0.076172-3.334h11.996c3.9538 0 3.9538-7.334 0-7.334h-11.996c-1.3039 0-1.2278-3.332 0.076172-3.332h13.639a1.0001 1.0001 0 1 0 0-2z",
+                      "name": "Coil",
+                      "style": {
+                        "fill": "var(--neutral-90)"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "hand-24px"
+            },
+            "position": {
+              "height": 0.2791,
+              "width": 0.1569,
+              "x": 0.6142,
+              "y": 0.1628
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Mode Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": false,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Manual",
+                          "output": true
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "m22 6.0279v13.32c0 2.0194-1.6595 3.652-3.6594 3.652h-6.5962c-0.97862 0-1.9146-0.38683-2.5954-1.0743l-7.149-7.348s1.1493-1.1174 1.192-1.1174c0.21243-0.17233 0.46843-0.25758 0.72353-0.25758 0.21243 0 0.3831 0.04308 0.55286 0.12925 0.042667 0 3.9154 2.2348 3.9154 2.2348v-10.914c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v6.4451h0.89329v-8.723c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v8.723h0.89329v-7.8201c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v7.8201h0.93595v-5.0701c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375z",
+                  "name": "path",
+                  "type": "path"
+                }
+              ],
+              "style": {
+                "classes": "DeviceModes/Shape/Manual"
+              },
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

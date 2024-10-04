@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "borderLeftColor": "unset",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": "5px"
+    }
+  }
+}

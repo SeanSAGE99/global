@@ -1,0 +1,175 @@
+{
+  "custom": {
+    "deviceTagPath": "Alexandrina/Mt Compass/WWPS/MC003/Pump 1"
+  },
+  "params": {
+    "deviceName": "Pump 1",
+    "deviceParentPath": "Alexandrina/Mt Compass/WWPS/MC003",
+    "hideLabel": false,
+    "labelOverride": "",
+    "valueWidth": "100px"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.hideLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.valueWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label Only"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.hideLabel": {
+            "binding": {
+              "config": {
+                "path": "view.params.hideLabel"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.labelOverride": {
+            "binding": {
+              "config": {
+                "path": "view.params.labelOverride"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "tagName": "Run time"
+          },
+          "path": "Shared/Templates/Display/Label Only"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tshared.perspective.util.gui.confirmAction(message \u003d \u0027This will reset the device runtime hours. Confirm?\u0027,\n\t\t\t\t\t\t\t\t\t\t\t  onConfirm_TagPath \u003d self.view.custom.deviceTagPath + \u0027/Run Time Reset CMD\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "100px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "try(hasRole(\u0027Maintenance\u0027, {session.props.auth.user.userName}, \u0027default\u0027), false)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Buttons/Body_DestructiveAction Buttons/Text Tables/Items",
+            "marginBottom": "2px",
+            "marginTop": "2px"
+          },
+          "text": "reset time",
+          "textStyle": {
+            "paddingBottom": "0px",
+            "paddingTop": "0px"
+          }
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Analogue Value"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.basis": {
+            "binding": {
+              "config": {
+                "path": "view.params.valueWidth"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.deviceName": {
+            "binding": {
+              "config": {
+                "path": "view.params.deviceName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.deviceParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.deviceParentPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Shared/Templates/Display/Device Run Hours HHMM"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

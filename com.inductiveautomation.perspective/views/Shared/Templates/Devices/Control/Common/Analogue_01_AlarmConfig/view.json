@@ -1,0 +1,175 @@
+{
+  "custom": {
+    "deviceTagPath": "Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1/Rotary Screen/Flow"
+  },
+  "params": {
+    "alarmName": "High",
+    "controlEnable": true,
+    "deviceName": "Flow",
+    "deviceParentPath": "Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1/Rotary Screen"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.alarmName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Name"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.alarmName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Analogue Setpoint"
+        },
+        "position": {
+          "basis": "100px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.controlEnable": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnable"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.alarmName} + \u0027 Alarm SP\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.custom.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "actEngMax": 25000,
+            "actEngMin": 0,
+            "styleClasses": "",
+            "tagQuality": "Good",
+            "useDeviceRanges": true
+          },
+          "path": "Shared/Templates/Display/Analogue Setpoint",
+          "style": {
+            "classes": "Tables/Items"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Analogue Setpoint_0"
+        },
+        "position": {
+          "basis": "80px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.controlEnable": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnable"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.alarmName} + \u0027 Alarm Time\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.custom.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "actEngMax": 25000,
+            "actEngMin": 0,
+            "styleClasses": "",
+            "tagQuality": "Good",
+            "useDeviceRanges": true
+          },
+          "path": "Shared/Templates/Display/Analogue Setpoint",
+          "style": {
+            "classes": "Tables/Items"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

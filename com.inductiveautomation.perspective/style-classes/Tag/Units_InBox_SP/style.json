@@ -1,0 +1,20 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#FFFFFF",
+      "borderBottomColor": "var(--black-a60)",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": "1px",
+      "borderTopRightRadius": "3px",
+      "borderBottomRightRadius": "3px",
+      "borderRightColor": "var(--black-a60)",
+      "borderRightStyle": "solid",
+      "borderRightWidth": "1px",
+      "borderTopColor": "var(--black-a60)",
+      "borderTopStyle": "solid",
+      "borderTopWidth": "1px",
+      "color": "#808080",
+      "paddingRight": "2px"
+    }
+  }
+}

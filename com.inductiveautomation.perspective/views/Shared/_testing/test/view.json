@@ -1,0 +1,50 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 61,
+          "width": 132,
+          "x": 256,
+          "y": 183
+        },
+        "props": {
+          "style": {
+            "classes": "Device/Status/Faulted"
+          },
+          "text": "Label"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 168,
+          "width": 223,
+          "x": 163,
+          "y": 343
+        },
+        "props": {
+          "color": "unset",
+          "path": "material/insert_emoticon",
+          "style": {
+            "classes": "Device/Status/Shape/Faulted"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

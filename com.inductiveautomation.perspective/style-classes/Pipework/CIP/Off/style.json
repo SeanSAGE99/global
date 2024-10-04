@@ -1,0 +1,8 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--pipe-cip-on)",
+      "opacity": "0.20"
+    }
+  }
+}

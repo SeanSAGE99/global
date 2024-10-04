@@ -1,0 +1,24 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "timingFunction": "ease",
+      "keyframes": {
+        "0%": {
+          "stroke": "0.5",
+          "fill": "var(--alm-med-fill)"
+        },
+        "65%": {
+          "opacity": "1",
+          "stroke": "0.5",
+          "fill": "var(--alm-med-fill)"
+        },
+        "100%": {
+          "opacity": "0.20",
+          "stroke": "0.5",
+          "fill": "var(--alm-med-fill)"
+        }
+      }
+    }
+  }
+}

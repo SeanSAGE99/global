@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--dev-manual)",
+      "borderColor": "var(--neutral-90)",
+      "color": "var(--dev-txt-manual)",
+      "fill": "#FF8C00"
+    }
+  }
+}

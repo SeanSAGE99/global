@@ -1,0 +1,395 @@
+{
+  "custom": {
+    "max": null,
+    "min": null,
+    "numberFormat": null,
+    "pv": null,
+    "tagPath": "[default]Test/T1000/Pump 1/Stats/Run Hours",
+    "units": null,
+    "yestAve": "value"
+  },
+  "params": {
+    "tagName": "Run Hours",
+    "tagParentPath": "[default]Test/T1000/Pump 1/Stats"
+  },
+  "propConfig": {
+    "custom.max": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngHigh"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.min": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngLow"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.numberFormat": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.pv": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.units": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.yestAve": {
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 38,
+      "width": 89
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Analogue Value",
+              "visible": false
+            },
+            "position": {
+              "height": 25.99,
+              "width": 85.99,
+              "x": 1,
+              "y": -0.20999999999999996
+            },
+            "propConfig": {
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.tagPath"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.alm_tx"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "Device/Status/Faulted"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "tagName": "PV",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Test/T1000/Pump 1/Stats/Run Hours/PV.quality\u0027 not found.\")"
+              },
+              "path": "Shared/Templates/Display/Analogue Value",
+              "style": {}
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "levels"
+            },
+            "position": {
+              "height": 13,
+              "width": 88.99,
+              "y": 24.79
+            },
+            "propConfig": {
+              "props.elements[0].elements[0].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(0px \u0027 + tostr(\r\n100-({view.custom.min}+{view.custom.pv}/({view.custom.max}-{view.custom.min}))*100.0\r\n) + \u0027% 0px 0px)\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "paint": "var(--progressLinearBar--determinate)"
+                      },
+                      "name": "pv",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "name": "border",
+                      "style": {
+                        "borderColor": "#EFD72B",
+                        "borderStyle": "solid",
+                        "borderWidth": "2px",
+                        "fill": "transparent",
+                        "paintOrder": "fill markers stroke",
+                        "vector-effect": "non-scaling-stroke"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "preserveAspectRatio": "none",
+              "style": {
+                "borderTopColor": "var(--neutral-90)",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px"
+              },
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "border"
+            },
+            "position": {
+              "height": 38,
+              "width": 88.99,
+              "y": 0.19999999999999996
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "name": "border",
+                      "style": {
+                        "fill": "transparent",
+                        "paintOrder": "fill markers stroke",
+                        "stroke": "var(--neutral-90)",
+                        "strokeWidth": "4px",
+                        "vector-effect": "non-scaling-stroke"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "pv"
+            },
+            "position": {
+              "height": 24,
+              "width": 86.99,
+              "x": 1,
+              "y": 1.8
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.pv"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, {view.custom.numberFormat})",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Tags/Value",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "units"
+            },
+            "position": {
+              "height": 14,
+              "width": 85,
+              "x": 1.99,
+              "y": 0.8
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.units"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "8pt",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "yesterdayPV"
+            },
+            "position": {
+              "height": 21,
+              "width": 17,
+              "x": 8,
+              "y": 7
+            },
+            "props": {
+              "style": {
+                "classes": "UI/Text/Size/Size3",
+                "color": "--neutral-60"
+              },
+              "text": 30
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "yesterdayLabel"
+            },
+            "position": {
+              "height": 13,
+              "width": 19,
+              "x": 6,
+              "y": 1
+            },
+            "props": {
+              "style": {
+                "color": "--neutral-60",
+                "fontSize": "5pt"
+              },
+              "text": "yest."
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

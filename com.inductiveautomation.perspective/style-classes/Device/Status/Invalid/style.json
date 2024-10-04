@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--dev-sym-invalid)",
+      "color": "var(--dev-sym-invalid)",
+      "fill": "var(--dev-sym-invalid)"
+    }
+  }
+}

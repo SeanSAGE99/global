@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "color": "#fff",
+      "fontSize": "0.875rem",
+      "strokeWidth": "1",
+      "fill": "var(--alm-crit-fill)"
+    }
+  }
+}

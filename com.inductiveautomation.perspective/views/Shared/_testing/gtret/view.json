@@ -1,0 +1,37 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1207,
+      "width": 1311
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Analogue_01_SingleTag_Spark"
+        },
+        "position": {
+          "height": 68,
+          "width": 100,
+          "x": 249,
+          "y": 168
+        },
+        "props": {
+          "params": {
+            "tagName": "PV",
+            "tagParentPath": "[default]Test/T1200/Sump/Level"
+          },
+          "path": "Shared/Templates/Devices/Analogue_01_SingleTag_Spark"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

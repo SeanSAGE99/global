@@ -1,0 +1,475 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room/S6184_ES01",
+    "safetyType": 0
+  },
+  "params": {
+    "deviceName": "S6184_ES01",
+    "deviceParentPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 + {view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.safetyType": {
+      "binding": {
+        "config": {
+          "expression": "if(indexOf({view.params.deviceName}, \u0027Electr\u0027)!\u003d-1, 2,\r\nif(indexOf({view.params.deviceName}, \u0027Pneum\u0027)!\u003d-1, 1,\r\n0))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41,
+      "width": 350
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "contactor_push_button_24"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.safetyType} \u003d 0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "M 6.7078549,29.456082 H 20.450373 V 43.489754 H 6.7078549 Z",
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "none"
+                          },
+                          "name": "rect886",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "round",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "0.34718332"
+                          },
+                          "style": {
+                            "marker": "none",
+                            "opacity": "0.98999999",
+                            "vectorEffect": "none"
+                          },
+                          "type": "path"
+                        },
+                        {
+                          "d": "M 6.7078551,38.227127 H 8.4256699",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "path822-5",
+                          "stroke": {
+                            "dasharray": "none",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "#000000",
+                            "width": "0.57863883"
+                          },
+                          "style": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "m 11.861298,32.379764 h 3.435631",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "path822",
+                          "stroke": {
+                            "dasharray": "none",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "#000000",
+                            "width": "0.57863883"
+                          },
+                          "style": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "M 8.4256677,35.303446 H 18.732558",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "path818",
+                          "stroke": {
+                            "dasharray": "none",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "#000000",
+                            "width": "0.57863883"
+                          },
+                          "style": {},
+                          "type": "path"
+                        },
+                        {
+                          "cx": "9.5708799",
+                          "cy": "38.227127",
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#000000"
+                          },
+                          "name": "path824",
+                          "rx": "1.5442231",
+                          "ry": "1.5806173",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "round",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "0.57863883"
+                          },
+                          "style": {
+                            "marker": "none",
+                            "opacity": "0.98999999",
+                            "vectorEffect": "none"
+                          },
+                          "type": "ellipse"
+                        },
+                        {
+                          "d": "m 13.579114,32.379763 v 2.923682",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "path822-3",
+                          "stroke": {
+                            "dasharray": "none",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "#000000",
+                            "width": "0.57863883"
+                          },
+                          "style": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "m 18.732559,38.227127 h 1.717814",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "path822-5-1",
+                          "stroke": {
+                            "dasharray": "none",
+                            "linecap": "butt",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "#000000",
+                            "width": "0.57863883"
+                          },
+                          "style": {},
+                          "type": "path"
+                        },
+                        {
+                          "cx": "17.587349",
+                          "cy": "38.227127",
+                          "fill": {
+                            "opacity": "1",
+                            "paint": "#000000"
+                          },
+                          "name": "path824-2",
+                          "rx": "1.5442231",
+                          "ry": "1.5806173",
+                          "stroke": {
+                            "dasharray": "none",
+                            "dashoffset": "0",
+                            "linecap": "round",
+                            "miterlimit": "4",
+                            "opacity": "1",
+                            "paint": "none",
+                            "width": "0.57863883"
+                          },
+                          "style": {
+                            "marker": "none",
+                            "opacity": "0.98999999",
+                            "vectorEffect": "none"
+                          },
+                          "type": "ellipse"
+                        }
+                      ],
+                      "name": "g870",
+                      "style": {},
+                      "transform": "matrix(0.46206961,0,0,0.45248315,4.3813455,23.007946)",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "layer1",
+                  "transform": "translate(-7.4808415,-36.336327)",
+                  "type": "group"
+                }
+              ],
+              "style": {
+                "paddingLeft": "3px",
+                "paddingRight": "3px"
+              },
+              "viewBox": "0 0 6.3499998 6.3500002"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "ic_power_24px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.safetyType} \u003d 2"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M16.01 7L16 3h-2v4h-4V3H8v4h-.01C7 6.99 6 7.99 6 8.99v5.49L9.5 18v3h5v-3l3.5-3.51v-5.5c0-1-1-2-1.99-1.99z",
+                  "name": "path",
+                  "type": "path"
+                }
+              ],
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "compressor_air_24"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.safetyType} \u003d 1"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "M -1.0000002e-8,290.64999 H 6.3500001 v 6.35 H -1.0000002e-8 Z",
+                      "fill": {
+                        "opacity": "1",
+                        "paint": "none"
+                      },
+                      "name": "rect1464",
+                      "stroke": {
+                        "dasharray": "none",
+                        "dashoffset": "0",
+                        "linecap": "round",
+                        "miterlimit": "4",
+                        "opacity": "1",
+                        "paint": "none",
+                        "width": "0.26458335"
+                      },
+                      "style": {
+                        "marker": "none",
+                        "opacity": "0.98999999",
+                        "vectorEffect": "none"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m 1.1554838,296.34521 c -0.00508,-0.009 0.019926,-0.0813 0.055571,-0.16222 0.035646,-0.081 0.06481,-0.15339 0.06481,-0.16086 0,-0.008 -0.034423,-0.0188 -0.076487,-0.0251 -0.10985,-0.0165 -0.31188777,-0.0935 -0.42454465,-0.16201 -0.38622534,-0.23463 -0.61706428,-0.63026 -0.64060651,-1.09796 -0.0333124,-0.66179 0.36611212,-1.21662 0.99686496,-1.38474 l 0.1366986,-0.0364 h 1.9218303 1.9218294 l 0.1422397,0.0446 c 0.2477196,0.0777 0.4210064,0.18222 0.586318,0.35366 0.1820124,0.18876 0.2954896,0.40043 0.3460503,0.64546 0.1111734,0.53879 -0.075699,1.07874 -0.4792558,1.38481 -0.1301628,0.0987 -0.3306011,0.19985 -0.4636839,0.23396 -0.051932,0.0133 -0.097699,0.0275 -0.1016945,0.0314 -0.00403,0.004 0.022147,0.0709 0.058094,0.14873 0.1013898,0.21946 0.1293367,0.20154 -0.3145097,0.20154 -0.438612,0 -0.3847584,0.0249 -0.4449283,-0.20601 l -0.03474,-0.13333 -1.1963097,0.004 -1.1963106,0.004 -0.035583,0.14155 c -0.019569,0.0778 -0.044534,0.15235 -0.055488,0.16553 -0.016541,0.0199 -0.082215,0.024 -0.3884183,0.024 -0.2084998,0 -0.372527,-0.007 -0.3777538,-0.0149 z m 0.1244184,-3.19132 c -0.064807,-0.0455 -0.041122,-0.23365 0.029411,-0.23365 0.00891,0 0.014998,-0.18318 0.014998,-0.44831 0,-0.43082 -0.00125,-0.44909 -0.032296,-0.46848 -0.025693,-0.016 -0.032248,-0.0375 -0.032056,-0.10482 1.341e-4,-0.0466 0.00661,-0.0947 0.014385,-0.10697 0.062225,-0.0982 1.5121956,-0.1038 1.6205399,-0.007 0.042531,0.0383 0.039704,0.19068 -0.00402,0.218 -0.031031,0.0194 -0.032296,0.0377 -0.032296,0.4665 0,0.37705 0.00374,0.44946 0.024227,0.46644 0.027523,0.0228 0.033446,0.17035 0.00843,0.20995 -0.013196,0.0209 -0.1228066,0.0248 -0.7951311,0.0287 -0.6894931,0.004 -0.7840356,0.002 -0.8161637,-0.0211 z m 0.6183062,-0.1751 c 0.020068,-0.008 0.023652,-0.0859 0.023652,-0.51658 0,-0.44787 -0.00297,-0.50865 -0.025549,-0.5173 -0.04187,-0.0161 -0.2947403,-0.0111 -0.3053069,0.006 -0.00537,0.009 -0.00977,0.23928 -0.00977,0.51244 0,0.40593 0.00412,0.49964 0.022502,0.51311 0.023038,0.0169 0.2518692,0.0187 0.2944614,0.002 z m 0.6786074,-0.0108 c 0.019378,-0.0161 0.023335,-0.1 0.023335,-0.49488 0,-0.29689 -0.00632,-0.48723 -0.016723,-0.50674 -0.014576,-0.0272 -0.034855,-0.0312 -0.1582688,-0.0312 -0.08856,0 -0.1488052,0.008 -0.1609301,0.0194 -0.029344,0.0293 -0.027523,0.9876 0.00192,1.01709 0.027226,0.0272 0.2769459,0.0243 0.3106438,-0.004 z m 1.0246251,0.19891 c -0.013321,-0.005 -0.029565,-0.0172 -0.036091,-0.027 -0.00652,-0.01 -0.011979,-0.42146 -0.012113,-0.91488 -1.84e-4,-0.67652 0.0045,-0.9019 0.019128,-0.91651 0.014222,-0.0142 0.1493984,-0.0194 0.507566,-0.0194 0.4222733,0 0.4916125,0.004 0.5135651,0.0254 0.021764,0.0218 0.025377,0.085 0.025377,0.44468 v 0.41931 l 0.1639181,-0.005 0.1639181,-0.005 0.027974,-0.0859 c 0.1176383,-0.36129 0.541742,-0.54415 0.8745693,-0.37706 0.056091,0.0282 0.1213308,0.0684 0.1449815,0.0896 0.1483634,0.13239 0.2337481,0.33652 0.2193539,0.52439 -0.013215,0.17244 -0.06487,0.28434 -0.1882033,0.40768 -0.1415209,0.14151 -0.2422293,0.18284 -0.4455972,0.18284 -0.203367,0 -0.3040754,-0.0413 -0.4455973,-0.18284 -0.1020069,-0.10201 -0.1181836,-0.13014 -0.1842942,-0.32044 -0.00498,-0.0144 -0.053916,-0.0202 -0.1690184,-0.0202 H 4.6188719 v 0.37053 c 0,0.36458 -5.491e-4,0.37093 -0.03589,0.39567 -0.030561,0.0214 -0.1043405,0.0249 -0.4966074,0.0239 -0.2533929,-7.1e-4 -0.471616,-0.006 -0.4849388,-0.0104 z m 2.1839863,-0.42883 c 0.1088705,-0.0505 0.1994139,-0.14143 0.2528093,-0.25384 0.034136,-0.0719 0.042071,-0.11194 0.041563,-0.20995 -5.5e-4,-0.10607 -0.00738,-0.13377 -0.055171,-0.22289 -0.060883,-0.1136 -0.1123128,-0.16322 -0.2321352,-0.22394 -0.3703326,-0.18766 -0.8154449,0.1797 -0.6997866,0.57755 0.090007,0.30961 0.4108357,0.46388 0.6927256,0.33307 z m -0.2708653,-0.38374 c -0.02805,-0.031 -0.028654,-0.0452 -0.00985,-0.23475 0.023604,-0.23794 0.026948,-0.24905 0.075085,-0.24905 0.047811,0 0.050658,0.01 0.073773,0.24005 0.017547,0.17518 0.016809,0.199 -0.00728,0.23581 -0.032737,0.0499 -0.090515,0.0535 -0.1316904,0.008 z",
+                      "fill": {
+                        "paint": "#000000"
+                      },
+                      "name": "path1462",
+                      "style": {},
+                      "type": "path"
+                    }
+                  ],
+                  "name": "layer1",
+                  "transform": "translate(0,-290.64999)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 6.3499999 6.3500002"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "fontWeight": "bold",
+                "paddingLeft": "10px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "173px"
+            },
+            "propConfig": {
+              "custom.statusDesc": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Status Desc"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.statusDesc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Device/Status/Faulted UIElement/FontSizes/Size1 UIElement/FontSizes/Size2",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Active",
+                          "output": "UIElement/FontSizes/Size2"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{this.custom.statusDesc}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "5px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "25px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.custom.deviceTagPath}"
+                },
+                "tagPath": "{1}/Description"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UIElement/FontSizes/Size2",
+            "fontStyle": "italic",
+            "paddingLeft": "10px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1s",
+      "direction": "normal",
+      "keyframes": {
+        "0%": {
+          "borderColor": "var(--dev-sym-faulted)"
+        },
+        "23%": {
+          "borderColor": "var(--dev-sym-faulted)"
+        },
+        "50%": {
+          "borderColor": "var(--dev-sym-faulted-flash)"
+        },
+        "53%": {
+          "borderColor": "var(--dev-sym-faulted)"
+        },
+        "100%": {
+          "borderColor": "var(--dev-sym-faulted)"
+        }
+      }
+    }
+  }
+}

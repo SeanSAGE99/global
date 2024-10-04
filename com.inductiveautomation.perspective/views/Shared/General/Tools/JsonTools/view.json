@@ -1,0 +1,81 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.parent.convertTagJson(\u0027memory\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "props": {
+          "style": {
+            "classes": "Tables/Row"
+          },
+          "text": "Convert Clipboard Tag Json to MEMORY Tags"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.parent.convertTagJson(\u0027opc\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "props": {
+          "style": {
+            "classes": "Tables/Row"
+          },
+          "text": "Convert Clipboard Tag Json back to OPC Tags"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "convertTagJson",
+          "params": [
+            "convertTo\u003d\u0027opc\u0027"
+          ],
+          "script": "\tfrom java.awt.datatransfer import StringSelection\n\tfrom java.awt.datatransfer import Clipboard\n\tfrom java.awt import Toolkit \n\tfrom java.awt.datatransfer import DataFlavor\n\t\n\ttoolkit \u003d  Toolkit.getDefaultToolkit()\n\tclipboard \u003d toolkit.getSystemClipboard()\n\t\n\t### clipboard functions ###\n\tdef setup():\n\t    global toolkit\n\t    global clipboard\n\t    toolkit \u003d  Toolkit.getDefaultToolkit()\n\t    clipboard \u003d toolkit.getSystemClipboard()\n\t\n\tdef writeClipboard(text):\n\t\tclipboard.setContents(StringSelection(text), None)\n\t\t\n\tdef readClipboard():\n\t\tcontents \u003d clipboard.getContents(None)\n\t\treturn contents.getTransferData(DataFlavor.stringFlavor)\n\t### end clipboard functions ###\n\t\n\tdef convertTagSource(obj, valSource\u003d\u0027opc\u0027):\n\t\tif valSource not in [\u0027opc\u0027,\u0027memory\u0027]:\n\t\t\timport sys\n\t\t\tsys.exit()\n\t\t# if the obj is a list, then run through it and convert any \"memory opc\" tags to opc\n\t\tif isinstance(obj,list):\n\t\t\tfor i in range(len(obj)):\n\t\t\t\tobj[i] \u003d convertTagSource(obj[i], valSource)\n\t\t\t\t\n\t\t# if the obj is a dict, check if it is a tag that is opc and make sure its valueSource defines it as opc\n\t\tif isinstance(obj,dict):\n\t\t\tif \u0027opcItemPath\u0027 in obj:\n\t\t\t\tobj[\"valueSource\"] \u003d valSource\n\t\t\t\t\n\t\t\t# \n\t\t\tfor key in obj.keys():\n\t\t\t\tif isinstance(obj[key], dict):\n\t\t\t\t\tobj[key] \u003d convertTagSource(obj[key], valSource)\n\t\t\t\tif isinstance(obj[key], list):\n\t\t\t\t\tfor i in range(len(obj[key])):\n\t\t\t\t\t\tobj[key][i] \u003d convertTagSource(obj[key][i], valSource)\n\t\t\t\t\n\t\t# if its just a flat type, ignore it\n\t\telse:\n\t\t\tpass\n\t\treturn obj\n\t\n\t# make sure you copy some tag json first to the clipboard!\n\ttagsJson \u003d readClipboard()\n\ttags \u003d system.util.jsonDecode(tagsJson)\n\n\tif convertTo in [\u0027opc\u0027,\u0027memory\u0027]:\n\t\tfor item in tags:\n\t\t\ttags[item] \u003d convertTagSource(tags[item], convertTo)\n\t\n\t\ttags \u003d system.util.jsonEncode(tags)\n\t\ttags \u003d tags.replace(\":True\", \":true\").replace(\":False\", \":false\") # json technically doesn\u0027t capitalise first letter of bool vals.. compare tools whinge\n\t\twriteClipboard(tags)\n\telse:\n\t\tsystem.gui.errorBox(\"You failed at setting the value source correctly... use \u0027opc\u0027 or \u0027memory\u0027 idiot\", \u0027Idiot\u0027)"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

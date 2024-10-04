@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "color": "#808080",
+      "fontSize": "8pt",
+      "fontWeight": "100",
+      "textTransform": "uppercase"
+    }
+  }
+}

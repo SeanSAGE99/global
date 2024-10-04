@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--dev-txtbg-faulted)",
+      "color": "var(--dev-txt-faulted)",
+      "fill": "var(--dev-sym-faulted)"
+    }
+  }
+}

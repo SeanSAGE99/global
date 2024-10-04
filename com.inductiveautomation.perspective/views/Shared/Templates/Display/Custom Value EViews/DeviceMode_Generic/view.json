@@ -1,0 +1,113 @@
+{
+  "custom": {
+    "tagPath": "[default]Wolf Blass/Winery/Receivals/Must Diversion/Must Line 3/F41_KGV3001/Mode",
+    "tagValue": "Auto"
+  },
+  "params": {
+    "invertMode": false,
+    "tagName": "Mode",
+    "tagParentPath": "[default]Wolf Blass/Winery/Receivals/Must Diversion/Must Line 3/F41_KGV3001"
+  },
+  "propConfig": {
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tagValue": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "transforms": [
+          {
+            "expression": "if(toInt({value}, -9999999) !\u003d -9999999\r\n\t,case({value}\r\n\t\t\t,0+1*toInt({view.params.invertMode}),\u0027Auto\u0027\r\n\t\t\t,1-1*toInt({view.params.invertMode}),\u0027Manual\u0027\r\n\t\t\t,2,\u0027Maintenance\u0027\r\n\t\t\t,\u0027\u0027\r\n\t\t)\r\n\t,{value}\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.invertMode": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 110
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tagValue"
+              },
+              "transforms": [
+                {
+                  "expression": "\u0027\u0027 +\r\ncase({value}\r\n\t,\u0027Auto\u0027,\u0027DeviceModes/Auto\u0027\r\n\t,\u0027Manual\u0027,\u0027DeviceModes/Manual\u0027\r\n\t,\u0027Maintenance\u0027,\u0027DeviceModes/Maintenance\u0027\r\n\t,\u0027\u0027\r\n)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tagValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "paddingLeft": "5px",
+            "paddingRight": "5px",
+            "textAlign": "center",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

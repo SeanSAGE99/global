@@ -1,0 +1,17 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "timingFunction": "ease-in-out",
+      "keyframes": {
+        "0%": {
+          "color": "var(--pip-cip-on)",
+          "opacity": "0.70"
+        },
+        "100%": {
+          "color": "var(--pip-cip-on)"
+        }
+      }
+    }
+  }
+}

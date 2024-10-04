@@ -1,0 +1,754 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\t"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 919
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.parent.refresh()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "text": "Refresh"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "instances": [
+            {
+              "fileRelPath": "./sage/variables.css",
+              "variables": [
+                {
+                  "name": "--page-background",
+                  "value": " #E8E6E3"
+                },
+                {
+                  "name": "--dev-sym-foi",
+                  "value": " #c564e2"
+                },
+                {
+                  "name": "--dev-sym-faulted",
+                  "value": " #f24636"
+                },
+                {
+                  "name": "--dev-sym-faulted-flash",
+                  "value": " #8e160b"
+                },
+                {
+                  "name": "--dev-txt-faulted",
+                  "value": " #FFF"
+                },
+                {
+                  "name": "--dev-txtbg-faulted",
+                  "value": " var(--dev-sym-faulted)"
+                },
+                {
+                  "name": "--dev-txtbg-faulted-flash",
+                  "value": " var(--dev-sym-faulted-flash)"
+                },
+                {
+                  "name": "--dev-sym-running",
+                  "value": " #42F042"
+                },
+                {
+                  "name": "--dev-sym-running-flash",
+                  "value": " #FFAC47"
+                },
+                {
+                  "name": "--dev-txt-running",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-txtbg-running",
+                  "value": " var(--dev-sym-running)"
+                },
+                {
+                  "name": "--dev-txtbg-running-flash",
+                  "value": " var(--dev-sym-running-flash)"
+                },
+                {
+                  "name": "--dev-sym-paused",
+                  "value": " #9FEEFF"
+                },
+                {
+                  "name": "--dev-txt-paused",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-txtbg-paused",
+                  "value": " var(--dev-sym-paused)"
+                },
+                {
+                  "name": "--dev-txt-stopped",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-sym-stopped",
+                  "value": " #f7f7f7"
+                },
+                {
+                  "name": "--dev-sym-stopped-flash",
+                  "value": " #FFAC47"
+                },
+                {
+                  "name": "--dev-txtbg-stopped",
+                  "value": " #dedede"
+                },
+                {
+                  "name": "--dev-txtbg-stopped-flash",
+                  "value": " #c3c3c3"
+                },
+                {
+                  "name": "--dev-sym-invalid",
+                  "value": " magenta"
+                },
+                {
+                  "name": "--dev-txt-invalid",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-txtbg-invalid",
+                  "value": " var(--dev-sym-invalid)"
+                },
+                {
+                  "name": "--dev-sym-abnormal",
+                  "value": " #FFAC47"
+                },
+                {
+                  "name": "--dev-txt-abnormal",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-txtbg-abnormal",
+                  "value": " var(--dev-sym-abnormal)"
+                },
+                {
+                  "name": "--dev-sym-popupShown",
+                  "value": " #FFAC47"
+                },
+                {
+                  "name": "--dev-txt-auto",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-auto",
+                  "value": " #AAAAAA"
+                },
+                {
+                  "name": "--dev-txt-manual",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-manual",
+                  "value": " #ffca47"
+                },
+                {
+                  "name": "--dev-txt-maintenance",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--dev-maintenance",
+                  "value": " #1881e5"
+                },
+                {
+                  "name": "--pipe-cip-off",
+                  "value": " #D3BCC9"
+                },
+                {
+                  "name": "--pipe-cip-on",
+                  "value": " #E38ABB"
+                },
+                {
+                  "name": "--pipe-water-off",
+                  "value": " #BBC8D3"
+                },
+                {
+                  "name": "--pipe-water-on",
+                  "value": " #B8DDF9"
+                },
+                {
+                  "name": "--pipe-oil-off",
+                  "value": " #c6b4a7"
+                },
+                {
+                  "name": "--pipe-oil-on",
+                  "value": " #795236"
+                },
+                {
+                  "name": "--forms-item-height-1r",
+                  "value": " 32px"
+                },
+                {
+                  "name": "--forms-item-input-height-1r",
+                  "value": " 40px"
+                },
+                {
+                  "name": "--forms-btn-height-1r",
+                  "value": " 40px"
+                },
+                {
+                  "name": "--txt-normal",
+                  "value": " #2b2b2b"
+                },
+                {
+                  "name": "--txt-emphasise1",
+                  "value": " #0078D9"
+                },
+                {
+                  "name": "--seq-status-idle",
+                  "value": " #fff"
+                },
+                {
+                  "name": "--seq-status-aborted",
+                  "value": " var(--dev-sym-faulted)"
+                },
+                {
+                  "name": "--seq-status-completed",
+                  "value": " var(--dev-sym-running)"
+                },
+                {
+                  "name": "--seq-status-held",
+                  "value": " var(--dev-sym-faulted)"
+                },
+                {
+                  "name": "--seq-status-paused",
+                  "value": " var(--dev-sym-paused)"
+                },
+                {
+                  "name": "--seq-status-restarting",
+                  "value": " var(--dev-sym-running)"
+                },
+                {
+                  "name": "--seq-status-running",
+                  "value": " var(--dev-sym-running)"
+                },
+                {
+                  "name": "--seq-status-selected",
+                  "value": " #FBF16B"
+                },
+                {
+                  "name": "--sbp-connected",
+                  "value": " var(--dev-sym-running)"
+                },
+                {
+                  "name": "--sbp-disconnected",
+                  "value": " rgba(152, 152, 152, 0.0)"
+                },
+                {
+                  "name": "--sbp-winetransfer",
+                  "value": " #FFAC47"
+                },
+                {
+                  "name": "--sbp-pigging",
+                  "value": " var(--dev-sym-faulted)"
+                },
+                {
+                  "name": "--sbp-required",
+                  "value": " #4fd0b2"
+                },
+                {
+                  "name": "--sbp-required-flash",
+                  "value": " rgba(79, 208, 178, 0.33)"
+                }
+              ]
+            },
+            {
+              "fileRelPath": "./light/variables.css",
+              "variables": [
+                {
+                  "name": "--white",
+                  "value": " #FFFFFF"
+                },
+                {
+                  "name": "--black",
+                  "value": " #000000"
+                },
+                {
+                  "name": "--neutral-10",
+                  "value": " #FAFAFA"
+                },
+                {
+                  "name": "--neutral-20",
+                  "value": " #F4F4F4"
+                },
+                {
+                  "name": "--neutral-30",
+                  "value": " #D8D8D8"
+                },
+                {
+                  "name": "--neutral-40",
+                  "value": " #BDBDBD"
+                },
+                {
+                  "name": "--neutral-50",
+                  "value": " #A1A1A1"
+                },
+                {
+                  "name": "--neutral-60",
+                  "value": " #767676"
+                },
+                {
+                  "name": "--neutral-70",
+                  "value": " #5E5E5E"
+                },
+                {
+                  "name": "--neutral-80",
+                  "value": " #515151"
+                },
+                {
+                  "name": "--neutral-90",
+                  "value": " #323232"
+                },
+                {
+                  "name": "--neutral-100",
+                  "value": " #161616"
+                },
+                {
+                  "name": "--seq-1",
+                  "value": " #AE74E8"
+                },
+                {
+                  "name": "--seq-2",
+                  "value": " #9659D6"
+                },
+                {
+                  "name": "--seq-3",
+                  "value": " #7D3CBD"
+                },
+                {
+                  "name": "--seq-4",
+                  "value": " #642B9E"
+                },
+                {
+                  "name": "--seq-5",
+                  "value": " #4B2175"
+                },
+                {
+                  "name": "--seq-6",
+                  "value": " #371C52"
+                },
+                {
+                  "name": "--div-1",
+                  "value": " #642B9E"
+                },
+                {
+                  "name": "--div-2",
+                  "value": " #7D3CBD"
+                },
+                {
+                  "name": "--div-3",
+                  "value": " #9656D6"
+                },
+                {
+                  "name": "--div-4",
+                  "value": " #AE74E8"
+                },
+                {
+                  "name": "--div-5",
+                  "value": " #C79BF2"
+                },
+                {
+                  "name": "--div-6",
+                  "value": " #DABCF7"
+                },
+                {
+                  "name": "--div-7",
+                  "value": " #EAD9FA"
+                },
+                {
+                  "name": "--div-8",
+                  "value": " #F5F0FA"
+                },
+                {
+                  "name": "--div-9",
+                  "value": " #D7FAF8"
+                },
+                {
+                  "name": "--div-10",
+                  "value": " #83F2EB"
+                },
+                {
+                  "name": "--div-11",
+                  "value": " #43DED3"
+                },
+                {
+                  "name": "--div-12",
+                  "value": " #21C2B7"
+                },
+                {
+                  "name": "--div-13",
+                  "value": " #0EA197"
+                },
+                {
+                  "name": "--div-14",
+                  "value": " #08827A"
+                },
+                {
+                  "name": "--div-15",
+                  "value": " #086962"
+                },
+                {
+                  "name": "--div-16",
+                  "value": " #09524D"
+                },
+                {
+                  "name": "--qual-1",
+                  "value": " #7D3CBD"
+                },
+                {
+                  "name": "--qual-2",
+                  "value": " #229AD6"
+                },
+                {
+                  "name": "--qual-3",
+                  "value": " #086962"
+                },
+                {
+                  "name": "--qual-4",
+                  "value": " #B01355"
+                },
+                {
+                  "name": "--qual-5",
+                  "value": " #F55353"
+                },
+                {
+                  "name": "--qual-6",
+                  "value": " #661414"
+                },
+                {
+                  "name": "--qual-7",
+                  "value": " #038537"
+                },
+                {
+                  "name": "--qual-8",
+                  "value": " #114599"
+                },
+                {
+                  "name": "--qual-9",
+                  "value": " #ED5393"
+                },
+                {
+                  "name": "--qual-10",
+                  "value": " #CF7911"
+                },
+                {
+                  "name": "--containerRoot",
+                  "value": " var(--neutral-10)"
+                },
+                {
+                  "name": "--container",
+                  "value": " var(--neutral-20)"
+                },
+                {
+                  "name": "--containerNested",
+                  "value": " var(--neutral-30)"
+                },
+                {
+                  "name": "--input",
+                  "value": " var(--white)"
+                },
+                {
+                  "name": "--input--disabled",
+                  "value": " var(--neutral-40)"
+                },
+                {
+                  "name": "--icon",
+                  "value": " var(--neutral-70)"
+                },
+                {
+                  "name": "--icon--hover",
+                  "value": " var(--neutral-60)"
+                },
+                {
+                  "name": "--icon--disabled",
+                  "value": " var(--neutral-40)"
+                },
+                {
+                  "name": "--icon--selected",
+                  "value": " var(--neutral-10)"
+                },
+                {
+                  "name": "--label",
+                  "value": " var(--neutral-90)"
+                },
+                {
+                  "name": "--label--disabled",
+                  "value": " var(--neutral-60)"
+                },
+                {
+                  "name": "--border",
+                  "value": " var(--neutral-50)"
+                },
+                {
+                  "name": "--border--disabled",
+                  "value": " var(--neutral-50)"
+                },
+                {
+                  "name": "--containerBorder",
+                  "value": " 1px solid var(--border)"
+                },
+                {
+                  "name": "--boxShadow1",
+                  "value": " 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)"
+                },
+                {
+                  "name": "--boxShadow2",
+                  "value": " 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)"
+                },
+                {
+                  "name": "--boxShadow3",
+                  "value": " 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)"
+                },
+                {
+                  "name": "--boxShadow4",
+                  "value": " 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)"
+                },
+                {
+                  "name": "--boxShadow5",
+                  "value": " 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22)"
+                },
+                {
+                  "name": "--boxShadow--inset",
+                  "value": " inset 0 0 4px 2px rgba(34, 34, 34, 0.4)"
+                },
+                {
+                  "name": "--callToAction",
+                  "value": " #0C7BB3"
+                },
+                {
+                  "name": "--callToActionHighlight",
+                  "value": " #E8F4FA"
+                },
+                {
+                  "name": "--callToAction--hover",
+                  "value": " #229AD6"
+                },
+                {
+                  "name": "--callToAction--active",
+                  "value": " #066391"
+                },
+                {
+                  "name": "--callToAction--disabled",
+                  "value": " var(--neutral-50)"
+                },
+                {
+                  "name": "--error",
+                  "value": " #DE1B1B"
+                },
+                {
+                  "name": "--info",
+                  "value": " #3272D9"
+                },
+                {
+                  "name": "--infoSecondary",
+                  "value": " #ACCBFC"
+                },
+                {
+                  "name": "--warning",
+                  "value": " #AD5F00"
+                },
+                {
+                  "name": "--warningSecondary",
+                  "value": " #F5BC76"
+                },
+                {
+                  "name": "--success",
+                  "value": " #038537"
+                },
+                {
+                  "name": "--borderRadius",
+                  "value": " 4px"
+                },
+                {
+                  "name": "--borderRadiusInput",
+                  "value": " 2px"
+                },
+                {
+                  "name": "--opacity-25",
+                  "value": " rgba(0, 0, 0, 0.25)"
+                },
+                {
+                  "name": "--opacity-50",
+                  "value": " rgba(0, 0, 0, 0.50)"
+                },
+                {
+                  "name": "--opacity-85",
+                  "value": " rgba(0, 0, 0, 0.85)"
+                },
+                {
+                  "name": "--font-NotoSans",
+                  "value": " \u0027Noto Sans\u0027, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif"
+                },
+                {
+                  "name": "--indicator",
+                  "value": " #1EC963"
+                },
+                {
+                  "name": "--indicatorOff",
+                  "value": " #0A2E18"
+                },
+                {
+                  "name": "--checkbox--checked",
+                  "value": " var(--callToAction)"
+                },
+                {
+                  "name": "--checkbox--unchecked",
+                  "value": " var(--border)"
+                },
+                {
+                  "name": "--checkbox--indeterminate",
+                  "value": " var(--callToAction)"
+                },
+                {
+                  "name": "--checkbox--disabled",
+                  "value": " var(--input--disabled)"
+                },
+                {
+                  "name": "--progressLinearTrack--determinate",
+                  "value": " var(--neutral-10)"
+                },
+                {
+                  "name": "--progressLinearTrack--indeterminate",
+                  "value": " var(--neutral-10)"
+                },
+                {
+                  "name": "--progressLinearBar--determinate",
+                  "value": " var(--infoSecondary)"
+                },
+                {
+                  "name": "--progressLinearBar--indeterminate",
+                  "value": " var(--border)"
+                },
+                {
+                  "name": "--toggleSwitch--selected",
+                  "value": " var(--callToAction)"
+                },
+                {
+                  "name": "--toggleSwitch--unselected",
+                  "value": " var(--neutral-10)"
+                },
+                {
+                  "name": "--radio--selected",
+                  "value": " var(--callToAction)"
+                },
+                {
+                  "name": "--radio--unselected",
+                  "value": " var(--border)"
+                },
+                {
+                  "name": "--radio--disabled",
+                  "value": " var(--input--disabled)"
+                },
+                {
+                  "name": "--symbolFill--default",
+                  "value": " var(--neutral-20)"
+                },
+                {
+                  "name": "--symbolFillAnimation--default",
+                  "value": " var(--neutral-50)"
+                },
+                {
+                  "name": "--symbolStroke--default",
+                  "value": " var(--neutral-70)"
+                },
+                {
+                  "name": "--symbolFill--running",
+                  "value": " var(--white)"
+                },
+                {
+                  "name": "--symbolFillAnimation--running",
+                  "value": " var(--neutral-50)"
+                },
+                {
+                  "name": "--symbolStroke--running",
+                  "value": " var(--neutral-70)"
+                },
+                {
+                  "name": "--symbolFill--stopped",
+                  "value": " var(--neutral-40)"
+                },
+                {
+                  "name": "--symbolStroke--stopped",
+                  "value": " var(--neutral-70)"
+                },
+                {
+                  "name": "--symbolFill--faulted",
+                  "value": " #FAB6B6"
+                },
+                {
+                  "name": "--symbolStroke--faulted",
+                  "value": " #B80D0D"
+                }
+              ]
+            }
+          ],
+          "path": "Shared/General/Tools/CSS Variables Extractor/CSSFileVariables",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "refresh",
+          "params": [],
+          "script": "\tdef parseCSS(themeParentPath, absFilePath, cssFiles\u003dNone):\n\t\tif cssFiles\u003d\u003dNone: cssFiles\u003d[]\n\t\timport re\n\t\tprint \u0027absFilePath: \u0027, absFilePath\n\t\tabsFilePath \u003d str(absFilePath)\n\t\tfileName \u003d absFilePath.split(\u0027/\u0027)[-1]\n\t\tcssText \u003d system.file.readFileAsString(absFilePath).split(\u0027\\n\u0027)\n\t\tinsideRoot \u003d False\n\t\tcssFile \u003d {}\n\t\tvars \u003d []\n\t\trelPath \u003d \u0027./\u0027 + absFilePath.replace(themeParentPath, \u0027\u0027)\n\t\tfor line in cssText:\n\t\t\tif fileName \u003d\u003d \u0027variables.css\u0027:\n\t\t\t\tif insideRoot:\n\t\t\t\t\tline \u003d line.strip()\n\t\t\t\t\tif line[:2] \u003d\u003d \u0027--\u0027:\n\t\t\t\t\t\tvarName \u003d line.split(\":\")[0]\n\t\t\t\t\t\tvarValue \u003d re.split(\":|;\", line)[1]\n\t\t\t\t\t\tvars.append({\u0027name\u0027:varName, \u0027value\u0027:varValue})\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\tif line.find(\u0027:root\u0027) !\u003d -1:\n\t\t\t\t\tinsideRoot \u003d True\n\t\t\t\tif insideRoot and line.find(\"}\") !\u003d -1:\n\t\t\t\t\tinsideRoot \u003d False\n\t\t\t\n\t\t\tif line[:7] \u003d\u003d \u0027@import\u0027:\n\t\t\t\trelPath \u003d line.replace(\u0027@import \"\u0027,\u0027\u0027).replace(\u0027\";\u0027, \u0027\u0027)\n\t\t\t\t# E.g. ./variable.css\n\t\t\t\t#      ../light/index.css\n\t\t\t\tdots \u003d relPath.split(\u0027/\u0027)[0]\n\t\t\t\tdotCount \u003d dots.count(\".\")\n\t\t\t\tabsPath \u003d \"/\".join(absFilePath.split(\"/\")[:-1*dotCount]) + \u0027/\u0027 + \u0027/\u0027.join(relPath.split(\u0027/\u0027)[1:])\n\t\t\t\tcssFiles \u003d parseCSS(themeParentPath, absPath, cssFiles)\n\t\t\n\t\trelPath \u003d \u0027./\u0027 + absFilePath.replace(themeParentPath, \u0027\u0027)\n\t\tfor file in cssFiles:\n\t\t\tif file[\u0027fileRelPath\u0027] \u003d\u003d relPath:\n\t\t\t\treturn cssFiles\n\t\tif fileName \u003d\u003d \u0027variables.css\u0027:\n\t\t\tcssFiles.append({\n\t\t\t\t\t\t\t\u0027fileRelPath\u0027:relPath,\n\t\t\t\t\t\t\t\u0027variables\u0027:vars\n\t\t\t\t\t\t\t})\n\t\treturn cssFiles\n\t\n\tdef parseThemeCSS(themeName\u003d\u0027\u0027):\n\t\tif themeName \u003d\u003d \u0027\u0027:\n\t\t\tthemeName \u003d self.session.props.theme\n\t\tfrom com.inductiveautomation.ignition.gateway import IgnitionGateway\n\t\tcontext \u003d IgnitionGateway.get()\n\t\tprint \u0027CSS_EXTRACTOR:\u0027, context.systemManager.dataDir.absoluteFile\n\t\tthemeParentPath \u003d str(context.systemManager.dataDir.absoluteFile).replace(\u0027\\\\\u0027,\u0027/\u0027) + \u0027/modules/com.inductiveautomation.perspective/themes/\u0027\n\t\tprint \u0027CSS_EXTRACTOR: themeParentPath \u003d \u0027, themeParentPath\n\t\t#themeParentPath \u003d \u0027c:/Program Files/Inductive Automation/Ignition/data/modules/com.inductiveautomation.perspective/themes/\u0027\n\t\tabsFilePath \u003d \u0027%s%s.css\u0027 % (themeParentPath, themeName)\n\t\tprint \u0027CSS_EXTRACTOR: absFilePath \u003d \u0027, absFilePath\n\t\tjson \u003d parseCSS(themeParentPath, absFilePath)\n\t\treturn json\n\t\n\tself.getChild(\"FlexRepeater\").props.instances \u003d parseThemeCSS()"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

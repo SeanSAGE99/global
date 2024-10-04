@@ -1,0 +1,202 @@
+{
+  "custom": {
+    "alarmDetails": {},
+    "alarmTagPath": "Wolf Blass/Packaging/Line 4/Filter Skid/PL1/PT02/Calibration/Alarms/Calibration Required"
+  },
+  "params": {
+    "active": null,
+    "alarmName": "Calibration Required",
+    "alarmParentPath": "Wolf Blass/Packaging/Line 4/Filter Skid/PL1/PT02/Calibration/Alarms",
+    "alarmTagName": "Calibration Required"
+  },
+  "propConfig": {
+    "custom.alarmDetails": {
+      "persistent": true
+    },
+    "custom.alarmDetails.active": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.IsActive"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.alarmDetails.area": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.DisplayPath"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.alarmDetails.device": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.Label"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.alarmDetails.name": {
+      "binding": {
+        "config": {
+          "path": "view.params.alarmName"
+        },
+        "type": "property"
+      }
+    },
+    "custom.alarmTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.alarmParentPath} + \u0027/\u0027 +\r\n{view.params.alarmTagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.active": {
+      "binding": {
+        "config": {
+          "path": "view.custom.alarmDetails.active"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.alarmName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.alarmParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.alarmTagName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 25,
+      "width": 350
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.alarmDetails.active"
+              },
+              "transforms": [
+                {
+                  "fallback": "Device/Status/Text/Off",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "Device/Status/Shape/Faulted"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "color": "unset",
+          "path": "material/warning"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "path": "view.custom.alarmDetails.active"
+              },
+              "transforms": [
+                {
+                  "fallback": "var(--neutral-50)",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "var(--neutral-80)"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.alarmDetails.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UIElement/FontSizes/Size1",
+            "marginLeft": "2px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

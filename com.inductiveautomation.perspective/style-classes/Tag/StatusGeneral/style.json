@@ -1,0 +1,14 @@
+{
+  "base": {
+    "style": {
+      "borderTopLeftRadius": "5px",
+      "borderTopRightRadius": "5px",
+      "borderBottomLeftRadius": "5px",
+      "borderBottomRightRadius": "5px",
+      "paddingLeft": "5px",
+      "paddingRight": "5px",
+      "textAlign": "center",
+      "textTransform": "uppercase"
+    }
+  }
+}

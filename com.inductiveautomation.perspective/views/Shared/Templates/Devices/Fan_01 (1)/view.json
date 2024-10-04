@@ -1,0 +1,507 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/Winery/Refrigeration/Condensers/CN9001/Fan",
+    "foi": true,
+    "modeDesc": null
+  },
+  "params": {
+    "deviceName": "Fan",
+    "deviceParentPath": "[default]Wolf Blass/Winery/Refrigeration/Condensers/CN9001",
+    "direction": false,
+    "shownOnOverview": true
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.foi": {
+      "persistent": true
+    },
+    "custom.modeDesc": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Mode Desc"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.direction": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.shownOnOverview": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 86,
+      "width": 153
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "foi"
+            },
+            "position": {
+              "height": 0.6395,
+              "width": 0.3595,
+              "x": 0.3203,
+              "y": 0.186
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "if(isGood({view.custom.foi})\r\n\t,{view.custom.foi}\r\n\t,False\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "m35.755 41.415a14.628 14.628 0 0 1-14.628 14.628 14.628 14.628 0 0 1-14.628-14.628 14.628 14.628 0 0 1 14.628-14.628 14.628 14.628 0 0 1 14.628 14.628z",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "body",
+                          "stroke": {
+                            "paint": "var(--dev-sym-foi)",
+                            "width": 5
+                          },
+                          "style": {
+                            "strokeWidth": "6px",
+                            "vector-effect": "non-scaling-stroke"
+                          },
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "transform": "matrix(.80229 0 0 .80228 .17723 12.189)",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(-4.1275 -32.415) rotate(0, 17.1,45.5)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "-1 -1 28 28"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Fan_01_opt"
+            },
+            "position": {
+              "height": 0.5465,
+              "width": 0.3072,
+              "x": 0.3464,
+              "y": 0.2325
+            },
+            "propConfig": {
+              "props.elements[0].elements[0].elements[1].elements[0].type": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.direction"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "group"
+                        },
+                        {
+                          "input": false,
+                          "output": "path"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.elements[0].elements[0].elements[1].elements[1].type": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.direction"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "group"
+                        },
+                        {
+                          "input": true,
+                          "output": "path"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.elements[0].elements[0].elements[2].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "expression": "if({session.custom.docks.deviceControl.deviceParentPath} \u003d {view.params.deviceParentPath}\r\n\t\u0026\u0026 {session.custom.docks.deviceControl.deviceName} \u003d {view.params.deviceName}\r\n\t\u0026\u0026 {view.params.shownOnOverview}\r\n\t,\u0027var(--dev-sym-popupShown)\u0027\r\n\t,\u0027var(--neutral-90)\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Status Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Stopped",
+                          "output": "Device/Status/Shape/Off"
+                        },
+                        {
+                          "input": "Running",
+                          "output": "Device/Status/Shape/On"
+                        },
+                        {
+                          "input": "Faulted",
+                          "output": "Device/Status/Shape/Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              },
+              "props.style.filter": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.modeDesc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Maintenance",
+                          "output": "grayscale(100%)"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.style.opacity": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.modeDesc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Maintenance",
+                          "output": 0.3
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "m18.096 10.719a5.8518 5.8518 0 0 1-5.8518 5.8518 5.8518 5.8518 0 0 1-5.8518-5.8518 5.8518 5.8518 0 0 1 5.8518-5.8518 5.8518 5.8518 0 0 1 5.8518 5.8518z",
+                          "fill": {
+                            "paint": "#2B2B2B"
+                          },
+                          "name": "BackgroundColour",
+                          "type": "path"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "d": "m13.514 6.2554c-0.58105 0.68627-1.3623 1.9393-1.2976 3.4324 4.61e-4 0.017711-3.25e-4 0.00517 0 0.020392-1.3579-0.8523-1.4798-2.5144-1.4994-3.3717-1.4173 0.49336-2.5207 1.6508-2.9371 3.1023 0.68511 0.58137 1.9397 1.3656 3.4356 1.3008 0.01842-4.62e-4 0.0052 3.34e-4 0.02093 0-0.85484 1.3621-2.5251 1.481-3.3803 1.4999 0.49218 1.4202 1.6509 2.5265 3.1045 2.9435 0.58195-0.68333 1.3723-1.9412 1.3073-3.4426-4.61e-4 -0.01773 3.24e-4 -0.0051 0-0.0204 1.3641 0.85615 1.4812 2.5308 1.4999 3.3846 1.4204-0.49462 2.5257-1.6569 2.9397-3.1131-0.68426-0.58165-1.9398-1.3684-3.4383-1.3035-0.01842 4.63e-4 -0.0057-3.32e-4 -0.02146 0 0.8537-1.3603 2.52-1.4802 3.376-1.4994-0.49574-1.4173-1.6561-2.5197-3.1099-2.9333z",
+                              "name": "fins-forward-direction"
+                            },
+                            {
+                              "d": "m 10.973648,6.255379 c 0.581047,0.686266 1.362303,1.939309 1.297607,3.432379 -4.61e-4,0.01771 3.25e-4,0.0052 0,0.02039 1.357929,-0.8523 1.479829,-2.514384 1.499385,-3.371738 1.417301,0.493359 2.520666,1.650805 2.937057,3.102343 -0.685105,0.581372 -1.939696,1.365645 -3.4356,1.300827 -0.01842,-4.62e-4 -0.0052,3.34e-4 -0.02093,0 0.854837,1.362135 2.525079,1.480953 3.380325,1.499921 -0.49218,1.420182 -1.650916,2.52652 -3.104489,2.943496 -0.581948,-0.683333 -1.372322,-1.941196 -1.307267,-3.442576 4.61e-4,-0.01773 -3.24e-4,-0.0051 0,-0.0204 -1.364075,0.856152 -1.481198,2.530797 -1.499921,3.384618 -1.4204072,-0.494621 -2.5256672,-1.656905 -2.9397402,-3.113074 0.684258,-0.581654 1.939764,-1.368441 3.4382832,-1.30351 0.01842,4.63e-4 0.0057,-3.32e-4 0.02146,0 C 10.386115,9.327728 8.7198408,9.20789 7.8637918,9.188679 c 0.495737,-1.417292 1.656078,-2.51967 3.1098562,-2.9333 z",
+                              "name": "fins-reverse-direction"
+                            },
+                            {
+                              "d": "m12.244 4.7271c-3.3108 0-5.9983 2.6875-5.9983 5.9983 0 3.3108 2.6875 5.9858 5.9983 5.9858 3.3108 0 5.9983-2.675 5.9983-5.9858 0-3.3108-2.6875-5.9983-5.9983-5.9983zm0 1.5248c2.4702 0 4.4735 2.0033 4.4735 4.4735s-2.0033 4.4736-4.4735 4.4736c-2.4702 0-4.4735-2.0034-4.4735-4.4736s2.0033-4.4735 4.4735-4.4735z",
+                              "name": "path",
+                              "type": "path"
+                            },
+                            {
+                              "cx": "12.244",
+                              "cy": "10.719",
+                              "name": "ellipse",
+                              "rx": "1.1711",
+                              "ry": "1.1711",
+                              "type": "ellipse"
+                            }
+                          ],
+                          "name": "InnerElements",
+                          "stroke": {
+                            "linecap": "square",
+                            "paint": "var(--neutral-90)",
+                            "width": ".4"
+                          },
+                          "type": "group"
+                        },
+                        {
+                          "d": "m18.207 10.719a5.9627 5.9565 0 0 1-5.9627 5.9565 5.9627 5.9565 0 0 1-5.9627-5.9565 5.9627 5.9565 0 0 1 5.9627-5.9565 5.9627 5.9565 0 0 1 5.9627 5.9565z",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "Border",
+                          "stroke": {
+                            "width": ".8"
+                          },
+                          "style": {
+                            "paintOrder": "fill markers stroke"
+                          },
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "transform": "matrix(1.9682 0 0 1.9702 -5.9929 1.4614)",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(-5.1054 -9.58)",
+                  "type": "group"
+                }
+              ],
+              "style": {},
+              "viewBox": "0 0 26 26"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value"
+            },
+            "position": {
+              "height": 0.3605,
+              "width": 0.3725,
+              "x": 0.6272,
+              "y": 0.5277
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Speed PV.quality"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "tostr({value}) !\u003d \u0027Bad_NotFound\u0027",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              },
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "styleClasses": "",
+                "tagName": "Speed PV",
+                "tagQuality": "Bad_NotFound(\"Path \u0027[default]Wolf Blass/Winery/Refrigeration/Condensers/CN9001/Fan/Speed PV.quality\u0027 not found.\")"
+              },
+              "path": "Shared/Templates/Display/Analogue Value"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "maintenance"
+            },
+            "position": {
+              "height": 0.3488,
+              "width": 0.1961,
+              "x": 0.4054,
+              "y": 0.3257
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.modeDesc} \u003d \u0027Maintenance\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "color": "var(--dev-sym-faulted)",
+              "path": "material/build"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "hand-24px"
+            },
+            "position": {
+              "height": 0.2791,
+              "width": 0.1569,
+              "x": 0.6142,
+              "y": 0.1628
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Mode Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": false,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Manual",
+                          "output": true
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "m22 6.0279v13.32c0 2.0194-1.6595 3.652-3.6594 3.652h-6.5962c-0.97862 0-1.9146-0.38683-2.5954-1.0743l-7.149-7.348s1.1493-1.1174 1.192-1.1174c0.21243-0.17233 0.46843-0.25758 0.72353-0.25758 0.21243 0 0.3831 0.04308 0.55286 0.12925 0.042667 0 3.9154 2.2348 3.9154 2.2348v-10.914c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v6.4451h0.89329v-8.723c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v8.723h0.89329v-7.8201c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v7.8201h0.93595v-5.0701c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375z",
+                  "name": "path",
+                  "type": "path"
+                }
+              ],
+              "style": {
+                "classes": "DeviceModes/Shape/Manual"
+              },
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "base": {
+    "animation": {
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "var(--alm-med-fill-acked)",
+          "opacity": "1"
+        },
+        "100%": {
+          "backgroundColor": "var(--alm-med-fill-acked)",
+          "opacity": "1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,838 @@
+{
+  "custom": {
+    "bitAvail": {},
+    "table_raw": [
+      {
+        "Avail": true,
+        "Label": "FS4151",
+        "Value": 4151
+      },
+      {
+        "Avail": true,
+        "Label": "FS4152",
+        "Value": 4152
+      },
+      {
+        "Avail": true,
+        "Label": "FS4153",
+        "Value": 4153
+      },
+      {
+        "Avail": true,
+        "Label": "FS4154",
+        "Value": 4154
+      },
+      {
+        "Avail": true,
+        "Label": "FS4155",
+        "Value": 4155
+      },
+      {
+        "Avail": false,
+        "Label": "FS4156",
+        "Value": 4156
+      },
+      {
+        "Avail": true,
+        "Label": "FS4157",
+        "Value": 4157
+      },
+      {
+        "Avail": true,
+        "Label": "FS4158",
+        "Value": 4158
+      },
+      {
+        "Avail": true,
+        "Label": "FS4159",
+        "Value": 4159
+      },
+      {
+        "Avail": true,
+        "Label": "FS4160",
+        "Value": 4160
+      },
+      {
+        "Avail": true,
+        "Label": "FS4161",
+        "Value": 4161
+      },
+      {
+        "Avail": true,
+        "Label": "FS4162",
+        "Value": 4162
+      },
+      {
+        "Avail": true,
+        "Label": "FS4175",
+        "Value": 4175
+      },
+      {
+        "Avail": true,
+        "Label": "FS4176",
+        "Value": 4176
+      },
+      {
+        "Avail": true,
+        "Label": "FS4177",
+        "Value": 4177
+      },
+      {
+        "Avail": true,
+        "Label": "FS4178",
+        "Value": 4178
+      },
+      {
+        "Avail": true,
+        "Label": "FS4179",
+        "Value": 4179
+      },
+      {
+        "Avail": false,
+        "Label": "FS4180",
+        "Value": 4180
+      },
+      {
+        "Avail": true,
+        "Label": "FS4181",
+        "Value": 4181
+      },
+      {
+        "Avail": true,
+        "Label": "FS4182",
+        "Value": 4182
+      },
+      {
+        "Avail": true,
+        "Label": "FS4183",
+        "Value": 4183
+      },
+      {
+        "Avail": true,
+        "Label": "FS4184",
+        "Value": 4184
+      },
+      {
+        "Avail": true,
+        "Label": "FS4185",
+        "Value": 4185
+      },
+      {
+        "Avail": true,
+        "Label": "FS4186",
+        "Value": 4186
+      }
+    ]
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\t\n\tsystem.perspective.sendMessage(\u0027refresh-options\u0027, payload\u003dNone, scope\u003d\u0027view\u0027)"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "availType": "table",
+    "bitAvail": {
+      "datasetTagPath": "",
+      "integerAvailTagPath": ""
+    },
+    "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+    "tableAvail": {
+      "table": [
+        {
+          "Avail": true,
+          "Label": "FS4151",
+          "Value": 4151
+        },
+        {
+          "Avail": true,
+          "Label": "FS4152",
+          "Value": 4152
+        },
+        {
+          "Avail": true,
+          "Label": "FS4153",
+          "Value": 4153
+        },
+        {
+          "Avail": true,
+          "Label": "FS4154",
+          "Value": 4154
+        },
+        {
+          "Avail": true,
+          "Label": "FS4155",
+          "Value": 4155
+        },
+        {
+          "Avail": false,
+          "Label": "FS4156",
+          "Value": 4156
+        },
+        {
+          "Avail": true,
+          "Label": "FS4157",
+          "Value": 4157
+        },
+        {
+          "Avail": true,
+          "Label": "FS4158",
+          "Value": 4158
+        },
+        {
+          "Avail": true,
+          "Label": "FS4159",
+          "Value": 4159
+        },
+        {
+          "Avail": true,
+          "Label": "FS4160",
+          "Value": 4160
+        },
+        {
+          "Avail": true,
+          "Label": "FS4161",
+          "Value": 4161
+        },
+        {
+          "Avail": true,
+          "Label": "FS4162",
+          "Value": 4162
+        },
+        {
+          "Avail": true,
+          "Label": "FS4175",
+          "Value": 4175
+        },
+        {
+          "Avail": true,
+          "Label": "FS4176",
+          "Value": 4176
+        },
+        {
+          "Avail": true,
+          "Label": "FS4177",
+          "Value": 4177
+        },
+        {
+          "Avail": true,
+          "Label": "FS4178",
+          "Value": 4178
+        },
+        {
+          "Avail": true,
+          "Label": "FS4179",
+          "Value": 4179
+        },
+        {
+          "Avail": false,
+          "Label": "FS4180",
+          "Value": 4180
+        },
+        {
+          "Avail": true,
+          "Label": "FS4181",
+          "Value": 4181
+        },
+        {
+          "Avail": true,
+          "Label": "FS4182",
+          "Value": 4182
+        },
+        {
+          "Avail": true,
+          "Label": "FS4183",
+          "Value": 4183
+        },
+        {
+          "Avail": true,
+          "Label": "FS4184",
+          "Value": 4184
+        },
+        {
+          "Avail": true,
+          "Label": "FS4185",
+          "Value": 4185
+        },
+        {
+          "Avail": true,
+          "Label": "FS4186",
+          "Value": 4186
+        }
+      ]
+    }
+  },
+  "propConfig": {
+    "custom.bitAvail": {
+      "persistent": true
+    },
+    "custom.bitAvail.avail": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.availType} \u003d \u0027bit\u0027\r\n\t,tag({view.params.bitAvail.integerAvailTagPath})\r\n\t,\u0027\u0027\r\n)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.bitAvail.dataset": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.availType} \u003d \u0027bit\u0027\r\n\t,tag({view.params.bitAvail.datasetTagPath})\r\n\t,\u0027\u0027\r\n)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.table_raw": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.availType} \u003d \u0027bit\u0027\r\n\t,{view.custom.bitAvail.dataset}\r\n\t,{view.params.tableAvail.table}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.availType": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.bitAvail": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.bitAvail.datasetTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.bitAvail.integerAvailTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selectTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tableAvail": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tableAvail.table": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 515,
+      "width": 388
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "refresh": true
+        },
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "basis": "150px",
+          "grow": 1
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "elementStyle": {
+            "margin": "10pt",
+            "marginBottom": "0pt",
+            "marginLeft": 10,
+            "marginRight": "0pt"
+          },
+          "instances": [
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4151",
+              "optionValue": 4151,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4152",
+              "optionValue": 4152,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4153",
+              "optionValue": 4153,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4154",
+              "optionValue": 4154,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4155",
+              "optionValue": 4155,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4156",
+              "optionValue": 4156,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": false
+              },
+              "tableAvail_avail": false
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4157",
+              "optionValue": 4157,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4158",
+              "optionValue": 4158,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4159",
+              "optionValue": 4159,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4160",
+              "optionValue": 4160,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4161",
+              "optionValue": 4161,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4162",
+              "optionValue": 4162,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4175",
+              "optionValue": 4175,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4176",
+              "optionValue": 4176,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4177",
+              "optionValue": 4177,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4178",
+              "optionValue": 4178,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4179",
+              "optionValue": 4179,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4180",
+              "optionValue": 4180,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": false
+              },
+              "tableAvail_avail": false
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4181",
+              "optionValue": 4181,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4182",
+              "optionValue": 4182,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4183",
+              "optionValue": 4183,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4184",
+              "optionValue": 4184,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4185",
+              "optionValue": 4185,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            },
+            {
+              "availType": "table",
+              "bitAvail": {
+                "bit": "",
+                "integerAvailTagPath": ""
+              },
+              "bitAvail_bit": "",
+              "bitAvail_integerAvailTagPath": "",
+              "optionLabel": "FS4186",
+              "optionValue": 4186,
+              "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+              "tableAvail": {
+                "avail": true
+              },
+              "tableAvail_avail": true
+            }
+          ],
+          "justify": "center",
+          "path": "Shared/General/Popups/OptionPicker/_Item",
+          "style": {
+            "marginLeft": "-10pt"
+          },
+          "wrap": "wrap"
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "refreshOptions",
+              "params": [],
+              "script": "\tself.props.instances \u003d []\n\tavailType \u003d self.view.params.availType\n\toptions_raw \u003d self.view.custom.table_raw\n\tif availType \u003d\u003d \u0027bit\u0027:\n\t\toptions_raw \u003d system.dataset.toPyDataSet(options_raw)\n\t\n\toptions \u003d []\n\tfor i, option_raw in enumerate(options_raw):\n\t\toption \u003d {\u0027optionValue\u0027: option_raw[\u0027Value\u0027],\n\t\t\t  \t  \u0027optionLabel\u0027: option_raw[\u0027Label\u0027],\n\t\t\t\t  \u0027selectTagPath\u0027: self.view.params.selectTagPath,\n\t\t\t\t  \u0027availType\u0027: availType}\n\t\t\n\t\tif availType \u003d\u003d \u0027table\u0027:\n\t\t\tavail \u003d option_raw[\u0027Avail\u0027]\n\t\t\toption[\u0027tableAvail\u0027] \u003d {\u0027avail\u0027: avail} \n\t\t\toption[\u0027bitAvail\u0027] \u003d {\u0027bit\u0027: \u0027\u0027, \u0027integerAvailTagPath\u0027: \u0027\u0027}\n\t\t\t\n\t\t\toption[\u0027tableAvail_avail\u0027] \u003d avail\n\t\t\toption[\u0027bitAvail_bit\u0027] \u003d \u0027\u0027\n\t\t\toption[\u0027bitAvail_integerAvailTagPath\u0027] \u003d \u0027\u0027\n\t\t\t\n\t\telif availType \u003d\u003d \u0027bit\u0027:\n\t\t\tavailBit \u003d option_raw[\u0027AvailableBit\u0027]\n\t\t\toption[\u0027tableAvail\u0027] \u003d {\u0027avail\u0027: \u0027\u0027} \n\t\t\toption[\u0027bitAvail\u0027] \u003d {\u0027bit\u0027: availBit, \u0027integerAvailTagPath\u0027: self.view.params.bitAvail.integerAvailTagPath}\n\t\t\t\n\t\t\toption[\u0027tableAvail_avail\u0027] \u003d \u0027\u0027\n\t\t\toption[\u0027bitAvail_bit\u0027] \u003d availBit\n\t\t\toption[\u0027bitAvail_integerAvailTagPath\u0027] \u003d self.view.params.bitAvail.integerAvailTagPath\n\t\t\n\t\telse:\n\t\t\toption[\u0027tableAvail\u0027] \u003d {\u0027avail\u0027: \u0027\u0027} \n\t\t\toption[\u0027bitAvail\u0027] \u003d {\u0027bit\u0027: \u0027\u0027, \u0027integerAvailTagPath\u0027: \u0027\u0027}\n\t\t\t\n\t\t\toption[\u0027tableAvail_avail\u0027] \u003d \u0027\u0027\n\t\t\toption[\u0027bitAvail_bit\u0027] \u003d \u0027\u0027\n\t\t\toption[\u0027bitAvail_integerAvailTagPath\u0027] \u003d \u0027\u0027\n\t\t\n\t\toptions.append(option)\n\t\n\tself.props.instances \u003d options"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "refresh-options",
+              "pageScope": false,
+              "script": "\tself.refreshOptions()",
+              "sessionScope": false,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "basis": "400px",
+          "display": false
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "path": "session.custom.test"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "options-popup",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "close",
+                "viewPath": ""
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 0,
+            "borderBottomRightRadius": 0,
+            "borderBottomStyle": "none",
+            "borderLeftStyle": "none",
+            "borderRightStyle": "none",
+            "borderTopLeftRadius": 0,
+            "borderTopRightRadius": 0,
+            "classes": "Buttons/Body Buttons/Text"
+          },
+          "text": "Exit"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

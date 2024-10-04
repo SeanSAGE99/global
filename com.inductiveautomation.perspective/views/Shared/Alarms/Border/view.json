@@ -1,0 +1,161 @@
+{
+  "custom": {
+    "alarmSummaryTagPath": "Alexandrina/Alarm Summary",
+    "highestPriority": 1,
+    "priorityCounts": {}
+  },
+  "params": {
+    "alarmSummary": {
+      "enabled": true,
+      "parentPath": "Alexandrina"
+    },
+    "device": {
+      "enabled": false,
+      "name": "",
+      "parentPath": ""
+    }
+  },
+  "propConfig": {
+    "custom.alarmSummaryTagPath": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.device.enabled},\r\n\t{view.params.device.parentPath} + \u0027/\u0027 + {view.params.device.name} + \u0027/Alarm Summary\u0027,\r\nif({view.params.alarmSummary.enabled},\r\n\t{view.params.alarmSummary.parentPath} + \u0027/Alarm Summary\u0027,\r\n\u0027NO SELECTION MADE\u0027))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.highestPriority": {
+      "binding": {
+        "config": {
+          "expression": "if({view.custom.priorityCounts.critical} \u003e 0, 1,\r\nif({view.custom.priorityCounts.high} \u003e 0, 2,\r\nif({view.custom.priorityCounts.medium} \u003e 0, 3,\r\nif({view.custom.priorityCounts.low} \u003e 0, 4,\r\n0))))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.priorityCounts": {
+      "persistent": true
+    },
+    "custom.priorityCounts.critical": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Critical"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.high": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/High"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.low": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Low"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.medium": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Medium"
+        },
+        "type": "tag"
+      }
+    },
+    "params.alarmSummary": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.highestPriority"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": "Alarms/Border/Critical"
+                    },
+                    {
+                      "input": 2,
+                      "output": "Alarms/Border/High"
+                    },
+                    {
+                      "input": 3,
+                      "output": "Alarms/Border/Medium"
+                    },
+                    {
+                      "input": 4,
+                      "output": "Alarms/Border/Low"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

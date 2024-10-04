@@ -1,0 +1,111 @@
+{
+  "custom": {
+    "alarmFilter": "*/*"
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tpaths \u003d self.params.filterPaths\n\ttry:\n\t\tfilter \u003d \",\".join([\"*\" + path.value.split(\u0027]\u0027)[-1] + \u0027/*\u0027 for path in paths])\n\texcept:\n\t\tfilter \u003d \",\".join([\"*\" + path.split(\u0027]\u0027)[-1] + \"/*\" for path in paths])\n\tself.custom.alarmFilter \u003d filter"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "filterPaths": [
+      ""
+    ]
+  },
+  "propConfig": {
+    "custom.alarmFilter": {
+      "persistent": true
+    },
+    "params.filterPaths": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tpaths \u003d self.params.filterPaths\n\t#self.custom.alarmFilter \u003d paths\n\tfilter \u003d \u0027\u0027\n\tfor path in paths:\n\t\tif filter \u003d\u003d \u0027\u0027:\n\t\t\tfilter \u003d path.value\n\t\telse:\n\t\t\tfilter +\u003d \u0027,\u0027+path.value\n\tself.custom.alarmFilter \u003d filter"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.filterPaths.key": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 335,
+      "width": 1280
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.filterPaths"
+              },
+              "transforms": [
+                {
+                  "expression": "{view.custom.alarmFilter}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "NOT WORKING YET"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.deviceName": {
+            "binding": {
+              "config": {
+                "path": "view.params.seqName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.deviceParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.seqParentPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Shared/Templates/Devices/Control/Common/Alarms"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

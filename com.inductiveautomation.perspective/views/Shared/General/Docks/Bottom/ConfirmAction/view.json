@@ -1,0 +1,308 @@
+{
+  "custom": {
+    "message": "Hello world",
+    "onCancel_TagPath": null,
+    "onCancel_WriteValue": null,
+    "onConfirm_TagPath": null,
+    "onConfirm_WriteValue": null
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tself.getChild(\"root\").custom.timer \u003d self.getChild(\"root\").custom.timer_start"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.message": {
+      "persistent": true
+    },
+    "custom.onCancel_TagPath": {
+      "persistent": true
+    },
+    "custom.onCancel_WriteValue": {
+      "persistent": true
+    },
+    "custom.onConfirm_TagPath": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value is not None:\n\t\tself.getChild(\"root\").custom.timer \u003d self.getChild(\"root\").custom.timer_start\n\t\tsystem.perspective.openDock(\u0027confirm-action\u0027)"
+      },
+      "persistent": true
+    },
+    "custom.onConfirm_WriteValue": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 1011
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "square-box-24px"
+        },
+        "position": {
+          "basis": "8px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.elements[0].elements[0].style.clipPath": {
+            "binding": {
+              "config": {
+                "expression": "\u0027inset(0 \u0027 + tostr(100.0-({parent.custom.timer}/{parent.custom.timer_start}*100.0)) + \u0027% 0 0)\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "d": "m0 290.65h24v24h-24z",
+                  "fill": {
+                    "opacity": ".98942",
+                    "paint": "#66C9FF"
+                  },
+                  "name": "path",
+                  "style": {
+                    "paintOrder": "fill markers stroke"
+                  },
+                  "type": "path"
+                }
+              ],
+              "name": "group",
+              "transform": "translate(0 -290.65)",
+              "type": "group"
+            }
+          ],
+          "preserveAspectRatio": "none",
+          "style": {
+            "borderBottomColor": "#2B2B2B",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "1px"
+          },
+          "viewBox": "0 0 24 24"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "path": "material/priority_high"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "20px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "color": "#555555",
+                    "fontSize": "8pt",
+                    "textTransform": "uppercase"
+                  },
+                  "text": "CONFIRM ACTION"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "100px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.message"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.timer"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginRight": "5px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.onConfirm_TagPath \u003d None\n\tself.view.custom.onConfirm_WriteValue \u003d None\n\tself.view.custom.onCancel_TagPath \u003d None\n\tself.view.custom.onCancel_WriteValue \u003d None\n\tsystem.perspective.closeDock(\u0027confirm-action\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "btnConfirm"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "style": {
+                "classes": "Buttons/Emphasis_Low Buttons/Text",
+                "marginBottom": "5px",
+                "marginTop": "5px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\ttagPath \u003d self.view.custom.onConfirm_TagPath\n\tval \u003d self.view.custom.onConfirm_WriteValue\n\tif tagPath is not None:\n\t\tsystem.tag.writeBlocking([tagPath], [val])\n\tself.view.custom.onConfirm_TagPath \u003d None\n\tself.view.custom.onConfirm_WriteValue \u003d None\n\tself.view.custom.onCancel_TagPath \u003d None\n\tself.view.custom.onCancel_WriteValue \u003d None\n\tsystem.perspective.closeDock(\u0027confirm-action\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "btnConfirm_0"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "style": {
+                "classes": "Buttons/Body_DestructiveAction Buttons/Text",
+                "marginBottom": "5px",
+                "marginLeft": "20px",
+                "marginRight": "5px",
+                "marginTop": "5px"
+              },
+              "text": "confirm"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "timer": 8,
+      "timer_start": 10
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.clock": {
+        "binding": {
+          "config": {
+            "expression": "if({this.custom.timer}\u003e0\r\n\t,toBoolean(getSecond(now(1000))%2)\r\n\t,false\r\n)"
+          },
+          "type": "expr"
+        },
+        "onChange": {
+          "enabled": null,
+          "script": "\tself.custom.timer -\u003d 1"
+        }
+      },
+      "custom.timer": {
+        "onChange": {
+          "enabled": null,
+          "script": "\tif currentValue.value \u003c\u003d 0:\n\t\tself.view.custom.onConfirm_TagPath \u003d None\n\t\tself.view.custom.onConfirm_WriteValue \u003d None\n\t\tself.view.custom.onCancel_TagPath \u003d None\n\t\tself.view.custom.onCancel_WriteValue \u003d None\n\t\tsystem.perspective.closeDock(\u0027confirm-action\u0027)"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#FFE41A",
+        "overflow": "hidden"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "confirm-action",
+          "pageScope": true,
+          "script": "\tself.view.custom.message \u003d payload.get(\u0027message\u0027, None)\n\t\n\tself.view.custom.onConfirm_TagPath \u003d payload.get(\u0027onConfirm_TagPath\u0027, None)\n\tself.view.custom.onConfirm_WriteValue \u003d payload.get(\u0027onConfirm_WriteValue\u0027, None)\n\t\n\tself.view.custom.onCancel_TagPath \u003d payload.get(\u0027onConfirm_TagPath\u0027, None)\n\tself.view.custom.onCancel_WriteValue \u003d payload.get(\u0027onConfirm_WriteValue\u0027, None)",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

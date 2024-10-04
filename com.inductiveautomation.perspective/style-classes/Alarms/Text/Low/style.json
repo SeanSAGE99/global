@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "fontSize": "0.875rem",
+      "fontWeight": "bold",
+      "fill": "#fff"
+    }
+  }
+}

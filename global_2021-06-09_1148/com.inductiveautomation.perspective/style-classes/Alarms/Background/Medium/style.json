@@ -1,0 +1,8 @@
+{
+  "base": {
+    "style": {
+      "strokeWidth": "0.5",
+      "backgroundColor": "var(--alm-med-backgroundColor)"
+    }
+  }
+}

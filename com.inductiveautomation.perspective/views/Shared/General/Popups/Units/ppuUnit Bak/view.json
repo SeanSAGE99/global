@@ -1,0 +1,603 @@
+{
+  "custom": {
+    "parameterControlEnable": true,
+    "unitParams": [
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Depressurised Delay",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Fill Watchdog",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Locked Minimum Pressure",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Loss of Sanitised Time",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Purge Cycles Post CIP or Regen",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Purge Cycles Post Production",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Stop Venting to Lock Pressure",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Successive Integrity Tests Fails",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Vent Pressure",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": true,
+        "setpointWidth": "100px",
+        "tagName": "Vented Delay",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Unit Parameters",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      }
+    ],
+    "unitStats": [
+      {
+        "controlEnable": false,
+        "setpointWidth": "100px",
+        "tagName": "Integrity Tested",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Statistics",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": false,
+        "setpointWidth": "100px",
+        "tagName": "Last IT Pressure Drop",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Statistics",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": false,
+        "setpointWidth": "100px",
+        "tagName": "Regenerated",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Statistics",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      },
+      {
+        "controlEnable": false,
+        "setpointWidth": "100px",
+        "tagName": "Sanitised",
+        "tagParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2/Statistics",
+        "unitsWidth": "25px",
+        "useDeviceRanges": false
+      }
+    ],
+    "unitTagPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/FF2"
+  },
+  "params": {
+    "controlEnable": true,
+    "unitName": "FF2",
+    "unitParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units"
+  },
+  "propConfig": {
+    "custom.parameterControlEnable": {
+      "binding": {
+        "config": {
+          "path": "view.params.controlEnable"
+        },
+        "transforms": [
+          {
+            "expression": "{value} \u0026\u0026\r\ntry(hasRole(\"Engineer\", {session.props.auth.user.userName}, \u0027default\u0027), false)",
+            "type": "expression"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tsystem.perspective.sendMessage(\u0027refresh-instances\u0027)"
+      },
+      "persistent": true
+    },
+    "custom.unitParams": {
+      "persistent": true
+    },
+    "custom.unitStats": {
+      "persistent": true
+    },
+    "custom.unitTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.unitParentPath} + \u0027/\u0027 + \r\n{view.params.unitName}"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tsystem.perspective.sendMessage(\u0027refresh-instances\u0027)\t"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unitName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unitParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 454,
+      "width": 537
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.deviceParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.custom.unitTagPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.overrides.subTitle": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "unitTagPath": "{view.custom.unitTagPath}"
+                },
+                "tagPath": "{unitTagPath}/Common/Info/Description"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "deviceName": "Common",
+            "overrides": {
+              "title": ""
+            }
+          },
+          "path": "Shared/General/Popups/_CommonParts/Header"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label Only"
+                    },
+                    "position": {
+                      "basis": "320px"
+                    },
+                    "props": {
+                      "params": {
+                        "hideLabel": false,
+                        "labelOverride": "",
+                        "tagName": "Contents"
+                      },
+                      "path": "Shared/Templates/Display/Label Only"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{view.custom.unitTagPath}"
+                            },
+                            "tagPath": "{1}/Common/Contents Desc"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "custom": {
+                  "contents": "Water"
+                },
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "32px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "Tables/Row",
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "StatisticsViewRepeater"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.unitStats"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "elementStyle": {
+                    "marginBottom": "5px"
+                  },
+                  "path": "Shared/Templates/Display/Check w Label",
+                  "useDefaultViewWidth": false
+                },
+                "type": "ia.display.flex-repeater"
+              },
+              {
+                "meta": {
+                  "name": "OneShotButton"
+                },
+                "position": {
+                  "basis": "45px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "1": "{view.custom.unitTagPath}"
+                        },
+                        "tagPath": "{1}/Common/All to Auto CMD"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "readyState": {
+                    "icon": {
+                      "path": "material/sync",
+                      "style": {
+                        "height": "24px",
+                        "width": "2rem"
+                      }
+                    },
+                    "style": {
+                      "classes": "Buttons/Body Buttons/Body_OneShotWriting Buttons/Text Tables/Row"
+                    },
+                    "text": "all devices to auto"
+                  },
+                  "setValue": true,
+                  "writingState": {
+                    "icon": {
+                      "path": "material/hourglass_empty",
+                      "style": {
+                        "height": "24px",
+                        "width": "2rem"
+                      }
+                    },
+                    "style": {
+                      "classes": "Tables/Row Buttons/Body_OneShotWriting Buttons/Text"
+                    },
+                    "text": "Writing..."
+                  }
+                },
+                "type": "ia.input.oneshotbutton"
+              },
+              {
+                "meta": {
+                  "name": "OneShotButton_0"
+                },
+                "position": {
+                  "basis": "45px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "1": "{view.custom.unitTagPath}"
+                        },
+                        "tagPath": "{1}/Common/All to Manual CMD"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "readyState": {
+                    "icon": {
+                      "path": "material/pan_tool",
+                      "style": {
+                        "height": "24px",
+                        "width": "2rem"
+                      }
+                    },
+                    "style": {
+                      "classes": "Buttons/Body Buttons/Body_OneShotWriting Buttons/Text Tables/Row"
+                    },
+                    "text": "all devices to manual"
+                  },
+                  "setValue": true,
+                  "writingState": {
+                    "icon": {
+                      "path": "material/hourglass_empty",
+                      "style": {
+                        "height": "24px",
+                        "width": "2rem"
+                      }
+                    },
+                    "style": {
+                      "classes": "Tables/Row Buttons/Body_OneShotWriting Buttons/Text"
+                    },
+                    "text": "Writing..."
+                  }
+                },
+                "type": "ia.input.oneshotbutton"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "Cards/Heading3"
+                  },
+                  "text": "Parameters"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "FlexRepeater"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.unitParams"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "elementStyle": {
+                    "marginBottom": "10px"
+                  },
+                  "path": "Shared/Templates/Display/Analogue Setpoint w Label",
+                  "useDefaultViewWidth": false
+                },
+                "type": "ia.display.flex-repeater"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderLeftColor": "#2B2B2B",
+                "borderLeftStyle": "solid",
+                "borderLeftWidth": "1px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#EEECE8",
+            "paddingBottom": "5px",
+            "paddingTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.closePopup(self.view.custom.unitTagPath)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "path": "material/close"
+            }
+          },
+          "style": {
+            "borderBottomLeftRadius": 0,
+            "borderBottomRightRadius": 0,
+            "borderBottomStyle": "none",
+            "borderLeftStyle": "none",
+            "borderRightStyle": "none",
+            "borderTopLeftRadius": 0,
+            "borderTopRightRadius": 0,
+            "classes": "Buttons/Body Buttons/Text"
+          },
+          "text": "Exit"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "refreshParams",
+          "params": [],
+          "script": "\tself.view.custom.unitParams \u003d []\n\tparamTags \u003d shared.tag.browseTags(self.view.custom.unitTagPath + \u0027/Unit Parameters\u0027)\n\tparamTagParentPaths \u003d [str(tag[\u0027fullPath\u0027]).replace(\u0027/\u0027 + tag[\u0027name\u0027], \u0027\u0027) for tag in paramTags]\n\tparamTagNames \u003d [tag[\u0027name\u0027] for tag in paramTags]\n\t\n\tcontrolEnable \u003d self.view.custom.parameterControlEnable\n\t\n\t\n\tinstances \u003d []\n\tfor param in zip(paramTagParentPaths, paramTagNames):\n\t\tinstance \u003d {\n\t\t\t\t\t  \"controlEnable\": controlEnable,\n\t\t\t\t\t  \"setpointWidth\": \"100px\",\n\t\t\t\t\t  \"tagName\": param[1],\n\t\t\t\t\t  \"tagParentPath\": param[0],\n\t\t\t\t\t  \"unitsWidth\": \"25px\",\n\t\t\t\t\t  \"useDeviceRanges\": False\n\t\t\t\t\t}\n\t\tinstances.append(instance)\n\t\n\tself.view.custom.unitParams \u003d instances"
+        },
+        {
+          "name": "refreshStats",
+          "params": [],
+          "script": "\tself.view.custom.unitStats \u003d []\n\tstatsTags \u003d shared.tag.browseTags(self.view.custom.unitTagPath + \u0027/Statistics\u0027)\n\tstatsTagParentPaths \u003d [str(tag[\u0027fullPath\u0027]).replace(\u0027/\u0027 + tag[\u0027name\u0027], \u0027\u0027) for tag in statsTags]\n\tstatsTagNames \u003d [tag[\u0027name\u0027] for tag in statsTags]\n\t\n\tinstances \u003d []\n\tfor stat in zip(statsTagParentPaths, statsTagNames):\n\t\tinstance \u003d {\n\t\t\t\t\t  \"controlEnable\": False,\n\t\t\t\t\t  \"setpointWidth\": \"100px\",\n\t\t\t\t\t  \"tagName\": stat[1],\n\t\t\t\t\t  \"tagParentPath\": stat[0],\n\t\t\t\t\t  \"unitsWidth\": \"25px\",\n\t\t\t\t\t  \"useDeviceRanges\": False\n\t\t\t\t\t}\n\t\tinstances.append(instance)\n\t\n\tself.view.custom.unitStats \u003d instances"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refresh-instances",
+          "pageScope": true,
+          "script": "\tself.refreshParams()\n\tself.refreshStats()",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

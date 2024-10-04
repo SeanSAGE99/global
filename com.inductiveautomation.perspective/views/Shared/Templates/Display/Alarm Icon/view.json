@@ -1,0 +1,293 @@
+{
+  "custom": {
+    "alarmActive": true,
+    "alarmFilter": [
+      "Wolf Blass/Winery"
+    ],
+    "areaAlarmActive": 207,
+    "areaAlarmCounts": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "deviceAlarmActive": null,
+    "deviceFilter": [
+      null
+    ],
+    "deviceTagPath": "/"
+  },
+  "params": {
+    "areaFilters": [
+      "Wolf Blass/Winery"
+    ],
+    "device": {
+      "deviceName": "",
+      "deviceParentPath": "",
+      "enabled": false
+    }
+  },
+  "propConfig": {
+    "custom.alarmActive": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.device.enabled}\r\n\t,{view.custom.deviceAlarmActive}\r\n\t,{view.custom.areaAlarmActive}\r\n) \u003e 0"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.alarmFilter": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.device.enabled}\r\n\t,{view.custom.deviceFilter}\r\n\t,{view.params.areaFilters}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.areaAlarmActive": {
+      "binding": {
+        "config": {
+          "expression": "coalesce({view.custom.areaAlarmCounts[0]},0) +\r\ncoalesce({view.custom.areaAlarmCounts[1]},0) +\r\ncoalesce({view.custom.areaAlarmCounts[2]},0) + \r\ncoalesce({view.custom.areaAlarmCounts[3]},0) +\r\ncoalesce({view.custom.areaAlarmCounts[4]},0)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.areaAlarmCounts": {
+      "persistent": true
+    },
+    "custom.areaAlarmCounts[0]": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmFilter[0]}"
+          },
+          "tagPath": "{1}/Alarm Summary/Active Unack"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      }
+    },
+    "custom.areaAlarmCounts[1]": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmFilter[1]}"
+          },
+          "tagPath": "{1}/Alarm Summary/Active Unack"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      }
+    },
+    "custom.areaAlarmCounts[2]": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmFilter[2]}"
+          },
+          "tagPath": "{1}/Alarm Summary/Active Unack"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      }
+    },
+    "custom.areaAlarmCounts[3]": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmFilter[3]}"
+          },
+          "tagPath": "{1}/Alarm Summary/Active Unack"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      }
+    },
+    "custom.areaAlarmCounts[4]": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmFilter[4]}"
+          },
+          "tagPath": "{1}/Alarm Summary/Active Unack"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      }
+    },
+    "custom.deviceAlarmActive": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Alarms/_AnyActive"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.deviceFilter": {
+      "persistent": true
+    },
+    "custom.deviceFilter[0]": {
+      "binding": {
+        "config": {
+          "path": "view.custom.deviceTagPath"
+        },
+        "type": "property"
+      }
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.device.deviceParentPath} + \u0027/\u0027 + {view.params.device.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.areaFilters": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.areaFilters[0]": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device.enabled": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.openPopup(id\u003d\u0027Shared/General/AlarmQuickView\u0027,\n\t\t\t\t\t\t\t\t view\u003d\u0027Shared/General/AlarmQuickView\u0027,\n\t\t\t\t\t\t\t\t params\u003dself.view.custom.alarmFilter,\n\t\t\t\t\t\t\t\t modal\u003dTrue, overlayDismiss\u003dTrue\n\t\t\t\t\t\t\t\t )"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "draggable": false,
+                  "id": "Shared/General/AlarmQuickView",
+                  "modal": true,
+                  "overlayDismiss": true,
+                  "resizable": false,
+                  "showCloseIcon": false,
+                  "type": "open",
+                  "viewParams": {
+                    "filterPaths": "{view.custom.alarmFilter}"
+                  },
+                  "viewPath": "Shared/General/AlarmQuickView"
+                },
+                "enabled": false,
+                "scope": "C",
+                "type": "popup"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 1,
+          "width": 1
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.custom.alarmActive"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.alarmActive"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "Device/Status/Text/Off"
+                    },
+                    {
+                      "input": true,
+                      "output": "Device/Status/Text/Faulted"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/warning",
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

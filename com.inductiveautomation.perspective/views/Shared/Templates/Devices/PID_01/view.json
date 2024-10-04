@@ -1,0 +1,282 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1/HEX/Outlet Temperature Controller"
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "Outlet Temperature Controller",
+    "deviceParentPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1/HEX",
+    "direction": false,
+    "pipeContents": "Oil"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.direction": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pipeContents": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 61,
+      "width": 120
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tshared.perspective.device.openDevicePopup(self,event)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "height": 34,
+              "width": 110,
+              "x": 5,
+              "y": 5
+            },
+            "propConfig": {
+              "props.style.boxShadow": {
+                "binding": {
+                  "config": {
+                    "expression": "if({parent.custom.cv-override} || {parent.custom.sp-override}\r\n\t,\u00270 0 0 3px var(--dev-sym-abnormal)\u0027\r\n\t, \u0027\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Buttons/Body Buttons/Text\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {},
+              "text": "Controller"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "levels"
+            },
+            "position": {
+              "height": 14,
+              "width": 110,
+              "x": 5,
+              "y": 43
+            },
+            "propConfig": {
+              "custom.cv": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/CV Ramped"
+                  },
+                  "type": "tag"
+                }
+              },
+              "custom.pv": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/PV Percent"
+                  },
+                  "type": "tag"
+                }
+              },
+              "custom.sp": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/SP Percent"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.elements[0].elements[0].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(0% \u0027 + tostr(\r\n100-{this.custom.pv}\r\n) + \u0027% 66% 0px)\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.elements[0].elements[1].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(33.3333% \u0027 + tostr(\r\n100-{this.custom.sp}\r\n) + \u0027% 33.3333% 0px)\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.elements[0].elements[2].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(66.6666% \u0027 + tostr(\r\n100-{this.custom.cv}\r\n) + \u0027% 0% 0px)\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "paint": "#76E984"
+                      },
+                      "name": "pv",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "paint": "#FA6549"
+                      },
+                      "name": "sp",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "paint": "#72CAE4"
+                      },
+                      "name": "cv",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "preserveAspectRatio": "none",
+              "style": {
+                "backgroundColor": "var(--neutral-90)",
+                "borderColor": "var(--neutral-90)",
+                "borderStyle": "solid",
+                "borderWidth": "1px"
+              },
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.cv-override": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.custom.deviceTagPath}"
+                },
+                "tagPath": "{1}/CV Manual"
+              },
+              "type": "tag"
+            }
+          },
+          "custom.sp-override": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.custom.deviceTagPath}"
+                },
+                "tagPath": "{1}/SP Manual"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "aspectRatio": "153:86",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

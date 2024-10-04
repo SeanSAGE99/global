@@ -1,0 +1,201 @@
+{
+  "custom": {
+    "bitAvail": false,
+    "btnAvail": "",
+    "itemSelected": 0
+  },
+  "params": {
+    "availType": "table",
+    "bitAvail": {
+      "bit": "",
+      "integerAvailTagPath": ""
+    },
+    "bitAvail_bit": "",
+    "bitAvail_integerAvailTagPath": "",
+    "optionLabel": "FS4157",
+    "optionValue": 4157,
+    "selectTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Sequences/Racking/Operator Setup/Source Fermenter",
+    "tableAvail": {
+      "avail": true
+    },
+    "tableAvail_avail": ""
+  },
+  "propConfig": {
+    "custom.bitAvail": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.params.bitAvail_integerAvailTagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "transforms": [
+          {
+            "expression": "try(getBit({value}, {view.params.bitAvail_bit}), false)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.btnAvail": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.availType} \u003d \u0027bit\u0027\r\n\t,{view.custom.bitAvail}\r\n\t,{view.params.tableAvail_avail}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.itemSelected": {
+      "binding": {
+        "config": {
+          "bidirectional": true,
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.params.selectTagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.thisItemSelected": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.params.selectTagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "transforms": [
+          {
+            "expression": "{value} \u003d {view.params.optionValue}",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      }
+    },
+    "params.availType": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.bitAvail_bit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.bitAvail_integerAvailTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.optionLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.optionValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selectTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tableAvail_avail": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 100
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.custom.itemSelected \u003d self.view.params.optionValue\n\tsystem.perspective.closePopup(\u0027options-popup\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.custom.btnAvail"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.thisItemSelected"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "Buttons/Body Buttons/Text"
+                    },
+                    {
+                      "input": true,
+                      "output": "Buttons/Body Buttons/Text UIElement/MenuSelected"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.optionLabel"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

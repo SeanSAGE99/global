@@ -1,0 +1,253 @@
+{
+  "custom": {
+    "isRefMQTTTag": false,
+    "pv": false,
+    "refTagSourcePath": "",
+    "tagPath": "[default]High Voltage/International/Substation 1/CSB Genset PLC/Priorities/Command/Priority Load 6 Command",
+    "writeEnable": true
+  },
+  "params": {
+    "tagName": "Priority Load 6 Command",
+    "tagParentPath": "[default]High Voltage/International/Substation 1/CSB Genset PLC/Priorities/Command"
+  },
+  "propConfig": {
+    "custom.isRefMQTTTag": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.valueSource"
+        },
+        "transforms": [
+          {
+            "expression": "{value} \u003d \u0027reference\u0027",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.max": {
+      "persistent": true
+    },
+    "custom.min": {
+      "persistent": true
+    },
+    "custom.numberFormat": {
+      "persistent": true
+    },
+    "custom.pv": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.refTagSourcePath": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.sourceTagPath"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.units": {
+      "persistent": true
+    },
+    "custom.writeEnable": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.canWrite"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "ToggleSwitch"
+            },
+            "position": {
+              "basis": "30px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.writeEnable"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.custom.tagPath}"
+                    },
+                    "tagPath": "{tagPath}"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "color": {
+                "unselected": "#2B2B2B"
+              },
+              "style": {
+                "marginLeft": "auto",
+                "marginRight": "auto"
+              }
+            },
+            "type": "ia.input.toggle-switch"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "20px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#ffffff00",
+            "marginRight": 0,
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onContextMenu": {
+          "config": {
+            "draggable": true,
+            "id": "{view.custom.tagPath}",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "title": "Tag Info",
+            "type": "open",
+            "viewParams": {
+              "tagName": "{view.params.tagName}",
+              "tagParentPath": "{view.params.tagParentPath}"
+            },
+            "viewPath": "Shared/Popups/ppu_TagInfo",
+            "viewportBound": true
+          },
+          "preventDefault": true,
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "text": "Requires Login"
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.enabled": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "tagPath": "{view.custom.tagPath}"
+            },
+            "tagPath": "{tagPath}.canWrite"
+          },
+          "transforms": [
+            {
+              "expression": "!{value}",
+              "type": "expression"
+            }
+          ],
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "justify": "flex-end",
+      "style": {
+        "marginBottom": 0,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 0,
+        "overflow": "visible",
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 0
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

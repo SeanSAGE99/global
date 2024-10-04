@@ -1,0 +1,265 @@
+{
+  "custom": {
+    "activeAlarmCount": 0,
+    "deviceTagPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Sequences/SQ01_FLT"
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "SQ01_FLT",
+    "deviceParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Sequences"
+  },
+  "propConfig": {
+    "custom.activeAlarmCount": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexRepeater_0.props.instances"
+        },
+        "transforms": [
+          {
+            "code": "\talarmCount \u003d 0\n\tif value is not None:\n\t\talarmCount \u003d sum([instance[\u0027instancePosition\u0027][\u0027basis\u0027] !\u003d \u00270px\u0027 for instance in value])\n\treturn alarmCount",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tsystem.perspective.sendMessage(messageType\u003d\u0027refresh-alarm-list\u0027, scope\u003d\u0027view\u0027)"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 368,
+      "width": 351
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.activeAlarmCount"
+              },
+              "transforms": [
+                {
+                  "expression": "{value} \u003e 0",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.activeAlarmCount"
+              },
+              "transforms": [
+                {
+                  "expression": "{value} + \u0027 alarms active\u0027",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UIElement/FontSizes/Size2",
+            "color": "var(--neutral-90)",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "alarms": [
+            {
+              "alarmName": "Maintenance Mode Active",
+              "tagName": "Agitator/Alarms/Maintenance Mode Active",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Warning",
+              "tagName": "Agitator/Alarms/Warning",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Failed to Stop",
+              "tagName": "Agitator/Alarms/Failed to Stop",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Comms Fault",
+              "tagName": "Agitator/Alarms/Comms Fault",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Failed to Start",
+              "tagName": "Agitator/Alarms/Failed to Start",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Blocking",
+              "tagName": "Agitator/Alarms/Blocking",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Thermal Overload",
+              "tagName": "Agitator/Alarms/Thermal Overload",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Phase Failure",
+              "tagName": "Agitator/Alarms/Phase Failure",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Isolator Open",
+              "tagName": "Agitator/Alarms/Isolator Open",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Starter Fault",
+              "tagName": "Agitator/Alarms/Starter Fault",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Internal Fault",
+              "tagName": "Agitator/Alarms/Internal Fault",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Mains Power Failure",
+              "tagName": "Agitator/Alarms/Mains Power Failure",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Phase Imbalance 33-67pc",
+              "tagName": "Agitator/Alarms/Phase Imbalance 33-67pc",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Phase Imbalance GT 67pc",
+              "tagName": "Agitator/Alarms/Phase Imbalance GT 67pc",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Enable Fault",
+              "tagName": "Agitator/Alarms/Enable Fault",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            },
+            {
+              "alarmName": "Thermal Overload GT 115pc",
+              "tagName": "Agitator/Alarms/Thermal Overload GT 115pc",
+              "tagParentPath": "Wolf Blass/Winery/Tank Farms/Premium/Tanks/B3931"
+            }
+          ]
+        },
+        "meta": {
+          "name": "FlexRepeater_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "-5px"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.activeAlarmCount} \u003d 0"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UIElement/FontSizes/Size2",
+            "color": "var(--neutral-50)"
+          },
+          "text": "No alarms active."
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "refreshAlarmList",
+          "params": [],
+          "script": "\tpath \u003d self.view.custom.deviceTagPath\n\t# remove the tag provider if \u0027provider\u0027ed (get it?)\n\tpath \u003d path.split(\u0027]\u0027)[-1]\n\timport sys\n\ttry:\n\t\tinstances_raw \u003d shared.alarms.getAlarmTags(pathFilter\u003dpath)\n\texcept:\n\t\tmsg \u003d \u0027_Templates/Devices/Control/Common/Alarms|refreshAlarmList failed to get alarms for path \"{}\"\u0027.format(path)\n\t\t#e \u003d sys.exc_info()[0] \n\t\tshared.errors.sendEmail(\u0027Wolf Blass Perspective Alarm Panel Error\u0027, msg)\n\t\tprint msg\n\t\tinstances_raw \u003d []\n\tinstances \u003d []\n\t\n\tfor i, instance in enumerate(instances_raw):\n\t\tinstance[\u0027instancePosition\u0027] \u003d {\u0027grow\u0027:0, \u0027shrink\u0027:0, \u0027basis\u0027: \u00270px\u0027}\n\t\tinstance[\u0027show\u0027] \u003d {\u0027area\u0027:False, \u0027device\u0027: False}\t\n\t\tinstances.append(instance)\n\tself.getChild(\"FlexRepeater_0\").props.instances \u003dinstances "
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refresh-alarm-list",
+          "pageScope": false,
+          "script": "\tself.refreshAlarmList()",
+          "sessionScope": false,
+          "viewScope": true
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

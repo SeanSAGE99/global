@@ -1,0 +1,196 @@
+{
+  "custom": {
+    "unitTagPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units/LF1"
+  },
+  "params": {
+    "unitName": "LF1",
+    "unitParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/Units"
+  },
+  "propConfig": {
+    "custom.unitTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.unitParentPath} + \u0027/\u0027 + {view.params.unitName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.unitName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unitParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 49,
+      "width": 244
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "unitTagPath": "{view.custom.unitTagPath}"
+                },
+                "tagPath": "{unitTagPath}/Common/Info/Description"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#2B2B2B",
+            "classes": "UIElement/FontSizes/Size2",
+            "color": "#aaaaaa",
+            "fontWeight": "bold",
+            "paddingLeft": "5px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Unit Status Icon"
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.unitName": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.unitName"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.unitParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.unitParentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Shared/Templates/Devices/Unit Status Icon"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "20px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.text"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": true,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "INVISIBLE",
+                          "output": false
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "unitTagPath": "{view.custom.unitTagPath}"
+                    },
+                    "tagPath": "{unitTagPath}/Common/Contents Desc"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "22px",
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "draggable": true,
+            "id": "{view.custom.unitTagPath}",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "title": "Unit",
+            "type": "open",
+            "viewParams": {
+              "unitName": "{view.params.unitName}",
+              "unitParentPath": "{view.params.unitParentPath}"
+            },
+            "viewPath": "Shared/General/Popups/Units/ppuUnit"
+          },
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root",
+      "unitParentPath": "value"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "cursor": "pointer"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

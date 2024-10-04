@@ -1,0 +1,137 @@
+{
+  "custom": {
+    "deviceTagPath": "Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1/Rotary Screen/Flow",
+    "engMax": null,
+    "engMin": null,
+    "engUnit": null,
+    "expanded": true,
+    "formatString": null
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "Flow",
+    "deviceParentPath": "Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1/Rotary Screen"
+  },
+  "propConfig": {
+    "custom.controlEnable": {
+      "binding": {
+        "config": {
+          "path": "view.params.controlEnable"
+        },
+        "type": "property"
+      }
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.engMax": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/EngMax"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.engMin": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/EngMin"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.engUnit": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/PV.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.expanded": {
+      "persistent": true
+    },
+    "custom.formatString": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/PV.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 351
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          },
+          "text": "LOADING..."
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

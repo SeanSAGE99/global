@@ -1,0 +1,513 @@
+{
+  "custom": {},
+  "params": {
+    "fileRelPath": "./Sage/variables.css",
+    "variables": [
+      {
+        "name": "--white",
+        "value": " #FFFFFF"
+      },
+      {
+        "name": "--black",
+        "value": " #000000"
+      },
+      {
+        "name": "--neutral-10",
+        "value": " #FAFAFA"
+      },
+      {
+        "name": "--neutral-20",
+        "value": " #F4F4F4"
+      },
+      {
+        "name": "--neutral-30",
+        "value": " #D8D8D8"
+      },
+      {
+        "name": "--neutral-40",
+        "value": " #BDBDBD"
+      },
+      {
+        "name": "--neutral-50",
+        "value": " #A1A1A1"
+      },
+      {
+        "name": "--neutral-60",
+        "value": " #767676"
+      },
+      {
+        "name": "--neutral-70",
+        "value": " #5E5E5E"
+      },
+      {
+        "name": "--neutral-80",
+        "value": " #515151"
+      },
+      {
+        "name": "--neutral-90",
+        "value": " #323232"
+      },
+      {
+        "name": "--neutral-100",
+        "value": " #161616"
+      },
+      {
+        "name": "--seq-1",
+        "value": " #AE74E8"
+      },
+      {
+        "name": "--seq-2",
+        "value": " #9659D6"
+      },
+      {
+        "name": "--seq-3",
+        "value": " #7D3CBD"
+      },
+      {
+        "name": "--seq-4",
+        "value": " #642B9E"
+      },
+      {
+        "name": "--seq-5",
+        "value": " #4B2175"
+      },
+      {
+        "name": "--seq-6",
+        "value": " #371C52"
+      },
+      {
+        "name": "--div-1",
+        "value": " #642B9E"
+      },
+      {
+        "name": "--div-2",
+        "value": " #7D3CBD"
+      },
+      {
+        "name": "--div-3",
+        "value": " #9656D6"
+      },
+      {
+        "name": "--div-4",
+        "value": " #AE74E8"
+      },
+      {
+        "name": "--div-5",
+        "value": " #C79BF2"
+      },
+      {
+        "name": "--div-6",
+        "value": " #DABCF7"
+      },
+      {
+        "name": "--div-7",
+        "value": " #EAD9FA"
+      },
+      {
+        "name": "--div-8",
+        "value": " #F5F0FA"
+      },
+      {
+        "name": "--div-9",
+        "value": " #D7FAF8"
+      },
+      {
+        "name": "--div-10",
+        "value": " #83F2EB"
+      },
+      {
+        "name": "--div-11",
+        "value": " #43DED3"
+      },
+      {
+        "name": "--div-12",
+        "value": " #21C2B7"
+      },
+      {
+        "name": "--div-13",
+        "value": " #0EA197"
+      },
+      {
+        "name": "--div-14",
+        "value": " #08827A"
+      },
+      {
+        "name": "--div-15",
+        "value": " #086962"
+      },
+      {
+        "name": "--div-16",
+        "value": " #09524D"
+      },
+      {
+        "name": "--qual-1",
+        "value": " #7D3CBD"
+      },
+      {
+        "name": "--qual-2",
+        "value": " #229AD6"
+      },
+      {
+        "name": "--qual-3",
+        "value": " #086962"
+      },
+      {
+        "name": "--qual-4",
+        "value": " #B01355"
+      },
+      {
+        "name": "--qual-5",
+        "value": " #F55353"
+      },
+      {
+        "name": "--qual-6",
+        "value": " #661414"
+      },
+      {
+        "name": "--qual-7",
+        "value": " #038537"
+      },
+      {
+        "name": "--qual-8",
+        "value": " #114599"
+      },
+      {
+        "name": "--qual-9",
+        "value": " #ED5393"
+      },
+      {
+        "name": "--qual-10",
+        "value": " #CF7911"
+      },
+      {
+        "name": "--containerRoot",
+        "value": " var(--neutral-10)"
+      },
+      {
+        "name": "--container",
+        "value": " var(--neutral-20)"
+      },
+      {
+        "name": "--containerNested",
+        "value": " var(--neutral-30)"
+      },
+      {
+        "name": "--input",
+        "value": " var(--white)"
+      },
+      {
+        "name": "--input--disabled",
+        "value": " var(--neutral-40)"
+      },
+      {
+        "name": "--icon",
+        "value": " var(--neutral-70)"
+      },
+      {
+        "name": "--icon--hover",
+        "value": " var(--neutral-60)"
+      },
+      {
+        "name": "--icon--disabled",
+        "value": " var(--neutral-40)"
+      },
+      {
+        "name": "--icon--selected",
+        "value": " var(--neutral-10)"
+      },
+      {
+        "name": "--label",
+        "value": " var(--neutral-90)"
+      },
+      {
+        "name": "--label--disabled",
+        "value": " var(--neutral-60)"
+      },
+      {
+        "name": "--border",
+        "value": " var(--neutral-50)"
+      },
+      {
+        "name": "--border--disabled",
+        "value": " var(--neutral-50)"
+      },
+      {
+        "name": "--containerBorder",
+        "value": " 1px solid var(--border)"
+      },
+      {
+        "name": "--boxShadow1",
+        "value": " 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)"
+      },
+      {
+        "name": "--boxShadow2",
+        "value": " 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)"
+      },
+      {
+        "name": "--boxShadow3",
+        "value": " 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)"
+      },
+      {
+        "name": "--boxShadow4",
+        "value": " 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)"
+      },
+      {
+        "name": "--boxShadow5",
+        "value": " 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22)"
+      },
+      {
+        "name": "--boxShadow--inset",
+        "value": " inset 0 0 4px 2px rgba(34, 34, 34, 0.4)"
+      },
+      {
+        "name": "--callToAction",
+        "value": " #0C7BB3"
+      },
+      {
+        "name": "--callToActionHighlight",
+        "value": " #E8F4FA"
+      },
+      {
+        "name": "--callToAction--hover",
+        "value": " #229AD6"
+      },
+      {
+        "name": "--callToAction--active",
+        "value": " #066391"
+      },
+      {
+        "name": "--callToAction--disabled",
+        "value": " var(--neutral-50)"
+      },
+      {
+        "name": "--error",
+        "value": " #DE1B1B"
+      },
+      {
+        "name": "--info",
+        "value": " #3272D9"
+      },
+      {
+        "name": "--infoSecondary",
+        "value": " #ACCBFC"
+      },
+      {
+        "name": "--warning",
+        "value": " #AD5F00"
+      },
+      {
+        "name": "--warningSecondary",
+        "value": " #F5BC76"
+      },
+      {
+        "name": "--success",
+        "value": " #038537"
+      },
+      {
+        "name": "--borderRadius",
+        "value": " 4px"
+      },
+      {
+        "name": "--borderRadiusInput",
+        "value": " 2px"
+      },
+      {
+        "name": "--opacity-25",
+        "value": " rgba(0, 0, 0, 0.25)"
+      },
+      {
+        "name": "--opacity-50",
+        "value": " rgba(0, 0, 0, 0.50)"
+      },
+      {
+        "name": "--opacity-85",
+        "value": " rgba(0, 0, 0, 0.85)"
+      },
+      {
+        "name": "--font-NotoSans",
+        "value": " \u0027Noto Sans\u0027, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif"
+      },
+      {
+        "name": "--indicator",
+        "value": " #1EC963"
+      },
+      {
+        "name": "--indicatorOff",
+        "value": " #0A2E18"
+      },
+      {
+        "name": "--checkbox--checked",
+        "value": " var(--callToAction)"
+      },
+      {
+        "name": "--checkbox--unchecked",
+        "value": " var(--border)"
+      },
+      {
+        "name": "--checkbox--indeterminate",
+        "value": " var(--callToAction)"
+      },
+      {
+        "name": "--checkbox--disabled",
+        "value": " var(--input--disabled)"
+      },
+      {
+        "name": "--progressLinearTrack--determinate",
+        "value": " var(--neutral-10)"
+      },
+      {
+        "name": "--progressLinearTrack--indeterminate",
+        "value": " var(--neutral-10)"
+      },
+      {
+        "name": "--progressLinearBar--determinate",
+        "value": " var(--infoSecondary)"
+      },
+      {
+        "name": "--progressLinearBar--indeterminate",
+        "value": " var(--border)"
+      },
+      {
+        "name": "--toggleSwitch--selected",
+        "value": " var(--callToAction)"
+      },
+      {
+        "name": "--toggleSwitch--unselected",
+        "value": " var(--neutral-10)"
+      },
+      {
+        "name": "--radio--selected",
+        "value": " var(--callToAction)"
+      },
+      {
+        "name": "--radio--unselected",
+        "value": " var(--border)"
+      },
+      {
+        "name": "--radio--disabled",
+        "value": " var(--input--disabled)"
+      },
+      {
+        "name": "--symbolFill--default",
+        "value": " var(--neutral-20)"
+      },
+      {
+        "name": "--symbolFillAnimation--default",
+        "value": " var(--neutral-50)"
+      },
+      {
+        "name": "--symbolStroke--default",
+        "value": " var(--neutral-70)"
+      },
+      {
+        "name": "--symbolFill--running",
+        "value": " #75BBFF"
+      },
+      {
+        "name": "--symbolFillAnimation--running",
+        "value": " var(--neutral-50)"
+      },
+      {
+        "name": "--symbolStroke--running",
+        "value": " var(--neutral-70)"
+      },
+      {
+        "name": "--symbolFill--stopped",
+        "value": " var(--neutral-40)"
+      },
+      {
+        "name": "--symbolStroke--stopped",
+        "value": " var(--neutral-70)"
+      },
+      {
+        "name": "--symbolFill--faulted",
+        "value": " #F05142"
+      },
+      {
+        "name": "--symbolStroke--faulted",
+        "value": " #B80D0D"
+      }
+    ]
+  },
+  "propConfig": {
+    "params.fileRelPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.variables": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 944
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.fileRelPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomStyle": "solid",
+            "borderLeftStyle": "none",
+            "borderRightStyle": "none",
+            "borderTopStyle": "none",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.params.variables"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "path": "Shared/General/Tools/CSS Variables Extractor/CSSVariablesRow",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

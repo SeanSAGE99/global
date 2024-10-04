@@ -1,0 +1,220 @@
+{
+  "custom": {
+    "tagEngUnit": null,
+    "tagFormatString": null,
+    "tagPath": "High Voltage/T1/Substation 12/MtrLV001/Current Phase A"
+  },
+  "params": {
+    "formatStringOverride": "",
+    "overrideFontSizeInStyle": false,
+    "showBox": true,
+    "showUnitsInValue": true,
+    "styleClasses": "",
+    "tagName": "Current Phase A",
+    "tagParentPath": "High Voltage/T1/Substation 12/MtrLV001",
+    "tagQuality": "Bad_NotFound(\"Path \u0027[default]High Voltage/T1/Substation 12/MtrLV001/Current Phase A.quality\u0027 not found.\")",
+    "unitsOverride": "",
+    "unitsWidth": "15px"
+  },
+  "propConfig": {
+    "custom.tagEngUnit": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagFormatString": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "transforms": [
+          {
+            "expression": "if({view.params.formatStringOverride} !\u003d \u0027\u0027\r\n\t,{view.params.formatStringOverride}\r\n\t,{value}\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.formatStringOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.overrideFontSizeInStyle": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showBox": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showUnitsInValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.styleClasses": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagQuality": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.quality"
+        },
+        "type": "tag"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.unitsOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unitsWidth": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41,
+      "width": 77
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Value"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.styleClasses} +\r\nif({view.params.overrideFontSizeInStyle}\r\n\t,\u0027\u0027\r\n\t,\u0027 UIElement/FontSizes/Size1\u0027\r\n) +\r\nif({view.params.showBox}\r\n\t,if({view.params.showUnitsInValue},\u0027 Tag/Value_InBox\u0027, \u0027 Tag/PVDisplayBox\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.custom.tagPath}"
+                },
+                "tagPath": "{tagPath}"
+              },
+              "transforms": [
+                {
+                  "expression": "numberFormat({value}, {view.custom.tagFormatString})",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "paddingRight": "3px",
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "EngUnit"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.basis": {
+            "binding": {
+              "config": {
+                "path": "view.params.unitsWidth"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.showUnitsInValue}, \u0027Tag/Units_InBox\u0027, \u0027Tag/Units\u0027) +\r\n\u0027 UIElement/FontSizes/Size2\u0027 +\r\n{view.params.styleClasses}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.unitsOverride} !\u003d \u0027\u0027\r\n\t,{view.params.unitsOverride}\r\n\t,{view.custom.tagEngUnit}\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": 0,
+            "paddingRight": 2
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

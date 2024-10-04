@@ -1,0 +1,17 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--neutral-30)",
+      "borderBottomColor": "var(--neutral-50)",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": "1px",
+      "color": "var(--neutral-90)",
+      "fontSize": "12px",
+      "fontWeight": "bold",
+      "paddingLeft": "6px",
+      "paddingRight": "6px",
+      "textTransform": "uppercase",
+      "fill": "var(--neutral-100)"
+    }
+  }
+}

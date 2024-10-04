@@ -1,0 +1,23 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--neutral-30)"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "animation": {
+        "duration": "0.1s",
+        "direction": "normal",
+        "iterationCount": "1",
+        "keyframes": {
+          "0%": {},
+          "100%": {
+            "color": "#DF5959"
+          }
+        }
+      }
+    }
+  ]
+}

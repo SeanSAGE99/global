@@ -1,0 +1,23 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "keyframes": {
+        "0%": {
+          "stroke": "0.5",
+          "backgroundColor": "var(--alm-low-backgroundColor)"
+        },
+        "65%": {
+          "opacity": "1",
+          "stroke": "0.5",
+          "backgroundColor": "var(--alm-low-backgroundColor)"
+        },
+        "100%": {
+          "opacity": "0.20",
+          "stroke": "0.5",
+          "backgroundColor": "var(--alm-low-backgroundColor)"
+        }
+      }
+    }
+  }
+}

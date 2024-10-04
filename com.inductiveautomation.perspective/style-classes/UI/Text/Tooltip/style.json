@@ -1,0 +1,17 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#FFDB00",
+      "borderTopLeftRadius": "8px",
+      "borderTopRightRadius": "8px",
+      "borderBottomLeftRadius": "8px",
+      "borderBottomRightRadius": "8px",
+      "color": "#2B2B2B",
+      "fontFamily": "Noto Sans",
+      "fontSize": "12pt",
+      "fontWeight": "100",
+      "padding": "5px",
+      "textAlign": "left"
+    }
+  }
+}

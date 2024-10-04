@@ -1,0 +1,350 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/System/PLCs/TankFarm_Ferm_SWAP4/Remote IO/E01/Slot 01",
+    "popupTitle": "E01 Slot 01"
+  },
+  "params": {
+    "deviceName": "TankFarm_Ferm_SWAP4",
+    "deviceParentPath": "[default]Wolf Blass/System/PLCs",
+    "rackName": "E01",
+    "slotNumber": 1
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName} + \u0027/Remote IO/\u0027 +\r\n{view.params.rackName} + \u0027/Slot \u0027 +\r\nnumberFormat({view.params.slotNumber}, \u002700\u0027)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.popupTitle": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.rackName} + \u0027 Slot \u0027 + numberFormat({view.params.slotNumber}, \u002700\u0027)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rackName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.slotNumber": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 155,
+      "width": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "height": 32,
+              "width": 34,
+              "y": 61
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027[\u0027 + numberFormat({view.params.slotNumber}, \u002700\u0027) + \u0027]\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "io"
+            },
+            "position": {
+              "height": 55,
+              "width": 17,
+              "x": 8.5,
+              "y": 6
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "8",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "height": "1",
+                      "name": "rect",
+                      "type": "rect",
+                      "width": "1",
+                      "x": "2",
+                      "y": "300.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": ".27458",
+                      "name": "rect",
+                      "type": "rect",
+                      "width": "0",
+                      "x": "39",
+                      "y": "293.65"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "302.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "304.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "306.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "308.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "310.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "312.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "300.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "302.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "304.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "306.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "308.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "310.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "312.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "314.65"
+                        },
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "6",
+                          "y": "314.65"
+                        }
+                      ],
+                      "name": "group",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(-.5 -291.15)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 8 26"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "9F8ZpKnA",
+                "modal": true,
+                "overlayDismiss": true,
+                "position": {
+                  "relativeLocation": "bottom-right"
+                },
+                "positionType": "relative",
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "{view.custom.popupTitle}",
+                "type": "open",
+                "viewParams": {
+                  "deviceTagPath": "{view.custom.deviceTagPath}"
+                },
+                "viewPath": "Shared/Templates/Network/IOCard_Status_Popup"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "800px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Comms OK\u0027),\r\n\t\u0027Device/Status/Border/Normal\u0027,\r\n\t\u0027Device/Status/Border/Faulted\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

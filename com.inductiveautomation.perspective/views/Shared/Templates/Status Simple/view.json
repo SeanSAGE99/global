@@ -1,0 +1,81 @@
+{
+  "custom": {
+    "tagValue": null
+  },
+  "params": {
+    "offValue": "Closed",
+    "onValue": "Opened",
+    "tagPath": "[default]Wolf Blass/Winery/Tank Farms/Cold Settling/Tanks/B6029/Brine Valve/Status Desc"
+  },
+  "propConfig": {
+    "custom.tagValue": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.params.tagPath}"
+          },
+          "tagPath": "{tagPath}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.offValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.onValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "expression": "case({view.custom.tagValue}\r\n\t,{view.params.offValue}, \u0027#D5D5D5\u0027\r\n\t,{view.params.onValue}, \u0027#42F042\u0027\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tagValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

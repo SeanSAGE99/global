@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--dev-txt-running)",
+      "stroke": "var(--dev-sym-running-stroke)",
+      "fill": "var(--dev-txtbg-auto)"
+    }
+  }
+}

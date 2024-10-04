@@ -1,0 +1,239 @@
+{
+  "custom": {
+    "modeTagName": "Manual",
+    "modeTagPath": "[default]Wolf Blass/Winery/WWTP/Effluent Transfer Pump 1/Manual",
+    "statusTagName": "Sts",
+    "statusTagPath": "[default]Wolf Blass/Winery/WWTP/Effluent Transfer Pump 1/Sts",
+    "tagEngUnit": null,
+    "tagFormatString": null
+  },
+  "params": {
+    "deviceName": "Effluent Transfer Pump 1",
+    "deviceParentPath": "[default]Wolf Blass/Winery/WWTP",
+    "hideLabel": false,
+    "invertMode": false,
+    "labelOverride": "",
+    "modeTagNameOverride": "Manual",
+    "statusTagNameOverride": "Sts"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 + {view.params.deviceName}"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.modeTagName": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.modeTagNameOverride} !\u003d \u0027\u0027\r\n\t,{view.params.modeTagNameOverride}\r\n\t,\u0027Mode\u0027\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.modeTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.deviceTagPath} + \u0027/\u0027 +\r\n{view.custom.modeTagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.statusTagName": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.statusTagNameOverride} !\u003d \u0027\u0027\r\n\t,{view.params.statusTagNameOverride}\r\n\t,\u0027Status\u0027\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.statusTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.deviceTagPath} + \u0027/\u0027 +\r\n{view.custom.statusTagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tagEngUnit": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagFormatString": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.hideLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.invertMode": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.modeTagNameOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.statusTagNameOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView_12"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.labelOverride": {
+            "binding": {
+              "config": {
+                "path": "view.params.labelOverride"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "hideLabel": false,
+            "tagName": "Status"
+          },
+          "path": "Shared/Templates/Display/Label Only"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "90px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.custom.statusTagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.custom.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Shared/Templates/Display/Custom Value EViews/DeviceStatus_Generic"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "5px"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView_0"
+        },
+        "position": {
+          "basis": "80px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.invertMode": {
+            "binding": {
+              "config": {
+                "path": "view.params.invertMode"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagName": {
+            "binding": {
+              "config": {
+                "path": "view.custom.modeTagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.custom.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Shared/Templates/Display/Custom Value EViews/DeviceMode_Generic"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

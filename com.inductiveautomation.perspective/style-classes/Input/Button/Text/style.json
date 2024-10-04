@@ -1,0 +1,22 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--neutral-80)",
+      "fontFamily": "Noto Sans",
+      "fontSize": "10pt",
+      "fontWeight": "200",
+      "letterSpacing": "1px",
+      "textShadow": "#82828240 1px 1px 2px",
+      "textTransform": "uppercase"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "disabled",
+      "style": {
+        "color": "var(--neutral-30)",
+        "fill": "var(--neutral-30)"
+      }
+    }
+  ]
+}

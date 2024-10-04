@@ -1,0 +1,8 @@
+{
+  "base": {
+    "style": {
+      "strokeWidth": "1",
+      "fill": "var(--alm-low-fill)"
+    }
+  }
+}

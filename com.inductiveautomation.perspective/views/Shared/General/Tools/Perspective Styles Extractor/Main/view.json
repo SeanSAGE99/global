@@ -1,0 +1,863 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tself.getChild(\"root\").refresh()"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1136
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.parent.refresh()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "props": {
+          "style": {
+            "classes": "Buttons/Body Buttons/Text Tables/Row"
+          },
+          "text": "Refresh"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "basis": "500px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "elementStyle": {
+            "borderBottomStyle": "dashed",
+            "borderBottomWidth": "1px",
+            "borderTopStyle": "none",
+            "borderTopWidth": "1px",
+            "marginBottom": "5px",
+            "paddingBottom": "5px"
+          },
+          "instances": [
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/AlarmText",
+              "styleName": "AlarmText",
+              "styleParentPath": ""
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Buttons/Body",
+              "styleName": "Body",
+              "styleParentPath": "Buttons"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Buttons/Body_DestructiveAction",
+              "styleName": "Body_DestructiveAction",
+              "styleParentPath": "Buttons"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Buttons/Text",
+              "styleName": "Text",
+              "styleParentPath": "Buttons"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/Alarm",
+              "styleName": "Alarm",
+              "styleParentPath": "Cards"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/Card",
+              "styleName": "Card",
+              "styleParentPath": "Cards"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/DisplayItems/Item",
+              "styleName": "Item",
+              "styleParentPath": "Cards/DisplayItems"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/DisplayItems/Item_Container",
+              "styleName": "Item_Container",
+              "styleParentPath": "Cards/DisplayItems"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/DisplayItems/LabelValueLinkLine",
+              "styleName": "LabelValueLinkLine",
+              "styleParentPath": "Cards/DisplayItems"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/Heading3",
+              "styleName": "Heading3",
+              "styleParentPath": "Cards"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/SubTitle",
+              "styleName": "SubTitle",
+              "styleParentPath": "Cards"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Cards/Title",
+              "styleName": "Title",
+              "styleParentPath": "Cards"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/DeviceModes/Auto",
+              "styleName": "Auto",
+              "styleParentPath": "DeviceModes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/DeviceModes/Invalid",
+              "styleName": "Invalid",
+              "styleParentPath": "DeviceModes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/DeviceModes/Maintenance",
+              "styleName": "Maintenance",
+              "styleParentPath": "DeviceModes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/DeviceModes/Manual",
+              "styleName": "Manual",
+              "styleParentPath": "DeviceModes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/DeviceModes/Manual-Icon",
+              "styleName": "Manual-Icon",
+              "styleParentPath": "DeviceModes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/DeviceModes/Shape/Manual",
+              "styleName": "Manual",
+              "styleParentPath": "DeviceModes/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Abnormal",
+              "styleName": "Abnormal",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Border/Faulted",
+              "styleName": "Faulted",
+              "styleParentPath": "Device/Status/Border"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Border/Faulted_SingleFlash",
+              "styleName": "Faulted_SingleFlash",
+              "styleParentPath": "Device/Status/Border"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Border/Normal",
+              "styleName": "Normal",
+              "styleParentPath": "Device/Status/Border"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Faulted",
+              "styleName": "Faulted",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Invalid",
+              "styleName": "Invalid",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Off",
+              "styleName": "Off",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/On",
+              "styleName": "On",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Paused",
+              "styleName": "Paused",
+              "styleParentPath": "Device/Status"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/Faulted",
+              "styleName": "Faulted",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/Faulted_Stroke",
+              "styleName": "Faulted_Stroke",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/Invalid",
+              "styleName": "Invalid",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/Off",
+              "styleName": "Off",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/On",
+              "styleName": "On",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Shape/Paused",
+              "styleName": "Paused",
+              "styleParentPath": "Device/Status/Shape"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/Abnormal",
+              "styleName": "Abnormal",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/Faulted",
+              "styleName": "Faulted",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/Faulted_Stroke",
+              "styleName": "Faulted_Stroke",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/Invalid",
+              "styleName": "Invalid",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/Off",
+              "styleName": "Off",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/On",
+              "styleName": "On",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Device/Status/Text/Paused",
+              "styleName": "Paused",
+              "styleParentPath": "Device/Status/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Forms/Label",
+              "styleName": "Label",
+              "styleParentPath": "Forms"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Forms/Value",
+              "styleName": "Value",
+              "styleParentPath": "Forms"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Shared/NewStyle",
+              "styleName": "NewStyle",
+              "styleParentPath": "global"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Heading",
+              "styleName": "Heading",
+              "styleParentPath": ""
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Input/Icon",
+              "styleName": "Icon",
+              "styleParentPath": "Input"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/NewStyle",
+              "styleName": "NewStyle",
+              "styleParentPath": ""
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/NewStyle_1",
+              "styleName": "NewStyle_1",
+              "styleParentPath": ""
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/CIP/Off",
+              "styleName": "Off",
+              "styleParentPath": "Pipework/CIP"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/CIP/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Pipework/CIP"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/CIP/On",
+              "styleName": "On",
+              "styleParentPath": "Pipework/CIP"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/CIP/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Pipework/CIP"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/KeyStones/Connected",
+              "styleName": "Connected",
+              "styleParentPath": "Pipework/KeyStones"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/KeyStones/Disconnected",
+              "styleName": "Disconnected",
+              "styleParentPath": "Pipework/KeyStones"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/KeyStones/Pigging",
+              "styleName": "Pigging",
+              "styleParentPath": "Pipework/KeyStones"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/KeyStones/Required",
+              "styleName": "Required",
+              "styleParentPath": "Pipework/KeyStones"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/KeyStones/WineTransfer",
+              "styleName": "WineTransfer",
+              "styleParentPath": "Pipework/KeyStones"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/LabelBorders/Bottom",
+              "styleName": "Bottom",
+              "styleParentPath": "Pipework/LabelBorders"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/LabelBorders/Left",
+              "styleName": "Left",
+              "styleParentPath": "Pipework/LabelBorders"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/LabelBorders/Right",
+              "styleName": "Right",
+              "styleParentPath": "Pipework/LabelBorders"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/LabelBorders/Top",
+              "styleName": "Top",
+              "styleParentPath": "Pipework/LabelBorders"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/None/Off",
+              "styleName": "Off",
+              "styleParentPath": "Pipework/None"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/None/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Pipework/None"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/None/On",
+              "styleName": "On",
+              "styleParentPath": "Pipework/None"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/None/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Pipework/None"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Oil/Off",
+              "styleName": "Off",
+              "styleParentPath": "Pipework/Oil"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Oil/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Pipework/Oil"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Oil/On",
+              "styleName": "On",
+              "styleParentPath": "Pipework/Oil"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Oil/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Pipework/Oil"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Water/Off",
+              "styleName": "Off",
+              "styleParentPath": "Pipework/Water"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Water/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Pipework/Water"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Water/On",
+              "styleName": "On",
+              "styleParentPath": "Pipework/Water"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Water/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Pipework/Water"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Wine/Off",
+              "styleName": "Off",
+              "styleParentPath": "Pipework/Wine"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Wine/Off-trans",
+              "styleName": "Off-trans",
+              "styleParentPath": "Pipework/Wine"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Wine/On",
+              "styleName": "On",
+              "styleParentPath": "Pipework/Wine"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Pipework/Wine/On-trans",
+              "styleName": "On-trans",
+              "styleParentPath": "Pipework/Wine"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Project/TankFarms/Table/Body",
+              "styleName": "Body",
+              "styleParentPath": "Project/TankFarms/Table"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Project/TankFarms/Table/Text",
+              "styleName": "Text",
+              "styleParentPath": "Project/TankFarms/Table"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Prompt",
+              "styleName": "Prompt",
+              "styleParentPath": ""
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Tables/Highlighted",
+              "styleName": "Highlighted",
+              "styleParentPath": "Tables"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Tables/ItemLabelSub",
+              "styleName": "ItemLabelSub",
+              "styleParentPath": "Tables"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Tables/Items",
+              "styleName": "Items",
+              "styleParentPath": "Tables"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Tables/Row",
+              "styleName": "Row",
+              "styleParentPath": "Tables"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Tag/Label",
+              "styleName": "Label",
+              "styleParentPath": "Tags"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Tags/Units",
+              "styleName": "Units",
+              "styleParentPath": "Tags"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/Tags/Value",
+              "styleName": "Value",
+              "styleParentPath": "Tags"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/ThemeColours/Colour1",
+              "styleName": "Colour1",
+              "styleParentPath": "ThemeColours"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/ThemeColours/Colour2",
+              "styleName": "Colour2",
+              "styleParentPath": "ThemeColours"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/ThemeColours/Colour3",
+              "styleName": "Colour3",
+              "styleParentPath": "ThemeColours"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/ThemeColours/Colour4",
+              "styleName": "Colour4",
+              "styleParentPath": "ThemeColours"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/ThemeColours/Colour5",
+              "styleName": "Colour5",
+              "styleParentPath": "ThemeColours"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/ThemeColours/Colour6",
+              "styleName": "Colour6",
+              "styleParentPath": "ThemeColours"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/ContainerEmphasis/Level1",
+              "styleName": "Level1",
+              "styleParentPath": "UIElement/ContainerEmphasis"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/ContainerEmphasis/Level2",
+              "styleName": "Level2",
+              "styleParentPath": "UIElement/ContainerEmphasis"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/ContainerEmphasis/Level3",
+              "styleName": "Level3",
+              "styleParentPath": "UIElement/ContainerEmphasis"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FlashingColour_500ms",
+              "styleName": "FlashingColour_500ms",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes/Size0",
+              "styleName": "Size0",
+              "styleParentPath": "UIElement/FontSizes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes/Size1",
+              "styleName": "Size1",
+              "styleParentPath": "UIElement/FontSizes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes/Size2",
+              "styleName": "Size2",
+              "styleParentPath": "UIElement/FontSizes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes/Size3",
+              "styleName": "Size3",
+              "styleParentPath": "UIElement/FontSizes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes/Size4",
+              "styleName": "Size4",
+              "styleParentPath": "UIElement/FontSizes"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes_backup/Size0",
+              "styleName": "Size0",
+              "styleParentPath": "UIElement/FontSizes_backup"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes_backup/Size1",
+              "styleName": "Size1",
+              "styleParentPath": "UIElement/FontSizes_backup"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes_backup/Size2",
+              "styleName": "Size2",
+              "styleParentPath": "UIElement/FontSizes_backup"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes_backup/Size3",
+              "styleName": "Size3",
+              "styleParentPath": "UIElement/FontSizes_backup"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/FontSizes_backup/Size4",
+              "styleName": "Size4",
+              "styleParentPath": "UIElement/FontSizes_backup"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/Forms/Emphasis_normal",
+              "styleName": "Emphasis_normal",
+              "styleParentPath": "UIElement/Forms"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/Forms/Panel",
+              "styleName": "Panel",
+              "styleParentPath": "UIElement/Forms"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/Forms/Panel_NoShadow",
+              "styleName": "Panel_NoShadow",
+              "styleParentPath": "UIElement/Forms"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/IconSelectablePadding",
+              "styleName": "IconSelectablePadding",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/IconSelected",
+              "styleName": "IconSelected",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/IconSpacingLeft",
+              "styleName": "IconSpacingLeft",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/IconSpacingRight",
+              "styleName": "IconSpacingRight",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/MenuNotSelected",
+              "styleName": "MenuNotSelected",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/MenuSelected",
+              "styleName": "MenuSelected",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/Pages/Background",
+              "styleName": "Background",
+              "styleParentPath": "UIElement/Pages"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/Pages/Background_Text",
+              "styleName": "Background_Text",
+              "styleParentPath": "UIElement/Pages"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/PopupHeaderPing",
+              "styleName": "PopupHeaderPing",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/PopupHeaderPing_1",
+              "styleName": "PopupHeaderPing_1",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/PopupHeaderPing_2",
+              "styleName": "PopupHeaderPing_2",
+              "styleParentPath": "UIElement"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/Text/Emphasise1",
+              "styleName": "Emphasise1",
+              "styleParentPath": "UIElement/Text"
+            },
+            {
+              "projectName": "TWE_WolfBlass",
+              "styleFullPath": "C:/Program Files/Inductive Automation/Ignition/data/projects/TWE_WolfBlass/com.inductiveautomation.perspective/style-classes/UIElement/Tooltip",
+              "styleName": "Tooltip",
+              "styleParentPath": "UIElement"
+            }
+          ],
+          "path": "Shared/General/Tools/Perspective Styles Extractor/PerspectiveStyleRow"
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "var(--page-background)"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "refresh",
+          "params": [],
+          "script": "\tdef findFolderStyles(projectName, folderPath):\n\t\timport os\n\t\timport sys\n\t\tstyles \u003d []\n\t\tfor root, subdirs, files in os.walk(folderPath):\n\t\t\troot \u003d root.replace(\u0027\\\\\u0027, \u0027/\u0027)\n\t\t\tif \u0027resource.json\u0027 in files:\n\t\t\t\tstyles.append({\u0027projectName\u0027:projectName,\n\t\t\t\t\t\t\t   \u0027styleFullPath\u0027:str(root), # this is the full directory path to the style in Windows\n\t\t\t\t\t\t\t   \u0027styleParentPath\u0027:\u0027/\u0027.join(root.replace(folderPath,\u0027\u0027).split(\u0027/\u0027)[:-1]),  # gets the Perspective Style path used in Ignition, excluding the style name itself \n\t\t\t\t\t\t\t   \u0027styleName\u0027:str(root.split(\u0027/\u0027)[-1])\n\t\t\t\t\t\t\t   })\n\t\treturn styles\n\t\n\tdef findProjectStyles(projectName):\n\t\tfrom com.inductiveautomation.ignition.gateway import IgnitionGateway\n\t\tcontext \u003d IgnitionGateway.get()\n\t\tprojectParentFolder \u003d str(context.systemManager.dataDir.absoluteFile).replace(\u0027\\\\\u0027,\u0027/\u0027) + \u0027/projects/\u0027\n\t\tstyleClassesRelPath \u003d \"/com.inductiveautomation.perspective/style-classes/\"\n\t\t\n\t\tstyleClassFullPath \u003d \u0027%s%s%s\u0027 % (projectParentFolder, projectName, styleClassesRelPath)\n\t\t\n\t\treturn findFolderStyles(projectName, styleClassFullPath)\n\t\n\tdef findRelevantProjectStyles():\n\t\tfrom com.inductiveautomation.ignition.gateway import IgnitionGateway\n\t\tcontext \u003d IgnitionGateway.get()\n\t\tprojectMgr \u003d context.projectManager\n\t\tprojectMfst \u003d projectMgr.projectManifests\n\t\tprojectName \u003d system.project.getProjectName()\n\t\t\n\t\tstyles \u003d []\n\t\t# get the Perspective Styles defined in the current project\n\t\tstyles.extend(findProjectStyles(projectName))\n\t\t\n\t\twhile projectMfst[projectName].getParent() !\u003d \u0027\u0027:\n\t\t\t# get the parent project\n\t\t\tprojectName \u003d projectMfst[projectName].getParent()\n\t\t\t# get the Perspective Styles defined in the parent project \n\t\t\tstyles.extend(findProjectStyles(projectName))\n\t\treturn styles\n\t\n\tstyles \u003d findRelevantProjectStyles()\n\tudtInstances \u003d styles\n\tself.getChild(\"FlexRepeater\").props.instances \u003d udtInstances"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

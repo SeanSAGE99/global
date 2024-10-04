@@ -1,0 +1,26 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "direction": "normal",
+      "keyframes": {
+        "0%": {
+          "color": "#fff",
+          "fontSize": "0.875rem",
+          "backgroundColor": "var(--alm-crit-backgroundColor)"
+        },
+        "65%": {
+          "opacity": "1",
+          "stroke": "0.5",
+          "backgroundColor": "var(--alm-crit-backgroundColor)"
+        },
+        "100%": {
+          "color": "#fff",
+          "fontSize": "0.875rem",
+          "opacity": "0.20",
+          "backgroundColor": "var(--alm-crit-backgroundColor)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,450 @@
+{
+  "custom": {
+    "alarmSummaryTagPath": "[default]High Voltage/International/IZS Substation/NER/NER/NER RMU04/Alarm Summary",
+    "highestPriority": 2,
+    "highestPriorityAllAcked": true,
+    "priorityCounts": {}
+  },
+  "params": {
+    "alarmSummary": {
+      "enabled": false,
+      "parentPath": "[default]High Voltage/International/IZS Substation/NER/NER/NER RMU04"
+    },
+    "device": {
+      "enabled": true,
+      "name": "NER RMU04",
+      "parentPath": "[default]High Voltage/International/IZS Substation/NER/NER"
+    }
+  },
+  "propConfig": {
+    "custom.alarmSummaryTagPath": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.device.enabled},\r\n\t{view.params.device.parentPath} + \u0027/\u0027 + {view.params.device.name} + \u0027/Alarm Summary\u0027,\r\nif({view.params.alarmSummary.enabled},\r\n\t{view.params.alarmSummary.parentPath} + \u0027/Alarm Summary\u0027,\r\n\u0027NO SELECTION MADE\u0027))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.highestPriority": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Highest Priority"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.highestPriorityAllAcked": {
+      "binding": {
+        "config": {
+          "expression": "case({view.custom.highestPriority}\r\n\t,1,{view.custom.priorityCounts.criticalAllAcked}\r\n\t,2,{view.custom.priorityCounts.highAllAcked}\r\n\t,3,{view.custom.priorityCounts.mediumAllAcked}\r\n\t,4,{view.custom.priorityCounts.lowAllAcked}\r\n\t,0\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.priorityCounts": {
+      "persistent": true
+    },
+    "custom.priorityCounts.critical": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Critical"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.criticalAllAcked": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.priorityCounts.critical} \u0026\u0026\r\n!{view.custom.priorityCounts.criticalUnacked}"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.priorityCounts.criticalUnacked": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Critical Unacked"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.high": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/High"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.highAllAcked": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.priorityCounts.high} \u0026\u0026 \r\n!{view.custom.priorityCounts.highUnacked}"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.priorityCounts.highUnacked": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/High Unacked"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.low": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Low"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.lowAllAcked": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.priorityCounts.low} \u0026\u0026\r\n!{view.custom.priorityCounts.lowUnacked}"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.priorityCounts.lowUnacked": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Low Unacked"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.medium": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Medium"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.priorityCounts.mediumAllAcked": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.priorityCounts.medium} \u0026\u0026\r\n!{view.custom.priorityCounts.mediumUnacked}"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.priorityCounts.mediumUnacked": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmSummaryTagPath}"
+          },
+          "tagPath": "{1}/Priority Counts/Medium Unacked"
+        },
+        "type": "tag"
+      }
+    },
+    "params.alarmSummary": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "alarm-symbol-asm-25"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.elements[0].elements[0].style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.priorityCounts.criticalAllAcked"
+              },
+              "transforms": [
+                {
+                  "fallback": "Alarms/Symbol/CriticalUnacked",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "Alarms/Symbol/Critical"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[0].type": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.highestPriority} \u003d 1, \u0027group\u0027, \u0027circle\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.elements[1].elements[0].style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.priorityCounts.highAllAcked"
+              },
+              "transforms": [
+                {
+                  "fallback": "Alarms/Symbol/HighUnacked",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "Alarms/Symbol/High"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[1].type": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.highestPriority} \u003d 2, \u0027group\u0027, \u0027circle\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.elements[2].elements[0].style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.priorityCounts.mediumAllAcked"
+              },
+              "transforms": [
+                {
+                  "fallback": "Alarms/Symbol/MediumUnacked",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "Alarms/Symbol/Medium"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[2].type": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.highestPriority} \u003d 3, \u0027group\u0027, \u0027circle\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.elements[3].elements[0].style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.priorityCounts.lowAllAcked"
+              },
+              "transforms": [
+                {
+                  "fallback": "Alarms/Symbol/LowUnacked",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "Alarms/Symbol/Low"
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[3].type": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.highestPriority} \u003d 4, \u0027group\u0027, \u0027circle\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "height": 24,
+                  "name": "rect",
+                  "style": {},
+                  "type": "rect",
+                  "width": 24,
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "name": "text",
+                  "style": {
+                    "classes": "Alarms/Text/Critical"
+                  },
+                  "text": "C",
+                  "type": "text",
+                  "x": 7.278513,
+                  "y": 17.205189
+                }
+              ],
+              "name": "Critical"
+            },
+            {
+              "elements": [
+                {
+                  "d": "m25.905-11.386-8.4616-4.8853 8.4616-4.8853z",
+                  "name": "path",
+                  "style": {},
+                  "transform": "matrix(0 2.2791 -2.2791 0 -25.083 -37.148)",
+                  "type": "path"
+                },
+                {
+                  "name": "text",
+                  "style": {
+                    "classes": "Alarms/Text/High"
+                  },
+                  "text": "H",
+                  "type": "text",
+                  "x": 7.278513,
+                  "y": 19.915773
+                }
+              ],
+              "name": "High"
+            },
+            {
+              "elements": [
+                {
+                  "d": "m25.905-11.386-8.4616-4.8853 8.4616-4.8853z",
+                  "name": "path",
+                  "style": {},
+                  "transform": "matrix(0 -2.2791 -2.2791 0 -25.083 61.148)",
+                  "type": "path"
+                },
+                {
+                  "name": "text",
+                  "style": {
+                    "classes": "Alarms/Text/Medium",
+                    "fontSize": "9pt",
+                    "fontWeight": "bold"
+                  },
+                  "text": "M",
+                  "type": "text",
+                  "x": 6.478513,
+                  "y": 12.540773
+                }
+              ],
+              "name": "Medium"
+            },
+            {
+              "elements": [
+                {
+                  "height": "15.971",
+                  "name": "rect",
+                  "style": {},
+                  "transform": "rotate(45)",
+                  "type": "rect",
+                  "width": "15.971",
+                  "x": "8.9853",
+                  "y": "-7.9853"
+                },
+                {
+                  "name": "text",
+                  "style": {
+                    "classes": "Alarms/Text/Low"
+                  },
+                  "text": "L",
+                  "type": "text",
+                  "x": 7.478513,
+                  "y": 16.805189
+                }
+              ],
+              "name": "Low"
+            }
+          ],
+          "viewBox": "0 0 24 24"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

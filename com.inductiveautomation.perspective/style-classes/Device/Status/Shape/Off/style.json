@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--dev-txt-stopped)",
+      "stroke": "var(--dev-sym-stopped-stroke)",
+      "fill": "var(--dev-sym-stopped)"
+    }
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/System/PLCs/TankFarm_Ferm_SWAP4/Network Devices/IOLink 1",
+    "popupTitle": "IOLink 1"
+  },
+  "params": {
+    "deviceName": "IOLink 1",
+    "deviceParentPath": "[default]Wolf Blass/System/PLCs",
+    "plcName": "TankFarm_Ferm_SWAP4"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.plcName} + \u0027/Network Devices/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.popupTitle": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.plcName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 155,
+      "width": 220
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Hostname"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 126
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/IP Address"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ConnectionStatus"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 106
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Comms OK\u0027),\r\n\t\u0027Connected\u0027,\r\n\t\u0027Fault\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ProductName"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 86
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({view.custom.deviceTagPath} + \u0027/Vendor\u0027) + \u0027 \u0027 + tag({view.custom.deviceTagPath} + \u0027/Model\u0027)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DeviceName"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 66
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/Description"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "network-plc-pump"
+            },
+            "position": {
+              "height": 59,
+              "width": 45,
+              "x": 6,
+              "y": 6
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "56",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000",
+                        "width": "3.0003"
+                      },
+                      "type": "rect",
+                      "width": "42",
+                      "x": "2.0002",
+                      "y": "259.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "17.025",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000",
+                        "width": "2.9749"
+                      },
+                      "type": "rect",
+                      "width": "42.025",
+                      "x": "1.9875",
+                      "y": "259.64"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": ".27458",
+                      "name": "rect",
+                      "type": "rect",
+                      "width": "0",
+                      "x": "39",
+                      "y": "293.65"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "d": "m13.413 7a6.4163 6.4163 0 0 1-6.4163 6.4163 6.4163 6.4163 0 0 1-6.4163-6.4163 6.4163 6.4163 0 0 1 6.4163-6.4163 6.4163 6.4163 0 0 1 6.4163 6.4163z",
+                          "fill": {
+                            "paint": "#aaa"
+                          },
+                          "name": "path",
+                          "type": "path"
+                        },
+                        {
+                          "d": "m3.7267 12.558v-11.08l9.5941 5.5397-4.7968 2.7699z",
+                          "fill": {
+                            "paint": "none"
+                          },
+                          "name": "path",
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "stroke": {
+                        "paint": "#000"
+                      },
+                      "transform": "matrix(2.2618 0 0 2.2605 10.176 278.83)",
+                      "type": "group"
+                    },
+                    {
+                      "d": "m10.5 305.15h2v4h-2zm-5-3h5v10h-5z",
+                      "name": "path",
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(-.5 -258.15)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 45 59"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "K/8eGKEc",
+                "modal": true,
+                "overlayDismiss": true,
+                "position": {
+                  "relativeLocation": "bottom-right"
+                },
+                "positionType": "relative",
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "{view.custom.popupTitle}",
+                "type": "open",
+                "viewParams": {
+                  "deviceTagPath": "{view.custom.deviceTagPath}"
+                },
+                "viewPath": "Shared/Templates/Network/Device_Status_Popup"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "800px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Comms OK\u0027),\r\n\t\u0027Device/Status/Border/Normal\u0027,\r\n\t\u0027Device/Status/Border/Faulted\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "custom": {},
+  "params": {
+    "tagName": "value",
+    "tagParentPath": "value"
+  },
+  "propConfig": {
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 250,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "17px"
+        },
+        "props": {
+          "style": {
+            "classes": "UI/Text/Size/Size4",
+            "color": "#000000",
+            "textAlign": "center"
+          },
+          "text": "Cool"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "basis": "17px"
+        },
+        "props": {
+          "style": {
+            "classes": "UI/Text/Size/Size4",
+            "color": "#000000",
+            "textAlign": "center"
+          },
+          "text": "degC"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MovingAnalogIndicator"
+        },
+        "position": {
+          "basis": "150px",
+          "grow": 1
+        },
+        "props": {
+          "desiredHigh": 65,
+          "desiredLow": 40,
+          "desiredRangeColor": "#BDE1E6",
+          "highAlarm": 90,
+          "highHighAlarm": null,
+          "highInterlock": null,
+          "indicatorColor": "#4A4A4A",
+          "lowAlarm": 10,
+          "lowInterlock": null,
+          "lowLowAlarm": null,
+          "sectionOutline": {
+            "color": "#000000",
+            "width": 1
+          }
+        },
+        "type": "ia.display.moving-analog-indicator"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "25px"
+        },
+        "props": {
+          "alignVertical": "top",
+          "style": {
+            "classes": "UI/Text/Size/Size0",
+            "color": "#274AA2",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          },
+          "text": 12.3
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

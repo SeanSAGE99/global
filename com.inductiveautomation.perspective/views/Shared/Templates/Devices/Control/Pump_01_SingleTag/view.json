@@ -1,0 +1,182 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Alexandrina/Mt Compass/MC0001/Pump 1/Status Desc",
+    "status": "Invalid"
+  },
+  "params": {
+    "direction": "L",
+    "runningTagPath": "[default]Alexandrina/Mt Compass/MC0001/Pump 1/Status Desc"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.runningTagPath}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.status": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "transforms": [
+          {
+            "expression": "case(try(toInt({value}), \u0027STRING\u0027)\r\n\t,0, \u0027Stopped\u0027\r\n\t,1, \u0027Running\u0027\r\n\t,\u0027STRING\u0027,{value}\r\n\t,\u0027Invalid\u0027\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.direction": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.runningTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 47,
+      "width": 47
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Pump_01_opt_0"
+            },
+            "position": {
+              "height": 47,
+              "width": 47
+            },
+            "propConfig": {
+              "props.elements[0].transform": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027translate(-4.1275 -32.415) rotate(\u0027 + \r\ncase({view.params.direction}\r\n\t,\u0027L\u0027,180,\u0027R\u0027,0,\u0027U\u0027,270,\u0027D\u0027,90,0)\r\n + \u0027, 17.1,45.5)\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.status"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Device/Status/Shape/Invalid",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Stopped",
+                          "output": "Device/Status/Shape/Off"
+                        },
+                        {
+                          "input": "Running",
+                          "output": "Device/Status/Shape/On"
+                        },
+                        {
+                          "input": "Faulted",
+                          "output": "Device/Status/Shape/Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "m35.755 41.415a14.628 14.628 0 0 1-14.628 14.628 14.628 14.628 0 0 1-14.628-14.628 14.628 14.628 0 0 1 14.628-14.628 14.628 14.628 0 0 1 14.628 14.628z",
+                          "name": "body",
+                          "stroke": {
+                            "paint": "#2b2b2b",
+                            "width": 2
+                          },
+                          "style": {
+                            "stroke": "var(--neutral-90)",
+                            "strokeWidth": "2px",
+                            "vector-effect": "non-scaling-stroke"
+                          },
+                          "type": "path"
+                        },
+                        {
+                          "d": "m13.851 53.676v-12.223-12.223l10.585 6.1115 10.585 6.1114-10.585 6.1115z",
+                          "name": "direction",
+                          "stroke": {
+                            "paint": "#2b2b2b",
+                            "width": 1
+                          },
+                          "style": {
+                            "stroke": "var(--neutral-90)",
+                            "strokeWidth": "1px",
+                            "vector-effect": "non-scaling-stroke"
+                          },
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "transform": "matrix(.80229 0 0 .80228 .17723 12.189)",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "type": "group"
+                }
+              ],
+              "style": {},
+              "viewBox": "0 0 26 26"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

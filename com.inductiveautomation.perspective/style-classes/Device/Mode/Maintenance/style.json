@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--dev-maintenance)",
+      "color": "var(--dev-txt-maintenance)",
+      "fill": "#FF8C00"
+    }
+  }
+}

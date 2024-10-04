@@ -1,0 +1,591 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/System/PLCs/TankFarm_Ferm_SWAP4/Network Devices/IOLink 1",
+    "popupTitle": "IOLink 1"
+  },
+  "params": {
+    "deviceName": "IOLink 1",
+    "deviceParentPath": "[default]Wolf Blass/System/PLCs",
+    "plcName": "TankFarm_Ferm_SWAP4"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.plcName} + \u0027/Network Devices/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.popupTitle": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.plcName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 155,
+      "width": 220
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Hostname"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 126
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/IP Address"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ConnectionStatus"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 106
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Comms OK\u0027),\r\n\t\u0027Connected\u0027,\r\n\t\u0027Fault\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ProductName"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 86
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({view.custom.deviceTagPath} + \u0027/Vendor\u0027) + \u0027 \u0027 + tag({view.custom.deviceTagPath} + \u0027/Model\u0027)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DeviceName"
+            },
+            "position": {
+              "height": 20,
+              "width": 208,
+              "x": 6,
+              "y": 66
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "deviceTagPath": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{deviceTagPath}/Description"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size2",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "network-plc-io-master_0"
+            },
+            "position": {
+              "height": 59,
+              "width": 81,
+              "x": 6,
+              "y": 6
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "8",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "300.65"
+                        },
+                        {
+                          "fill": {
+                            "paint": "#fff"
+                          },
+                          "height": ".27458",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "0",
+                          "x": "39",
+                          "y": "293.65"
+                        },
+                        {
+                          "d": "m6 314.65h1v1h-1zm-4 0h1v1h-1zm4-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm-4 12h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1z",
+                          "name": "path",
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(6.5 -291.15)",
+                  "type": "group"
+                },
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "8",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "300.65"
+                        },
+                        {
+                          "fill": {
+                            "paint": "#fff"
+                          },
+                          "height": ".27458",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "0",
+                          "x": "39",
+                          "y": "293.65"
+                        },
+                        {
+                          "d": "m6 314.65h1v1h-1zm-4 0h1v1h-1zm4-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm-4 12h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1z",
+                          "name": "path",
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(13.5 -291.15)",
+                  "type": "group"
+                },
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "8",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "300.65"
+                        },
+                        {
+                          "fill": {
+                            "paint": "#fff"
+                          },
+                          "height": ".27458",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "0",
+                          "x": "39",
+                          "y": "293.65"
+                        },
+                        {
+                          "d": "m6 314.65h1v1h-1zm-4 0h1v1h-1zm4-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm-4 12h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1z",
+                          "name": "path",
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(20.5 -291.15)",
+                  "type": "group"
+                },
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "8",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "height": "1",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "1",
+                          "x": "2",
+                          "y": "300.65"
+                        },
+                        {
+                          "fill": {
+                            "paint": "#fff"
+                          },
+                          "height": ".27458",
+                          "name": "rect",
+                          "type": "rect",
+                          "width": "0",
+                          "x": "39",
+                          "y": "293.65"
+                        },
+                        {
+                          "d": "m6 314.65h1v1h-1zm-4 0h1v1h-1zm4-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm-4 12h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1zm0-2h1v1h-1z",
+                          "name": "path",
+                          "type": "path"
+                        }
+                      ],
+                      "name": "group",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(27.5 -291.15)",
+                  "type": "group"
+                },
+                {
+                  "elements": [
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#aaa"
+                      },
+                      "height": "8",
+                      "name": "rect",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#000"
+                      },
+                      "type": "rect",
+                      "width": "7",
+                      "x": "1",
+                      "y": "291.65"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#fff"
+                      },
+                      "height": ".27458",
+                      "name": "rect",
+                      "type": "rect",
+                      "width": "0",
+                      "x": "39",
+                      "y": "293.65"
+                    },
+                    {
+                      "d": "m5.5 311.15h1v2h-1zm-3-2h3v6h-3z",
+                      "name": "path",
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(-.5 -291.15)",
+                  "type": "group"
+                },
+                {
+                  "d": "m10.812 20.34h14.375v2.16h-14.375zm7.1875-16.84c-1.1909 6e-7 -2.1562 0.96707-2.1562 2.16 3.98e-4 0.69883 0.33828 1.3543 0.90686 1.7592l-3.0631 1.8408-3.0406-0.60891c0.10946-0.26336 0.16576-0.54582 0.16565-0.83109 0-1.1929-0.96539-2.16-2.1562-2.16-1.1909-1e-7 -2.1563 0.96706-2.1563 2.16s0.96539 2.16 2.1563 2.16c0.064689-3.54e-4 0.12933-0.00362 0.19372-0.0098l1.9625 7.2098v1.44h14.375v-1.44l1.9625-7.2098c0.0644 0.00618 0.12904 0.00945 0.19373 0.0098 1.1909-1e-7 2.1563-0.96707 2.1562-2.16-1e-6 -1.1929-0.96539-2.16-2.1562-2.16-1.1909 1e-7 -2.1562 0.96706-2.1562 2.16 3.33e-4 0.28537 0.05711 0.56784 0.16705 0.83109l-3.0421 0.60891-3.0645-1.8422c0.56871-0.40433 0.90709-1.0592 0.90826-1.7578 1e-6 -1.1929-0.96539-2.16-2.1562-2.16z",
+                  "fill": {
+                    "opacity": ".98942",
+                    "paint": "#fc0"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#000"
+                  },
+                  "style": {
+                    "paintOrder": "fill markers stroke"
+                  },
+                  "type": "path"
+                }
+              ],
+              "viewBox": "0 0 36 26"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "K/8eGKEc",
+                "modal": true,
+                "overlayDismiss": true,
+                "position": {
+                  "relativeLocation": "bottom-right"
+                },
+                "positionType": "relative",
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "{view.custom.popupTitle}",
+                "type": "open",
+                "viewParams": {
+                  "deviceTagPath": "{view.custom.deviceTagPath}"
+                },
+                "viewPath": "Shared/Templates/Network/Device_Status_Popup"
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "800px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "if(tag({view.custom.deviceTagPath} + \u0027/Comms OK\u0027),\r\n\t\u0027Device/Status/Border/Normal\u0027,\r\n\t\u0027Device/Status/Border/Faulted\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

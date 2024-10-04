@@ -1,0 +1,181 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/Winery/Refrigeration/Compressors/CM9005/Lube/Oil Pump/Status",
+    "status": "Invalid"
+  },
+  "params": {
+    "runningTagPath": "[default]Wolf Blass/Winery/Refrigeration/Compressors/CM9005/Lube/Oil Pump/Status"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.runningTagPath}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.status": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "transforms": [
+          {
+            "expression": "case(try(toInt({value}), \u0027STRING\u0027)\r\n\t,0, \u0027Stopped\u0027\r\n\t,1, \u0027Running\u0027\r\n\t,\u0027STRING\u0027,{value}\r\n\t,\u0027Invalid\u0027\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.runningTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 86,
+      "width": 153
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Pump_01_opt_0"
+            },
+            "position": {
+              "height": 0.5465,
+              "width": 0.3072,
+              "x": 0.3464,
+              "y": 0.2325
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.status"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Stopped",
+                          "output": "Device/Status/Shape/Off"
+                        },
+                        {
+                          "input": "Running",
+                          "output": "Device/Status/Shape/On"
+                        },
+                        {
+                          "input": "Faulted",
+                          "output": "Device/Status/Shape/Faulted"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "m35.755 41.415a14.628 14.628 0 0 1-14.628 14.628 14.628 14.628 0 0 1-14.628-14.628 14.628 14.628 0 0 1 14.628-14.628 14.628 14.628 0 0 1 14.628 14.628z",
+                          "name": "body",
+                          "stroke": {
+                            "paint": "#2b2b2b",
+                            "width": 2
+                          },
+                          "type": "path"
+                        }
+                      ],
+                      "fillo": {
+                        "paint": "unset"
+                      },
+                      "name": "group",
+                      "transform": "matrix(.80229 0 0 .80228 .17723 12.189)",
+                      "type": "group"
+                    }
+                  ],
+                  "name": "group",
+                  "styles": {
+                    "classes": ""
+                  },
+                  "transform": "translate(-4.1275 -32.415) rotate(0, 17.1,45.5)",
+                  "type": "group"
+                }
+              ],
+              "style": {},
+              "viewBox": "0 0 26 26"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "height": 0.3721,
+              "width": 0.281,
+              "x": 0.3594,
+              "y": 0.3197
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size1",
+                "fontWeight": "normal",
+                "textAlign": "center",
+                "textTransform": "uppercase"
+              },
+              "text": "M"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "custom": {
+    "isRefMQTTTag": false,
+    "max": 100,
+    "min": 0,
+    "numberFormat": "#,##0.##",
+    "pv": 5.09815,
+    "refTagSourcePath": "",
+    "tagPath": "High Voltage/T1/Substation 12/MtrLV001/Current Phase A",
+    "units": "A"
+  },
+  "params": {
+    "tagName": "Current Phase A",
+    "tagParentPath": "High Voltage/T1/Substation 12/MtrLV001"
+  },
+  "propConfig": {
+    "custom.isRefMQTTTag": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.valueSource"
+        },
+        "transforms": [
+          {
+            "expression": "{value} \u003d \u0027reference\u0027",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.max": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngHigh"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.min": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngLow"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.numberFormat": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.tagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.pv": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.refTagSourcePath": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.sourceTagPath"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.units": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.labelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "tags": [
+            {
+              "aggregate": "Average",
+              "alias": "value"
+            }
+          ]
+        },
+        "meta": {
+          "name": "Sparkline",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "basis": "78px"
+        },
+        "propConfig": {
+          "custom.tags[0].path": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.isRefMQTTTag}\r\n\t,{view.custom.refTagSourcePath}\r\n\t,{view.custom.tagPath}\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.min} + \u0027 - \u0027 + {view.custom.max}"
+              },
+              "type": "expr"
+            }
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "refTagSourcePath": "{view.custom.refTagSourcePath}"
+                },
+                "tagPath": "{refTagSourcePath}.historyEnabled"
+              },
+              "type": "tag"
+            }
+          },
+          "props.points": {
+            "binding": {
+              "config": {
+                "aggregate": "MinMax",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "1",
+                  "mostRecentUnits": "HOUR"
+                },
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": true,
+                  "rate": "{session.custom.history.sparklineCharts.updatePeriodSecs}"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "100",
+                  "type": "FIXED"
+                },
+                "tags": "{this.custom.tags}",
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          },
+          "props.range.high": {
+            "binding": {
+              "config": {
+                "path": "view.custom.max"
+              },
+              "type": "property"
+            }
+          },
+          "props.range.low": {
+            "binding": {
+              "config": {
+                "path": "view.custom.min"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "color": "#00BAFF",
+          "desired": {
+            "fill": {
+              "color": "#A1CFEDE8",
+              "opacity": 0
+            },
+            "high": 0,
+            "low": 0,
+            "stroke": {
+              "color": "#EDA1A1",
+              "dashArray": 2,
+              "opacity": 0
+            }
+          },
+          "marker": {
+            "first": {
+              "size": 0
+            },
+            "high": {
+              "size": 0
+            },
+            "last": {
+              "stroke": {
+                "width": 0
+              }
+            },
+            "low": {
+              "size": 0
+            }
+          },
+          "range": {},
+          "style": {
+            "paddingBottom": "2px",
+            "paddingTop": "2px"
+          }
+        },
+        "type": "ia.display.sparkline"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "units"
+            },
+            "position": {
+              "basis": "10px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.units"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Tag/Units",
+                "fontSize": "8pt",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "pv"
+            },
+            "position": {
+              "basis": "20px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.pv"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, {view.custom.numberFormat})",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Tag/Value",
+                "marginBottom": "2px",
+                "marginRight": "10px",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "marginBottom": 1,
+            "marginRight": 2,
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onContextMenu": {
+          "config": {
+            "draggable": true,
+            "id": "{view.custom.tagPath}",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "title": "Tag Info",
+            "type": "open",
+            "viewParams": {
+              "tagName": "{view.params.tagName}",
+              "tagParentPath": "{view.params.tagParentPath}"
+            },
+            "viewPath": "Shared/Popups/ppu_TagInfo",
+            "viewportBound": true
+          },
+          "preventDefault": true,
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "flex-end",
+      "style": {
+        "backgroundColor": "#555555",
+        "borderBottomLeftRadius": "3px",
+        "borderBottomRightRadius": "3px",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "3px",
+        "borderTopRightRadius": "3px",
+        "borderWidth": "1px",
+        "marginBottom": 0,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 0,
+        "overflow": "visible",
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 0
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

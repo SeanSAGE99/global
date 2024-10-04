@@ -1,0 +1,147 @@
+{
+  "custom": {
+    "deviceTagPath": "Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1/Horizontal Marc Screw",
+    "deviceTagState": null,
+    "state": null
+  },
+  "params": {
+    "deviceName": "Horizontal Marc Screw",
+    "deviceParentPath": "Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 1",
+    "stateValue": false,
+    "useState": false
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagState": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Available"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.state": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.useState}\r\n\t,{view.params.stateValue}\r\n\t,{view.custom.deviceTagState}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.stateValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.useState": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32,
+      "width": 32
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon_0"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "path": "view.custom.state"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "var(--dev-sym-faulted)"
+                    },
+                    {
+                      "input": true,
+                      "output": "var(--neutral-90)"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.custom.state"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/check"
+                    },
+                    {
+                      "input": false,
+                      "output": "material/close"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

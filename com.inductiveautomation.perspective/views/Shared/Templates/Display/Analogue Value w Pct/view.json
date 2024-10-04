@@ -1,0 +1,282 @@
+{
+  "custom": {
+    "PVTagPath": "Wolf Blass/Winery/Tank Farms/Cold Settling/Tanks/B6003/SQL/Volume Current",
+    "maxValTagPath": "Wolf Blass/Winery/Tank Farms/Cold Settling/Tanks/B6003/SQL/Volume Capacity",
+    "tagEngUnit": "",
+    "tagFormatString": "#,##0.##"
+  },
+  "params": {
+    "PVTagName": "Volume Current",
+    "maxValTagName": "Volume Capacity",
+    "pctOnRight": false,
+    "styleClasses": "",
+    "tagParentPath": "Wolf Blass/Winery/Tank Farms/Cold Settling/Tanks/B6003/SQL"
+  },
+  "propConfig": {
+    "custom.PVTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.PVTagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.maxValTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.maxValTagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tagEngUnit": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.PVTagPath}"
+          },
+          "tagPath": "{tagPath}.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.tagFormatString": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "tagPath": "{view.custom.PVTagPath}"
+          },
+          "tagPath": "{tagPath}.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.PVTagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.maxValTagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pctOnRight": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.styleClasses": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41,
+      "width": 120
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "PctLeft"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.pctOnRight"
+              },
+              "transforms": [
+                {
+                  "expression": "!{value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.styleClasses}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.custom.maxValTagPath}"
+                },
+                "tagPath": "{tagPath}"
+              },
+              "transforms": [
+                {
+                  "expression": "numberFormat(toFloat({../Value.props.text})/{value}, \u00270.0 %\u0027)",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#808080",
+            "fontSize": "10pt",
+            "fontWeight": "100",
+            "marginRight": "5px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Value"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Tags/Value \u0027 + {view.params.styleClasses}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.custom.PVTagPath}"
+                },
+                "tagPath": "{tagPath}"
+              },
+              "transforms": [
+                {
+                  "expression": "numberFormat({value}, {view.custom.tagFormatString})",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "EngUnit"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Tags/Units \u0027 + {view.params.styleClasses}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tagEngUnit"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "PctRight"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.pctOnRight"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.styleClasses}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.custom.maxValTagPath}"
+                },
+                "tagPath": "{tagPath}"
+              },
+              "transforms": [
+                {
+                  "expression": "\"(\" + numberFormat(toFloat({../Value.props.text})/{value}, \u00270.0 %\u0027) + \")\"",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#808080",
+            "fontSize": "10pt",
+            "fontWeight": "100",
+            "marginLeft": "5px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

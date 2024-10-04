@@ -1,0 +1,1024 @@
+{
+  "custom": {
+    "FOI": false,
+    "controlEnable": true,
+    "deviceTagPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/FF1/AV04",
+    "expanded": true,
+    "modeDesc": "Auto"
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "AV04",
+    "deviceParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/FF1"
+  },
+  "propConfig": {
+    "custom.FOI": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "deviceTagPath": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{deviceTagPath}/FOI"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.controlEnable": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.controlEnable} \u0026\u0026\r\n!{view.custom.FOI}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.expanded": {
+      "persistent": true
+    },
+    "custom.modeDesc": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Mode Desc"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 330
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Heading"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Heading"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "status"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 1
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.expanded"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "material/keyboard_arrow_up"
+                        },
+                        {
+                          "input": true,
+                          "output": "material/keyboard_arrow_down"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tpanelName \u003d self.getChild(\"Heading\").props.text + \u0027_expanded\u0027\n\tpanelName \u003d panelName.lower()\n\t\n\tself.getSibling(panelName).position.display \u003d not self.getSibling(panelName).position.display"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "90px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Valve_2-way_02"
+            },
+            "position": {
+              "basis": "120px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.deviceName": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceName"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.deviceParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceParentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "direction": false,
+                "enablePopup": false,
+                "pipeContents": "Wine",
+                "shownOnOverview": false
+              },
+              "path": "Shared/Templates/Devices/Valve_mixp_5-way_01"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.status": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "1": "{view.custom.deviceTagPath}"
+                        },
+                        "tagPath": "{1}/Status Desc"
+                      },
+                      "type": "tag"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.status"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": null,
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "Opened",
+                              "output": "material/unfold_more"
+                            },
+                            {
+                              "input": "Closed",
+                              "output": "material/unfold_less"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Interlocked"
+                },
+                "position": {
+                  "basis": "24px"
+                },
+                "propConfig": {
+                  "props.params.deviceName": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceName"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.params.deviceParentPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceParentPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "stateValue": false,
+                    "useState": false
+                  },
+                  "path": "Shared/Templates/Devices/Control/Common/Icons/Available"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Interlocked_0"
+                },
+                "position": {
+                  "basis": "24px"
+                },
+                "propConfig": {
+                  "props.params.deviceName": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceName"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.params.deviceParentPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceParentPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "stateValue": false,
+                    "useState": false
+                  },
+                  "path": "Shared/Templates/Devices/Control/Common/Icons/Interlocked"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "90px"
+            },
+            "props": {
+              "alignItems": "center",
+              "justify": "flex-end"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Section_Status_Icons"
+        },
+        "position": {
+          "basis": "100px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "marginBottom": "-30px",
+            "marginTop": "-15px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Section_Status_Status"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.tagParentPath": {
+            "binding": {
+              "config": {
+                "path": "view.custom.deviceTagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "EViewName": "DeviceStatus_Generic",
+            "EViewParentPath": "Shared/Templates/Display/Custom Value EViews",
+            "hideLabel": false,
+            "labelOverride": "Status",
+            "tagName": "Status Desc"
+          },
+          "path": "Shared/Templates/Display/EView Value w Label",
+          "style": {
+            "classes": "Tables/Row"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label Only"
+            },
+            "position": {
+              "basis": "320px"
+            },
+            "props": {
+              "params": {
+                "hideLabel": false,
+                "labelOverride": "",
+                "tagName": "Mode"
+              },
+              "path": "Shared/Templates/Display/Label Only"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "FOI"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.FOI"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Device/Status/Shape/FOI Tags/StatusGeneral"
+              },
+              "text": "CTRL BY PROCESS"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DeviceMode_Generic"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "invertMode": false,
+                "tagName": "Mode Desc"
+              },
+              "path": "Shared/Templates/Display/Custom Value EViews/DeviceMode_Generic",
+              "style": {
+                "classes": "Tables/Items"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Section_Status_Mode"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "isgood({view.custom.modeDesc})"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Heading"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Heading"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "control"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "26px",
+              "grow": 1
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.expanded"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "material/keyboard_arrow_up"
+                        },
+                        {
+                          "input": true,
+                          "output": "material/keyboard_arrow_down"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tpanelName \u003d self.getChild(\"Heading\").props.text + \u0027_expanded\u0027\n\tpanelName \u003d panelName.lower()\n\t\n\tself.getSibling(panelName).position.display \u003d not self.getSibling(panelName).position.display"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Title_0"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Cards/Heading3",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "DeviceModeControl"
+            },
+            "position": {
+              "basis": "40px"
+            },
+            "propConfig": {
+              "props.params.controlEnableRaw": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.controlEnable"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.deviceName": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceName"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.deviceParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.deviceParentPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Shared/Templates/Devices/Control/Common/DeviceModeControl",
+              "style": {
+                "classes": "Cards/DisplayItems/Item"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tmodeDesc \u003d self.parent.parent.parent.getChild(\"control_expanded\").custom.modeDesc\n\tmodeVal \u003d self.parent.parent.parent.getChild(\"control_expanded\").custom.modeVal\n\t\n\tif str(modeDesc).upper() \u003d\u003d \u0027AUTO\u0027:\n\t\tnewModeVal \u003d 0 if modeVal \u003e 0 else 1\n\t\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\t\tsystem.tag.writeBlocking([tagPath],[newModeVal])\n\t\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Open CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "15px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.controlEnable"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "{value}",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "unset",
+                      "path": "material/unfold_more"
+                    }
+                  },
+                  "style": {
+                    "classes": "Buttons/Body Buttons/Text"
+                  },
+                  "text": "Open"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "10px",
+                  "shrink": 0
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tmodeDesc \u003d self.parent.parent.parent.getChild(\"control_expanded\").custom.modeDesc\n\tmodeVal \u003d self.parent.parent.parent.getChild(\"control_expanded\").custom.modeVal\n\t\n\tif str(modeDesc).upper() \u003d\u003d \u0027AUTO\u0027:\n\t\tnewModeVal \u003d 0 if modeVal \u003e 0 else 1\n\t\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\t\tsystem.tag.writeBlocking([tagPath],[newModeVal])\n\t\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Close CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button_0"
+                },
+                "position": {
+                  "basis": "15px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.controlEnable"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "{value}",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "unset",
+                      "path": "material/unfold_less"
+                    }
+                  },
+                  "style": {
+                    "classes": "Buttons/Body Buttons/Text"
+                  },
+                  "text": "Close"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "StartStop"
+            },
+            "position": {
+              "basis": "40px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.modeDesc"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value} \u003d \u0027Manual\u0027",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Cards/DisplayItems/Item"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/USL CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button_0"
+                },
+                "position": {
+                  "basis": "15px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.controlEnable"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "{value}",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "unset",
+                      "path": "material/expand_less"
+                    }
+                  },
+                  "style": {
+                    "classes": "Buttons/Body Buttons/Text"
+                  },
+                  "text": "USL"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "10px",
+                  "shrink": 0
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tmodeDesc \u003d self.parent.parent.parent.getChild(\"control_expanded\").custom.modeDesc\n\tmodeVal \u003d self.parent.parent.parent.getChild(\"control_expanded\").custom.modeVal\n\t\n\tif str(modeDesc).upper() \u003d\u003d \u0027AUTO\u0027:\n\t\tnewModeVal \u003d 0 if modeVal \u003e 0 else 1\n\t\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\t\tsystem.tag.writeBlocking([tagPath],[newModeVal])\n\t\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/LSL CMD\u0027\n\tsystem.tag.writeBlocking([tagPath],[1])"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "15px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.controlEnable"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "{value}",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "unset",
+                      "path": "material/expand_more"
+                    }
+                  },
+                  "style": {
+                    "classes": "Buttons/Body Buttons/Text"
+                  },
+                  "text": "LSL"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "USL_LSL"
+            },
+            "position": {
+              "basis": "40px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.modeDesc"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value} \u003d \u0027Manual\u0027",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Cards/DisplayItems/Item"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "control_expanded"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.modeDesc": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.custom.deviceTagPath}"
+                },
+                "tagPath": "{1}/Mode Desc"
+              },
+              "type": "tag"
+            }
+          },
+          "custom.modeVal": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.custom.deviceTagPath}"
+                },
+                "tagPath": "{1}/Mode"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

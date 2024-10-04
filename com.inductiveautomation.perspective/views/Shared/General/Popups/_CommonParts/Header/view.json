@@ -1,0 +1,187 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/46RS01/Pumps/Return Pump",
+    "deviceValues": {},
+    "subTitle": "Rotary Screen 1 Return Pump",
+    "title": "RotSet1.LobeVlt"
+  },
+  "params": {
+    "deviceName": "Return Pump",
+    "deviceParentPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/46RS01/Pumps",
+    "overrides": {
+      "subTitle": "",
+      "title": ""
+    }
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.deviceValues": {
+      "persistent": true
+    },
+    "custom.deviceValues.description": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Info/Description"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.deviceValues.equipID": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Info/Equip ID"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.deviceValues.parentDevice": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Parameters.Alarm_ParentDevice"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.subTitle": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.overrides.subTitle} \u003d \u0027\u0027\r\n\t,trim({view.custom.deviceValues.parentDevice} + \u0027 \u0027 + \r\n\t {view.custom.deviceValues.description})\r\n\t,{view.params.overrides.subTitle}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.title": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.overrides.title} \u003d \u0027\u0027\r\n\t,{view.custom.deviceValues.equipID}\r\n\t,{view.params.overrides.title}\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.overrides": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.overrides.subTitle": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.overrides.title": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 350
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Top_EquipID"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.title"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "var(--neutral-20)",
+            "fontSize": "12pt",
+            "fontWeight": "bold",
+            "letterSpacing": "1px",
+            "textAlign": "center",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Bottom_Description"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.subTitle"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "var(--neutral-20)",
+            "fontSize": "10pt",
+            "fontStyle": "italic",
+            "fontWeight": "lighter",
+            "letterSpacing": "1px",
+            "marginBottom": "5px",
+            "textAlign": "center",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "var(--neutral-90)"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

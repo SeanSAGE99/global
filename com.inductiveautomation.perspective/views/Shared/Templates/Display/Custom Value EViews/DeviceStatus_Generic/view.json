@@ -1,0 +1,118 @@
+{
+  "custom": {
+    "tagPath": "[default]Wolf Blass/Winery/Receivals/Must Heating/Red/Boiler/Run",
+    "tagValue": "Stopped"
+  },
+  "params": {
+    "offLabelOverride": "",
+    "onLabelOverride": "",
+    "tagName": "Run",
+    "tagParentPath": "[default]Wolf Blass/Winery/Receivals/Must Heating/Red/Boiler"
+  },
+  "propConfig": {
+    "custom.tagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tagValue": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.tagPath}"
+          },
+          "tagPath": "{1}"
+        },
+        "transforms": [
+          {
+            "expression": "if(toInt({value},-999999) \u003d -999999 || lower(tostr({value})) \u003d \u0027off\u0027 || lower(tostr({value})) \u003d \u0027on\u0027\r\n\t,{value}\r\n\t,case(toInt({value})\r\n\t\t,0,if({view.params.offLabelOverride}\u003d\u0027\u0027,\u0027Stopped\u0027, {view.params.offLabelOverride})\r\n\t\t,1,if({view.params.onLabelOverride}\u003d\u0027\u0027,\u0027Running\u0027, {view.params.onLabelOverride})\r\n\t\t,2,\u0027Faulted\u0027\r\n\t\t,\u0027Invalid\u0027\r\n\t)\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.offLabelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.onLabelOverride": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 110
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tagValue"
+              },
+              "transforms": [
+                {
+                  "expression": "\u0027\u0027 +\r\ncase({value}\r\n\t,\u0027Stopped\u0027,\u0027Device/Status/Off\u0027\r\n\t,\u0027Closed\u0027,\u0027Device/Status/Off\u0027\r\n\t,\u0027Closing\u0027,\u0027Device/Status/Off-trans\u0027\r\n\t,\u0027Off\u0027,\u0027Device/Status/Off\u0027\r\n\t\r\n\t,\u0027Running\u0027,\u0027Device/Status/On\u0027\r\n\t,\u0027Opened\u0027,\u0027Device/Status/On\u0027\r\n\t,\u0027Opening\u0027,\u0027Device/Status/On-trans\u0027\r\n\t,\u0027On\u0027,\u0027Device/Status/On\u0027\r\n\t,\u0027Faulted\u0027,\u0027Device/Status/Faulted\u0027\r\n\t,{view.params.offLabelOverride}, \u0027Device/Status/Off\u0027\r\n\t,{view.params.onLabelOverride}, \u0027Device/Status/On\u0027\r\n\t,\u0027\u0027\r\n)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tagValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "paddingLeft": "5px",
+            "paddingRight": "5px",
+            "textAlign": "center",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

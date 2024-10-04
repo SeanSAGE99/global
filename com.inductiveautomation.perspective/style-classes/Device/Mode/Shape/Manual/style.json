@@ -1,0 +1,16 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "timingFunction": "ease-in-out",
+      "keyframes": {
+        "0%": {
+          "fill": "#FF8C00"
+        },
+        "100%": {
+          "fill": "#FF8C0033"
+        }
+      }
+    }
+  }
+}

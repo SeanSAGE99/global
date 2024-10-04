@@ -1,0 +1,133 @@
+{
+  "custom": {
+    "devicePath": "/LABEL"
+  },
+  "params": {
+    "align": "c",
+    "deviceName": "LABEL",
+    "deviceParentPath": ""
+  },
+  "propConfig": {
+    "custom.devicePath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 + {view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.align": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32,
+      "width": 100
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.infoLabel": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "devicePath": "{view.custom.devicePath}"
+                },
+                "tagPath": "{devicePath}/Info/Equip ID"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          },
+          "props.style.textAlign": {
+            "binding": {
+              "config": {
+                "path": "view.params.align"
+              },
+              "transforms": [
+                {
+                  "fallback": "center",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "l",
+                      "output": "left"
+                    },
+                    {
+                      "input": "L",
+                      "output": "left"
+                    },
+                    {
+                      "input": "r",
+                      "output": "right"
+                    },
+                    {
+                      "input": "R",
+                      "output": "right"
+                    },
+                    {
+                      "input": "c",
+                      "output": "center"
+                    },
+                    {
+                      "input": "C",
+                      "output": "center"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.deviceParentPath} !\u003d \u0027\u0027\r\n\t,{this.custom.infoLabel}\r\n\t,{view.params.deviceName}\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UIElement/FontSizes/Size3"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

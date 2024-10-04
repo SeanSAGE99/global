@@ -1,0 +1,241 @@
+{
+  "custom": {
+    "controlEnable": false,
+    "deviceTagPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Rotary Screen/Motor",
+    "foi": null
+  },
+  "params": {
+    "controlEnableRaw": true,
+    "deviceName": "Motor",
+    "deviceParentPath": "[default]Wolf Blass/Winery/Filtration/SWAPs Rotary Screen/4100s/Screen 3/Rotary Screen"
+  },
+  "propConfig": {
+    "custom.controlEnable": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.controlEnableRaw} \r\n\u0026\u0026 !{view.custom.foi}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 + \r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.foi": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/FOI"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnableRaw": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tnewModeVal \u003d 0\n\t\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\tsystem.tag.writeBlocking([tagPath],[newModeVal])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "15px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnableRaw"
+              },
+              "transforms": [
+                {
+                  "expression": "{value}\r\n\u0026\u0026 if({view.custom.foi}\r\n\t,try(hasRole(\u0027Maintenance\u0027, {session.props.auth.user.userName}, \u0027default\u0027), false)\r\n\t,true\r\n)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "color": "unset",
+              "path": "material/autorenew"
+            }
+          },
+          "style": {
+            "classes": "Buttons/Body Buttons/Text"
+          },
+          "text": "Auto"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "10px"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tnewModeVal \u003d 1\n\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\tsystem.tag.writeBlocking([tagPath],[newModeVal])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "basis": "15px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.custom.controlEnable"
+              },
+              "transforms": [
+                {
+                  "expression": "{value}\r\n\u0026\u0026 !{view.custom.foi}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "color": "unset",
+              "path": "material/pan_tool"
+            }
+          },
+          "style": {
+            "classes": "Buttons/Body Buttons/Text"
+          },
+          "text": "Manual"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "10px"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tnewModeVal \u003d 2\n\t\n\ttagPath \u003d self.view.custom.deviceTagPath + \u0027/Mode\u0027\n\tsystem.tag.writeBlocking([tagPath],[newModeVal])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_1"
+        },
+        "position": {
+          "basis": "15px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.controlEnableRaw"
+              },
+              "transforms": [
+                {
+                  "expression": "{value}\r\n\u0026\u0026 try(hasRole(\u0027Maintenance\u0027, {session.props.auth.user.userName}, \u0027default\u0027), false)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "color": "unset",
+              "path": "material/build"
+            }
+          },
+          "style": {
+            "classes": "Buttons/Body Buttons/Text"
+          },
+          "text": "Maint"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

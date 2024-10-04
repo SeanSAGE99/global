@@ -1,0 +1,8 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--neutral-80)",
+      "fontSize": "clamp(0.85rem, 0.75vw, 1rem)"
+    }
+  }
+}

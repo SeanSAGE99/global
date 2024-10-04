@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "borderColor": "var(--alm-crit-fill)",
+      "borderStyle": "solid",
+      "borderWidth": "5px"
+    }
+  }
+}

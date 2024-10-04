@@ -1,0 +1,112 @@
+{
+  "custom": {},
+  "params": {
+    "styleClasses": "",
+    "tagEngUnit": "",
+    "tagFormatString": "#,##0.##",
+    "tagName": "Volume Current",
+    "tagParentPath": "[default]Wolf Blass/Winery/Tank Farms/Cold Settling/Tanks/B6003/SQL",
+    "tagValue": 999.9
+  },
+  "propConfig": {
+    "params.styleClasses": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagEngUnit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagFormatString": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagValue": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 41,
+      "width": 77
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Value"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Tags/Value \u0027 + {view.params.styleClasses}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "EngUnit"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Tags/Units \u0027 + {view.params.styleClasses}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagEngUnit"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

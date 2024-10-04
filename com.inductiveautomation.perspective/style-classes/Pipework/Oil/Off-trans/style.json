@@ -1,0 +1,15 @@
+{
+  "base": {
+    "animation": {
+      "timingFunction": "ease-out",
+      "keyframes": {
+        "0%": {
+          "color": "var(--pipe-oil-on)"
+        },
+        "100%": {
+          "color": "var(--pipe-oil-off)"
+        }
+      }
+    }
+  }
+}

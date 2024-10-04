@@ -1,0 +1,25 @@
+{
+  "base": {
+    "style": {
+      "cursor": "pointer",
+      "padding": "3px"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "animation": {
+        "duration": "0.2s",
+        "direction": "normal",
+        "iterationCount": "1",
+        "timingFunction": "ease-out",
+        "keyframes": {
+          "0%": {},
+          "100%": {
+            "padding": "0px"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--dev-sym-abnormal)",
+      "borderColor": "var(--neutral-90)",
+      "color": "var(--dev-txt-abnormal)",
+      "fill": "var(--dev-sym-abnormal)"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "custom": {
+    "leadOrder": 1
+  },
+  "params": {
+    "dutyParentPath": "[default]Wolf Blass/Winery/Site Services/South Plant Room/Primary System",
+    "orderNo": 1
+  },
+  "propConfig": {
+    "custom.leadOrder": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "dutyParentPath": "{view.params.dutyParentPath}",
+            "orderNo": "{view.params.orderNo}"
+          },
+          "tagPath": "{dutyParentPath}/Duty/Order/{orderNo}"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.dutyParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.orderNo": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 35,
+      "width": 125
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "35px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.leadOrder} \u003d 0,\r\n\t\u0027Unassigned\u0027,\r\n\t\u0027Lead Order \u0027 + {view.custom.leadOrder}\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

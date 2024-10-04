@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--neutral-70)",
+      "color": "var(--neutral-10)",
+      "fontFamily": "sans-serif",
+      "fontWeight": "bold"
+    }
+  }
+}

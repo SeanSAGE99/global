@@ -1,0 +1,772 @@
+{
+  "custom": {
+    "alm_h": null,
+    "alm_hh": null,
+    "alm_l": null,
+    "alm_ll": null,
+    "alm_tx": null,
+    "deviceTagPath": "[default]Test/T1000/Pump 1/Stats/Run Hours",
+    "h": null,
+    "hh": null,
+    "l": null,
+    "ll": null,
+    "max": null,
+    "min": null,
+    "numFormat": null,
+    "pv": null,
+    "units": null
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "Run Hours",
+    "deviceParentPath": "[default]Test/T1000/Pump 1/Stats",
+    "shownOnOverview": true
+  },
+  "propConfig": {
+    "custom.alm_h": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Alarms/High"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.alm_hh": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Alarms/High High"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.alm_l": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Alarms/Low"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.alm_ll": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Alarms/Low Low"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.alm_tx": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Alarms/Tx Fault"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.h": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/High Alarm SP"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.hh": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/High High Alarm SP"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.l": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Low Alarm SP"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.ll": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Low Low Alarm SP"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.max": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/EngMax"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.min": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/EngMin"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.numFormat": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/PV.FormatString"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.pv": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/PV"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.units": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/PV.EngUnit"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.shownOnOverview": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 86,
+      "width": 153
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "bg"
+            },
+            "position": {
+              "height": 0.3953,
+              "width": 0.5817,
+              "x": 0.2092,
+              "y": 0.3256
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "name": "border",
+                      "style": {
+                        "fill": "#fff",
+                        "paintOrder": "fill markers stroke",
+                        "stroke": "none",
+                        "strokeWidth": "4px",
+                        "vector-effect": "non-scaling-stroke"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "levels"
+            },
+            "position": {
+              "height": 0.093,
+              "width": 0.5817,
+              "x": 0.2092,
+              "y": 0.6163
+            },
+            "propConfig": {
+              "props.elements[0].elements[0].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(0px \u0027 + tostr(\r\n100-({view.custom.min}+{view.custom.pv}/({view.custom.max}-{view.custom.min}))*100.0\r\n) + \u0027% 0px 0px)\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.elements[0].elements[1].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(0px 0px 40% \u0027 + tostr(\r\n({view.custom.min}+{view.custom.hh}/({view.custom.max}-{view.custom.min}))*100\r\n) + \u0027%)\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.elements[0].elements[2].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(0px 0px 50% \u0027 + tostr(\r\n({view.custom.min}+{view.custom.h}/({view.custom.max}-{view.custom.min}))*100\r\n) + \u0027%)\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.elements[0].elements[3].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(0px \u0027 + tostr(\r\n100-({view.custom.min}+{view.custom.l}/({view.custom.max}-{view.custom.min}))*100.0\r\n) + \u0027% 50% 0px)\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.elements[0].elements[4].style.clip-path": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027inset(0px \u0027 + tostr(\r\n100-({view.custom.min}+{view.custom.ll}/({view.custom.max}-{view.custom.min}))*100.0\r\n) + \u0027% 40% 0px)\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "paint": "var(--progressLinearBar--determinate)"
+                      },
+                      "name": "pv",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "opacity": 0.6,
+                        "paint": "var(--dev-sym-faulted-flash)"
+                      },
+                      "name": "hh",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "opacity": 0.7,
+                        "paint": "var(--dev-sym-faulted)"
+                      },
+                      "name": "h",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "opacity": "0.7",
+                        "paint": "var(--dev-sym-faulted)"
+                      },
+                      "name": "l",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "fill": {
+                        "opacity": 0.6,
+                        "paint": "var(--dev-sym-faulted-flash)"
+                      },
+                      "name": "ll",
+                      "style": {
+                        "paintOrder": "fill markers stroke"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "name": "border",
+                      "style": {
+                        "borderColor": "#EFD72B",
+                        "borderStyle": "solid",
+                        "borderWidth": "2px",
+                        "fill": "transparent",
+                        "paintOrder": "fill markers stroke",
+                        "vector-effect": "non-scaling-stroke"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "preserveAspectRatio": "none",
+              "style": {
+                "backgroundColor": "var(--neutral-90)",
+                "borderTopColor": "var(--neutral-90)",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px"
+              },
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "alm_h"
+            },
+            "position": {
+              "height": 0.1395,
+              "width": 0.1373,
+              "x": 0.7954,
+              "y": 0.3837
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.alm_h"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}\r\n\u0026\u0026 !{../alm_hh.meta.visible}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Device/Status/Faulted",
+                "fontSize": "8pt",
+                "paddingLeft": "2px"
+              },
+              "text": "H"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "alm_l"
+            },
+            "position": {
+              "height": 0.1395,
+              "width": 0.1373,
+              "x": 0.7954,
+              "y": 0.5233
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.alm_l"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}\r\n\u0026\u0026 !{../alm_ll.meta.visible}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Device/Status/Faulted",
+                "fontSize": "8pt",
+                "paddingLeft": "2px"
+              },
+              "text": "L"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "border"
+            },
+            "position": {
+              "height": 0.3953,
+              "width": 0.5817,
+              "x": 0.2092,
+              "y": 0.3256
+            },
+            "propConfig": {
+              "props.elements[0].elements[0].style.stroke": {
+                "binding": {
+                  "config": {
+                    "expression": "if({session.custom.docks.deviceControl.deviceParentPath} \u003d {view.params.deviceParentPath}\r\n\t\u0026\u0026 {session.custom.docks.deviceControl.deviceName} \u003d {view.params.deviceName}\r\n\t\u0026\u0026 {view.params.shownOnOverview}\r\n\t,\u0027var(--dev-sym-popupShown)\u0027\r\n\t,\u0027var(--neutral-90)\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m0 290.65h24v24h-24z",
+                      "name": "border",
+                      "style": {
+                        "fill": "transparent",
+                        "paintOrder": "fill markers stroke",
+                        "strokeWidth": "4px",
+                        "vector-effect": "non-scaling-stroke"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -290.65)",
+                  "type": "group"
+                }
+              ],
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "pv"
+            },
+            "position": {
+              "height": 0.2791,
+              "width": 0.5686,
+              "x": 0.2157,
+              "y": 0.3488
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.pv"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat(toFloat({value}), {view.custom.numFormat})",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Tags/Value UIElement/FontSizes/Size2",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "units"
+            },
+            "position": {
+              "height": 0.1628,
+              "width": 0.549,
+              "x": 0.2222,
+              "y": 0.3372
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.units"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "UIElement/FontSizes/Size3",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "alm_hh"
+            },
+            "position": {
+              "height": 0.1395,
+              "width": 0.1373,
+              "x": 0.7954,
+              "y": 0.3256
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.alm_hh"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Device/Status/Faulted",
+                "fontSize": "8pt",
+                "paddingLeft": "2px"
+              },
+              "text": "HH"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "alm_ll"
+            },
+            "position": {
+              "height": 0.1395,
+              "width": 0.1373,
+              "x": 0.7954,
+              "y": 0.593
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.alm_ll"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Device/Status/Faulted",
+                "fontSize": "8pt",
+                "paddingLeft": "2px"
+              },
+              "text": "LL"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "height": 0.3488,
+              "width": 0.1961,
+              "x": 0.0001,
+              "y": 0.3487
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Alarms/_AnyActive"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "color": "unset",
+              "path": "material/warning",
+              "style": {
+                "classes": "Device/Status/Shape/Faulted"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tshared.perspective.device.openDevicePopup(self,event)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "height": 0.4419,
+              "width": 0.6078,
+              "x": 0.1962,
+              "y": 0.302
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "transparent",
+                "borderStyle": "none",
+                "cursor": "pointer"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

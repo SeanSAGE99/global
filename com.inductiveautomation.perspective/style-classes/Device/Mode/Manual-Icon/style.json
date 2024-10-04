@@ -1,0 +1,36 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#2B2B2B",
+      "borderTopLeftRadius": "3px",
+      "borderTopRightRadius": "3px",
+      "borderBottomLeftRadius": "3px",
+      "borderBottomRightRadius": "3px",
+      "color": "#F59E32",
+      "fontSize": "12pt",
+      "fontWeight": "bold",
+      "marginLeft": "1px",
+      "textAlign": "center"
+    }
+  },
+  "variants": [
+    {
+      "media": {
+        "feature": "maxWidth",
+        "value": "1600px"
+      },
+      "style": {
+        "fontSize": "11pt"
+      }
+    },
+    {
+      "media": {
+        "feature": "maxWidth",
+        "value": "1380px"
+      },
+      "style": {
+        "fontSize": "8pt"
+      }
+    }
+  ]
+}

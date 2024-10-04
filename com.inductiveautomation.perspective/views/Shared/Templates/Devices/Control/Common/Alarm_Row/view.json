@@ -1,0 +1,434 @@
+{
+  "custom": {
+    "alarmDetails": {},
+    "alarmTagPath": "International/T1/Pier B/Departures/BP2_DBX12/Alarms/Ping",
+    "basisShown": "43px",
+    "instanceStyle": {}
+  },
+  "params": {
+    "active": false,
+    "alarmName": "Ping Failed",
+    "instanceStyle": {
+      "display": "none"
+    },
+    "show": {
+      "area": false,
+      "device": true
+    },
+    "tagName": "Alarms/Ping",
+    "tagParentPath": "International/T1/Pier B/Departures/BP2_DBX12"
+  },
+  "propConfig": {
+    "custom.alarmDetails": {
+      "persistent": true
+    },
+    "custom.alarmDetails.active": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.IsActive"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      }
+    },
+    "custom.alarmDetails.area": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.DisplayPath"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.alarmDetails.device": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.Label"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.alarmDetails.instancePosition.basis": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.IsActive"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.alarmDetails.name": {
+      "binding": {
+        "config": {
+          "path": "view.params.alarmName"
+        },
+        "type": "property"
+      }
+    },
+    "custom.alarmDetails.priority": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.alarmTagPath}",
+            "2": "{view.params.alarmName}"
+          },
+          "tagPath": "{1}/Alarms/{2}.Priority"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      }
+    },
+    "custom.alarmTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.tagParentPath} + \u0027/\u0027 +\r\n{view.params.tagName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.basisShown": {
+      "binding": {
+        "config": {
+          "expression": "({view.params.show.area}*18 +\r\n{view.params.show.device}*18 +\r\n25) + \u0027px\u0027"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.instanceStyle": {
+      "persistent": true
+    },
+    "custom.instanceStyle.display": {
+      "binding": {
+        "config": {
+          "expression": "try(if({view.custom.alarmDetails.active}\r\n\t,\u0027flex\u0027\r\n\t,\u0027none\u0027\r\n), \u0027none\u0027)"
+        },
+        "type": "expr"
+      }
+    },
+    "params.active": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.alarmName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.instanceStyle": {
+      "binding": {
+        "config": {
+          "path": "view.custom.instanceStyle"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.show": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.show.area": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.show.device": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 55,
+      "width": 350
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.alarmDetails.active"
+                  },
+                  "enabled": false,
+                  "transforms": [
+                    {
+                      "fallback": "DeviceStates/Text/Off",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "DeviceStates/Shape/Faulted"
+                        }
+                      ],
+                      "outputType": "style-list",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "color": "#fff",
+              "path": "material/warning",
+              "style": {
+                "classes": "Device/Status/Text/Off",
+                "marginLeft": "2px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "area"
+                    },
+                    "position": {
+                      "basis": "15px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.params.show.area} \u0026\u0026\r\n{this.props.text} !\u003d \u0027\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.alarmDetails.area}"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "UI/Text/Size/Size4",
+                        "color": "#FFFFFFBF",
+                        "fontStyle": "italic"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "device"
+                    },
+                    "position": {
+                      "basis": "15px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.params.show.device} \u0026\u0026\r\n{this.props.text} !\u003d \u0027\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.alarmDetails.device}"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "UI/Text/Size/Size4",
+                        "color": "#FFFFFFBF"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "name"
+                    },
+                    "position": {
+                      "basis": "25px",
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.style.color": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.alarmDetails.active"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#FFFFFF99",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": true,
+                                  "output": "#FFFFFF"
+                                }
+                              ],
+                              "outputType": "color",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.alarmDetails.name"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "UI/Text/Size/Size3"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "marginLeft": "5px",
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.classes": {
+        "binding": {
+          "config": {
+            "path": "view.custom.alarmDetails.active"
+          },
+          "transforms": [
+            {
+              "fallback": "\"Device/Status/Off\"",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "\"Alarms/Background/\" + {view.custom.alarmDetails.priority}"
+                }
+              ],
+              "outputType": "expression",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.marginTop": {
+        "binding": {
+          "config": {
+            "expression": "if({view.custom.alarmDetails.active}\r\n\t,\u00275px\u0027\r\n\t,\u00270px\u0027\r\n)"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "4px",
+        "borderBottomRightRadius": "4px",
+        "borderTopLeftRadius": "4px",
+        "borderTopRightRadius": "4px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

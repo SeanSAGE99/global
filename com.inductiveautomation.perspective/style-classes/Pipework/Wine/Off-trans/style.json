@@ -1,0 +1,15 @@
+{
+  "base": {
+    "animation": {
+      "timingFunction": "ease-out",
+      "keyframes": {
+        "0%": {
+          "color": "#AA6AD7"
+        },
+        "100%": {
+          "color": "#A392AF"
+        }
+      }
+    }
+  }
+}

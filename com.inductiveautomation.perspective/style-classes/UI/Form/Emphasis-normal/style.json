@@ -1,0 +1,13 @@
+{
+  "base": {
+    "style": {
+      "borderColor": "var(--dev-sym-running)",
+      "borderStyle": "solid",
+      "borderWidth": "2px",
+      "borderTopLeftRadius": "2ps",
+      "borderTopRightRadius": "2ps",
+      "borderBottomLeftRadius": "2ps",
+      "borderBottomRightRadius": "2ps"
+    }
+  }
+}

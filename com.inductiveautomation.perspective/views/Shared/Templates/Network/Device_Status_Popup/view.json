@@ -1,0 +1,730 @@
+{
+  "custom": {},
+  "params": {
+    "deviceTagPath": "[default]Wolf Blass/System/PLCs/Winery_Centrifuge_CIP_Red_02/Remote IO/E01/Rack"
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "//{view.params.deviceParentPath} + \u0027/\u0027 + {view.params.deviceName}\r\n{view.params.deviceTagPath}"
+        },
+        "type": "expr"
+      }
+    },
+    "params.deviceTagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 307,
+      "width": 726
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "25px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "deviceTagPath": "{view.params.deviceTagPath}"
+                        },
+                        "tagPath": "{deviceTagPath}/Description"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "UIElement/FontSizes/Size2",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "25px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "deviceTagPath": "{view.params.deviceTagPath}"
+                        },
+                        "tagPath": "{deviceTagPath}/Model"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "UIElement/FontSizes/Size2",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "String Value w Label"
+                },
+                "position": {
+                  "basis": "25px"
+                },
+                "propConfig": {
+                  "props.params.tagParentPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceTagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "hideLabel": false,
+                    "labelOverride": "Entry Status",
+                    "tagName": "Entry Status Desc"
+                  },
+                  "path": "Shared/Templates/Display/String Value w Label"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "String Value w Label_0"
+                },
+                "position": {
+                  "basis": "25px"
+                },
+                "propConfig": {
+                  "props.params.tagParentPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceTagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "hideLabel": false,
+                    "labelOverride": "Comms Status",
+                    "tagName": "Comms Status Desc"
+                  },
+                  "path": "Shared/Templates/Display/String Value w Label"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Analogue Value w Label"
+                },
+                "position": {
+                  "basis": "25pxpx"
+                },
+                "propConfig": {
+                  "props.params.tagParentPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.deviceTagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "hideLabel": false,
+                    "labelOverride": "Fault Code",
+                    "tagName": "FaultCode",
+                    "tagQuality": "Good",
+                    "unitsWidth": "0px",
+                    "valueWidth": "60px"
+                  },
+                  "path": "Shared/Templates/Display/Analogue Value w Label"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "250px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "UIElement/Forms/Panel"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "custom": {
+                      "days": 1
+                    },
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.custom.days \u003d self.custom.days"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.style.classes": {
+                        "binding": {
+                          "config": {
+                            "path": "this.custom.days"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "Buttons/Body Buttons/Text",
+                              "inputType": "expression",
+                              "mappings": [
+                                {
+                                  "input": "{parent.custom.days}",
+                                  "output": "Buttons/Body_Selected Buttons/Text"
+                                }
+                              ],
+                              "outputType": "style-list",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{this.custom.days} + \u0027 Day\u0027 + if({this.custom.days}\u003e1, \u0027s\u0027, \u0027\u0027)"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "paddingLeft": "2px",
+                        "paddingRight": "2px"
+                      }
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "custom": {
+                      "days": 2
+                    },
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.custom.days \u003d self.custom.days"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button_0"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.style.classes": {
+                        "binding": {
+                          "config": {
+                            "path": "this.custom.days"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "Buttons/Body Buttons/Text",
+                              "inputType": "expression",
+                              "mappings": [
+                                {
+                                  "input": "{parent.custom.days}",
+                                  "output": "Buttons/Body_Selected Buttons/Text"
+                                }
+                              ],
+                              "outputType": "style-list",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{this.custom.days} + \u0027 Day\u0027 + if({this.custom.days}\u003e1, \u0027s\u0027, \u0027\u0027)"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "paddingLeft": "2px",
+                        "paddingRight": "2px"
+                      }
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "custom": {
+                      "days": 3
+                    },
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.custom.days \u003d self.custom.days"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button_1"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.style.classes": {
+                        "binding": {
+                          "config": {
+                            "path": "this.custom.days"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "Buttons/Body Buttons/Text",
+                              "inputType": "expression",
+                              "mappings": [
+                                {
+                                  "input": "{parent.custom.days}",
+                                  "output": "Buttons/Body_Selected Buttons/Text"
+                                }
+                              ],
+                              "outputType": "style-list",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{this.custom.days} + \u0027 Day\u0027 + if({this.custom.days}\u003e1, \u0027s\u0027, \u0027\u0027)"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginTop": "5px",
+                        "paddingLeft": "2px",
+                        "paddingRight": "2px"
+                      }
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "custom": {
+                      "days": 7
+                    },
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.custom.days \u003d self.custom.days"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button_2"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.style.classes": {
+                        "binding": {
+                          "config": {
+                            "path": "this.custom.days"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "Buttons/Body Buttons/Text",
+                              "inputType": "expression",
+                              "mappings": [
+                                {
+                                  "input": "{parent.custom.days}",
+                                  "output": "Buttons/Body_Selected Buttons/Text"
+                                }
+                              ],
+                              "outputType": "style-list",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{this.custom.days} + \u0027 Day\u0027 + if({this.custom.days}\u003e1, \u0027s\u0027, \u0027\u0027)"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginTop": "5px",
+                        "paddingLeft": "2px",
+                        "paddingRight": "2px"
+                      }
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "custom": {
+                  "days": 1
+                },
+                "meta": {
+                  "name": "daysSelection"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "alignContent": "flex-start",
+                  "alignItems": "flex-start",
+                  "justify": "space-evenly",
+                  "wrap": "wrap"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "custom": {
+                  "dataTags": [
+                    {
+                      "alias": "fault_code"
+                    }
+                  ]
+                },
+                "meta": {
+                  "name": "Table"
+                },
+                "position": {
+                  "basis": "400px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "custom.dataTags[0].path": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.deviceTagPath} + \u0027/FaultCode\u0027"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "avoidScanClassValidation": true,
+                        "dateRange": {
+                          "mostRecent": "{../daysSelection.custom.days}",
+                          "mostRecentUnits": "DAY"
+                        },
+                        "ignoreBadQuality": true,
+                        "polling": {
+                          "enabled": false,
+                          "rate": "30"
+                        },
+                        "preventInterpolation": true,
+                        "returnFormat": "Wide",
+                        "returnSize": {
+                          "type": "RAW"
+                        },
+                        "tags": "{this.custom.dataTags}",
+                        "valueFormat": "DOCUMENT"
+                      },
+                      "type": "tag-history"
+                    }
+                  }
+                },
+                "props": {
+                  "columns": [
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "DD MMM HH:mm:ss",
+                      "editable": false,
+                      "field": "t_stamp",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Timestamp"
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "date",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "fault_code",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Fault Code"
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    }
+                  ],
+                  "headerGroups": [
+                    [
+                      {
+                        "align": "center",
+                        "justify": "left",
+                        "span": 1,
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "t_stamp"
+                      }
+                    ]
+                  ],
+                  "pager": {
+                    "bottom": false
+                  },
+                  "style": {
+                    "marginTop": "5px"
+                  },
+                  "virtualized": false
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "Fault History Panel"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "UIElement/Forms/Panel"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "0px",
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onBlur": {
+          "config": {
+            "draggable": true,
+            "id": "9F8ZpKnP",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "type": "close",
+            "viewPath": "Shared/Templates/Network/LocalIO_01_Popup"
+          },
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

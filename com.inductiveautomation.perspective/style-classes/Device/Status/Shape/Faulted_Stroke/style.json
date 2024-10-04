@@ -1,0 +1,30 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1s",
+      "direction": "normal",
+      "keyframes": {
+        "0%": {
+          "color": "var(--dev-txt-faulted)",
+          "stroke": "var(--dev-sym-faulted)"
+        },
+        "20%": {
+          "color": "var(--dev-txt-faulted)",
+          "stroke": "var(--dev-sym-faulted-flash)"
+        },
+        "40%": {
+          "color": "var(--dev-txt-faulted)",
+          "stroke": "var(--dev-sym-faulted)"
+        },
+        "60%": {
+          "color": "var(--dev-txt-faulted)",
+          "stroke": "var(--dev-sym-faulted-flash)"
+        },
+        "100%": {
+          "color": "var(--dev-txt-faulted)",
+          "stroke": "var(--dev-sym-faulted)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "base": {
+    "style": {
+      "borderBottomColor": "#2A4D6966",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": "0.5px",
+      "color": "var(--neutral-70)",
+      "fontFamily": "Noto Sans",
+      "fontSize": "10pt",
+      "fontWeight": "100",
+      "letterSpacing": "2px",
+      "marginBottom": "5px",
+      "textAlign": "center",
+      "textTransform": "uppercase"
+    }
+  }
+}

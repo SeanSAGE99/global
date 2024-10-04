@@ -1,0 +1,156 @@
+{
+  "custom": {
+    "pipeStyle": "Pipework/Water/Off"
+  },
+  "params": {
+    "bottom": false,
+    "flow": false,
+    "left": false,
+    "pipeContents": "Water",
+    "right": false,
+    "top": true,
+    "width": "5px"
+  },
+  "propConfig": {
+    "custom.pipeStyle": {
+      "binding": {
+        "config": {
+          "expression": "\u0027Pipework/\u0027 + {view.params.pipeContents} + \u0027/\u0027 + \r\nif({view.params.flow}\r\n\t,\u0027On\u0027\r\n\t,\u0027Off\u0027\r\n)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.bottom": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.flow": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.left": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pipeContents": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.right": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.top": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.width": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 60
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.borderBottomStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.bottom}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderBottomWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderLeftStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.left}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderLeftWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderRightStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.right}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderRightWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderTopStyle": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.top}\r\n\t,\u0027solid\u0027\r\n\t,\u0027none\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderTopWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.width"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.pipeStyle} + \u0027 \u0027 +\r\nif({view.params.left}, \u0027Pipework/LabelBorders/Left \u0027, \u0027\u0027) +\r\nif({view.params.right}, \u0027Pipework/LabelBorders/Right \u0027, \u0027\u0027) + \r\nif({view.params.top}, \u0027Pipework/LabelBorders/Top \u0027, \u0027\u0027) + \r\nif({view.params.bottom}, \u0027Pipework/LabelBorders/Bottom\u0027, \u0027\u0027) "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {}
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

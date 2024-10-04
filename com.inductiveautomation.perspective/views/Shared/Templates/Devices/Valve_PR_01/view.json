@@ -1,0 +1,611 @@
+{
+  "custom": {
+    "deviceTagPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/GL1/PR01",
+    "foi": true,
+    "modeDesc": "Auto",
+    "pressurePV": 595.16486,
+    "statusDesc": "Opened"
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "PR01",
+    "deviceParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/GL1",
+    "direction": true,
+    "enablePopup": true,
+    "pipeContents": "Oil",
+    "shownOnOverview": true
+  },
+  "propConfig": {
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.foi": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/FOI"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.modeDesc": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{1}/Mode Desc"
+        },
+        "overlayOptOut": true,
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.pressurePV": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "deviceTagPath": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{deviceTagPath}/Pressure PV"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.statusDesc": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "deviceTagPath": "{view.custom.deviceTagPath}"
+          },
+          "tagPath": "{deviceTagPath}/Status Desc"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.direction": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.enablePopup": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pipeContents": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.shownOnOverview": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 86,
+      "width": 153
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 0.3489,
+              "rotate": {
+                "anchor": "94% 84%"
+              },
+              "width": 0.17,
+              "x": 0.3334,
+              "y": 0.244
+            },
+            "propConfig": {
+              "position.rotate.angle": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.direction}\r\n\t,90\r\n\t,0\r\n) + \u0027deg\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.opacity": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.modeDesc"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "fallback": 1,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Maintenance",
+                          "output": 0.3
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "transparent",
+                "borderStyle": "solid",
+                "borderWidth": "2px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "foi"
+            },
+            "position": {
+              "height": 0.4768,
+              "rotate": {},
+              "width": 0.3007,
+              "x": 0.3464,
+              "y": 0.3021
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "if(isGood({view.custom.foi})\r\n\t,{view.custom.foi}\r\n\t,False\r\n)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "position.rotate.angle": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.direction}\r\n\t,90\r\n\t,0\r\n) + \u0027deg\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m7 290.65v10h4v0.45508l-10-4.4551v17l13-6 13 6v-17l-10 4.4551v-0.45508h4v-10z",
+                      "fill": {
+                        "paint": "var(--dev-sym-foi)"
+                      },
+                      "name": "path",
+                      "type": "path"
+                    }
+                  ],
+                  "name": "group",
+                  "transform": "translate(0 -289.65)",
+                  "type": "group"
+                }
+              ],
+              "viewBox": "0 0 28 25"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Analogue Value"
+            },
+            "position": {
+              "height": 0.3605,
+              "width": 0.5294,
+              "x": 0.4707,
+              "y": -0.0643
+            },
+            "propConfig": {
+              "props.params.tagParentPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceTagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "styleClasses": "",
+                "tagName": "Pressure PV",
+                "tagQuality": "Good",
+                "unitsWidth": "auto"
+              },
+              "path": "Shared/Templates/Display/Analogue Value"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "interlock"
+            },
+            "position": {
+              "height": 0.2792,
+              "width": 0.1569,
+              "x": 0.2351,
+              "y": 0.0582
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Interlocked"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "path": "material/lock"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "valve-2way-solenoid-24px"
+            },
+            "position": {
+              "height": 0.4652,
+              "rotate": {},
+              "width": 0.2614,
+              "x": 0.3661,
+              "y": 0.3021
+            },
+            "propConfig": {
+              "position.rotate.angle": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.direction}\r\n\t,90\r\n\t,0\r\n) + \u0027deg\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.elements[0].elements[0].style.stroke": {
+                "binding": {
+                  "config": {
+                    "expression": "if({session.custom.docks.deviceControl.deviceParentPath} \u003d {view.params.deviceParentPath}\r\n\t\u0026\u0026 {session.custom.docks.deviceControl.deviceName} \u003d {view.params.deviceName}\r\n\t\u0026\u0026 {view.params.shownOnOverview}\r\n\t,\u0027var(--dev-sym-popupShown)\u0027\r\n\t,\u0027var(--neutral-90)\u0027\r\n)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.statusDesc"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "case({value} ,\r\n\t\u0027Opened\u0027, \u0027Device/Status/Shape/On\u0027,\r\n\t\u0027Closed\u0027, \u0027Device/Status/Shape/Off\u0027,\r\n\t\u0027Faulted\u0027, \u0027Device/Status/Shape/Off\u0027,\r\n\t\u0027Device/Status/Shape/Invalid\u0027\r\n)",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.style.filter": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.modeDesc"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Maintenance",
+                          "output": "grayscale(100%)"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.style.opacity": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.modeDesc"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "fallback": 1,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Maintenance",
+                          "output": 0.3
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "m 7,3 v 6 h 4 v 5.455078 L 1,10 v 11 l 11,-5 11,5 V 10 L 13,14.455078 V 9 h 4 V 3 Z",
+                      "name": "path4950",
+                      "style": {
+                        "strokeWidth": "2px",
+                        "vector-effect": "non-scaling-stroke"
+                      },
+                      "transform": "translate(0,290.64999)",
+                      "type": "path"
+                    }
+                  ],
+                  "name": "layer1",
+                  "transform": "translate(0,-290.64999)",
+                  "type": "group"
+                }
+              ],
+              "style": {},
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "mode_1"
+            },
+            "position": {
+              "height": 0.2326,
+              "width": 0.2876,
+              "x": 0.6078,
+              "y": 0.0933
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Mode Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": false,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Off",
+                          "output": true
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "DeviceModes/Manual-Icon",
+                "textAlign": "left"
+              },
+              "text": "OFF"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tshared.perspective.device.openDevicePopup(self,event)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "height": 0.6397,
+              "width": 0.6014,
+              "x": 0.1961,
+              "y": 0.19
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.enablePopup"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.enablePopup"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "transparent",
+                "borderStyle": "none",
+                "cursor": "pointer"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "maintenance"
+            },
+            "position": {
+              "height": 0.2791,
+              "width": 0.1569,
+              "x": 0.4248,
+              "y": 0.4417
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.modeDesc} \u003d \u0027Maintenance\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "color": "var(--dev-sym-faulted)",
+              "path": "material/build"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "hand-24px"
+            },
+            "position": {
+              "height": 0.2791,
+              "width": 0.1569,
+              "x": 0.6142,
+              "y": 0.0816
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.custom.deviceTagPath}"
+                    },
+                    "tagPath": "{1}/Mode Desc"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": false,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Manual",
+                          "output": true
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "m22 6.0279v13.32c0 2.0194-1.6595 3.652-3.6594 3.652h-6.5962c-0.97862 0-1.9146-0.38683-2.5954-1.0743l-7.149-7.348s1.1493-1.1174 1.192-1.1174c0.21243-0.17233 0.46843-0.25758 0.72353-0.25758 0.21243 0 0.3831 0.04308 0.55286 0.12925 0.042667 0 3.9154 2.2348 3.9154 2.2348v-10.914c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v6.4451h0.89329v-8.723c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v8.723h0.89329v-7.8201c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375v7.8201h0.93595v-5.0701c0-0.77367 0.59552-1.375 1.3617-1.375 0.76619 0 1.3617 0.60133 1.3617 1.375z",
+                  "name": "path",
+                  "type": "path"
+                }
+              ],
+              "style": {
+                "classes": "DeviceModes/Shape/Manual"
+              },
+              "viewBox": "0 0 24 24"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "aspectRatio": "153:86",
+          "mode": "percent",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

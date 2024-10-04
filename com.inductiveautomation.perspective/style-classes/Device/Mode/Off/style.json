@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "borderColor": "var(--neutral-90)",
+      "color": "var(--dev-sym-txt-stopped)",
+      "fill": "#2B2B2B"
+    }
+  }
+}

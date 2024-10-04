@@ -1,0 +1,119 @@
+{
+  "custom": {
+    "devicePath": "[default]Wolf Blass/Winery/Refrigeration/Economiser 1/High Level Switch",
+    "tagPath": "[default]Wolf Blass/Winery/Refrigeration/Economiser 1/High Level Switch",
+    "tagValue": "Invalid"
+  },
+  "params": {
+    "deviceName": "High Level Switch",
+    "deviceParentPath": "[default]Wolf Blass/Winery/Refrigeration/Economiser 1",
+    "label": "High Level",
+    "onState": true
+  },
+  "propConfig": {
+    "custom.devicePath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tagValue": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "devicePath": "{view.custom.devicePath}"
+          },
+          "tagPath": "{devicePath}/Status"
+        },
+        "transforms": [
+          {
+            "expression": "case({value},\r\n\t0, if({view.params.onState}, \u0027Off\u0027,\r\n\t\t\u0027On\u0027),\r\n\t1, if({view.params.onState}, \u0027On\u0027,\r\n\t\t\u0027Off\u0027),\r\n\t2, \u0027Faulted\u0027,\r\n\t\u0027Invalid\u0027\r\n)",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.onState": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 110
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tagValue"
+              },
+              "transforms": [
+                {
+                  "expression": "\u0027\u0027 +\r\ncase({value},\r\n\t\u0027Off\u0027,\u0027Device/Status/Off\u0027,\r\n\t\u0027On\u0027,\u0027Device/Status/On\u0027,\r\n\t\u0027Faulted\u0027,\u0027Device/Status/Faulted\u0027,\r\n\t\u0027\u0027\r\n)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "paddingLeft": "5px",
+            "paddingRight": "5px",
+            "textAlign": "center",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

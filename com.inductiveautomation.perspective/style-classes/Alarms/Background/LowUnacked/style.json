@@ -1,0 +1,22 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "timingFunction": "ease",
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "var(--alm-low-fill)",
+          "opacity": "1"
+        },
+        "65%": {
+          "backgroundColor": "var(--alm-low-fill)",
+          "opacity": "1"
+        },
+        "100%": {
+          "backgroundColor": "var(--alm-low-fill)",
+          "opacity": "0.50"
+        }
+      }
+    }
+  }
+}

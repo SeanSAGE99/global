@@ -1,0 +1,19 @@
+{
+  "base": {
+    "animation": {
+      "duration": "0.5s",
+      "iterationCount": "1",
+      "timingFunction": "ease",
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "var(--alm-med-fill)",
+          "fontWeight": "bold"
+        },
+        "100%": {
+          "backgroundColor": "var(--alm-med-fill)",
+          "fontWeight": "bold"
+        }
+      }
+    }
+  }
+}

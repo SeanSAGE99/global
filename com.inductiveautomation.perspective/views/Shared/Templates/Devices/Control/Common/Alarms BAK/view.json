@@ -1,0 +1,1931 @@
+{
+  "custom": {
+    "alarms": [],
+    "deviceTagPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/PL1/PT02"
+  },
+  "params": {
+    "controlEnable": true,
+    "deviceName": "PT02",
+    "deviceParentPath": "[default]Wolf Blass/Packaging/Line 4/Filter Skid/PL1"
+  },
+  "propConfig": {
+    "custom.alarms": {
+      "persistent": true
+    },
+    "custom.deviceTagPath": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.deviceParentPath} + \u0027/\u0027 +\r\n{view.params.deviceName}"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tsystem.perspective.sendMessage(\u0027refresh-alarm-list\u0027)"
+      },
+      "persistent": true
+    },
+    "params.controlEnable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.deviceParentPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 368,
+      "width": 351
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "index": 0
+        },
+        "meta": {
+          "name": "Alarm_Row"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": false,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 1
+        },
+        "meta": {
+          "name": "Alarm_Row_0"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": false,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 2
+        },
+        "meta": {
+          "name": "Alarm_Row_1"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": false,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 3
+        },
+        "meta": {
+          "name": "Alarm_Row_2"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": false,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 4
+        },
+        "meta": {
+          "name": "Alarm_Row_3"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": false,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 5
+        },
+        "meta": {
+          "name": "Alarm_Row_4"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 6
+        },
+        "meta": {
+          "name": "Alarm_Row_5"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 7
+        },
+        "meta": {
+          "name": "Alarm_Row_6"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 8
+        },
+        "meta": {
+          "name": "Alarm_Row_7"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 9
+        },
+        "meta": {
+          "name": "Alarm_Row_8"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 10
+        },
+        "meta": {
+          "name": "Alarm_Row_9"
+        },
+        "position": {
+          "basis": "25px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 11
+        },
+        "meta": {
+          "name": "Alarm_Row_10"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 12
+        },
+        "meta": {
+          "name": "Alarm_Row_11"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 13
+        },
+        "meta": {
+          "name": "Alarm_Row_12"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 14
+        },
+        "meta": {
+          "name": "Alarm_Row_13"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 15
+        },
+        "meta": {
+          "name": "Alarm_Row_14"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 16
+        },
+        "meta": {
+          "name": "Alarm_Row_15"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 17
+        },
+        "meta": {
+          "name": "Alarm_Row_16"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 18
+        },
+        "meta": {
+          "name": "Alarm_Row_17"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 19
+        },
+        "meta": {
+          "name": "Alarm_Row_18"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 20
+        },
+        "meta": {
+          "name": "Alarm_Row_19"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 21
+        },
+        "meta": {
+          "name": "Alarm_Row_20"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 22
+        },
+        "meta": {
+          "name": "Alarm_Row_21"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 23
+        },
+        "meta": {
+          "name": "Alarm_Row_22"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "index": 24
+        },
+        "meta": {
+          "name": "Alarm_Row_23"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{this.props.params.alarmParentPath} !\u003d \u0027\u0027 \u0026\u0026\r\n{this.props.params.active}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].alarmName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.alarmParentPath": {
+            "binding": {
+              "config": {
+                "expression": "property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagParentPath\u0027) + \u0027/\u0027 +\r\nproperty(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027/\u0027.join(value.split(\u0027/\u0027)[:-1])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.params.alarmTagName": {
+            "binding": {
+              "config": {
+                "expression": "if(isGood(property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027))\r\n\t,property(\u0027view.custom.alarms[\u0027 + {this.custom.index} + \u0027].tagName\u0027)\r\n\t,\u0027\u0027\r\n)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.split(\u0027/\u0027)[-1]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "active": null,
+            "instancePosition": {
+              "basis": "0px",
+              "grow": 0,
+              "shrink": 0
+            }
+          },
+          "path": "Shared/Templates/Devices/Control/Common/Alarm_Row",
+          "style": {
+            "marginTop": "2px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "25px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.alarms"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn len(value)\u003e25",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "UIElement/FontSizes/Size1",
+            "marginTop": "2px"
+          },
+          "text": "Too many alarms to show..."
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "refreshAlarmList",
+          "params": [],
+          "script": "\tpath \u003d self.view.custom.deviceTagPath\n\t# remove the tag provider if \u0027provider\u0027ed (get it?)\n\tpath \u003d path.split(\u0027]\u0027)[-1]\n\tself.view.custom.alarms \u003d shared.alarms.getAlarmTags(pathFilter\u003dpath)"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refresh-alarm-list",
+          "pageScope": true,
+          "script": "\tself.refreshAlarmList()",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}
